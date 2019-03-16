@@ -1,1 +1,5 @@
+The BUILD command takes around 1-2 minutes to execute, it finishes with 4 warnings and the message below.
+Der BUILD Befehl braucht etwa 1-2 Minuten zur Ausführung, er endet mit 4 Warnungen und der folgenden Meldung.
 
+Flash used: 87910 of 262144 bytes (33,5%). Bootloader: 17152 bytes. Application: 70502 bytes. Metadata: 256 bytes.
+SRAM used: 23589 of 65536 bytes (36,0%). Stack: 4096 bytes. Heap: 1024 bytes.
