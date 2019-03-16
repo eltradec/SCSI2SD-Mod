@@ -1,0 +1,174 @@
+#***************************************************************************
+
+#sjplacer
+
+#Version:            1.1
+
+#Build Date:         Dec  5 2017 15:35:27
+
+#File Generated:     Dec 14 2018 21:17:32
+
+#Purpose:            
+
+#Copyright (C) 2010-2011 by Softjin Technologies Pvt Ltd. All rights reserved.
+
+#***************************************************************************
+
+Executing : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\bin/sjplacer.exe --proj-name SCSI2SDKit_Copy_03 --netlist-vh2 SCSI2SDKit_Copy_03_p.vh2 --arch p35_udb4x6 --arch-file C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\arch/udbdsi_4x6_24.cydata --ip-file C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc5/psoc5lp/ip_blocks.cydata --rrg-file C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc5/psoc5lp/route_arch-rrg.cydata --irq-file C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc5/psoc5lp/irqconn.cydata --drq-file C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc5/psoc5lp/dmaconn.cydata --dsi-conn-file C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc5/psoc5lp/dsiconn.cydata --pins-file pins_68-QFN.xml --lib-file SCSI2SDKit_Copy_03_p.lib --sdc-file SCSI2SDKit_Copy_03.sdc --io-pcf SCSI2SDKit_Copy_03.pci --outdir .
+
+		Softjin Techologies Placer, Version 1.1
+
+Build Date : Dec  5 2017	15:33:41
+
+D2004: Option and Settings Summary
+=============================================================
+Netlist vh2 file          - SCSI2SDKit_Copy_03_p.vh2
+Architecture file         - C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\arch/udbdsi_4x6_24.cydata
+Package                   - 
+Defparam file             - 
+SDC file                  - SCSI2SDKit_Copy_03.sdc
+Output directory          - .
+Timing library            - SCSI2SDKit_Copy_03_p.lib
+IO Placement file         - SCSI2SDKit_Copy_03.pci
+
+D2050: Starting reading inputs for placer
+=============================================================
+D2065: Reading netlist file : "SCSI2SDKit_Copy_03_p.vh2"
+D2065: Reading arch file : "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\arch/udbdsi_4x6_24.cydata"
+D2051: Reading of inputs for placer completed successfully
+
+D2053: Starting placement of the design
+=============================================================
+
+Phase 2
+Phase 3
+
+Design Statistics after Packing
+    Number of Combinational MCs 	:	25
+    Number of Sequential MCs    	:	58
+    Number of DPs               	:	2
+    Number of Controls          	:	5
+    Number of Status            	:	5
+    Number of SyncCells         	:	14
+    Number of count7cells       	:	1
+
+Device Utilization Summary after Packing
+    Macrocells                  :	83/192
+    UDBS                        :	18/24
+    IOs                         :	45/72
+
+
+D2088: Phase 3, elapsed time : 0.0 (sec)
+
+Phase 4
+D2088: Phase 4, elapsed time : 0.0 (sec)
+
+Phase 5
+D2088: Phase 5, elapsed time : 0.0 (sec)
+
+Phase 6
+
+######################################################################
+Placement Timing Summary
+
+The timing summary is based on estimated routing delays after
+placement. For final timing report, please carry out the timing
+analysis after routing.
+======================================================================
+
+######################################################################
+                     Clock Summary 
+======================================================================
+Number of clocks: 11
+Clock: CyBUS_CLK            | Frequency:  55.8 MHz | Target:  40.0 MHz
+Clock: CyILO                | Frequency: N/A       | Target:   0.1 MHz
+Clock: CyIMO                | Frequency: N/A       | Target:  24.0 MHz
+Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  40.0 MHz
+Clock: CyPLL_OUT            | Frequency: N/A       | Target:  40.0 MHz
+Clock: SCSI_CLK             | Frequency:  52.6 MHz | Target:  20.0 MHz
+Clock: SD_Data_Clk          | Frequency:  70.7 MHz | Target:  40.0 MHz
+Clock: SOUND_CLK            | Frequency: N/A       | Target:   0.0 MHz
+Clock: SOUND_CLK(routed)    | Frequency: N/A       | Target:   0.0 MHz
+Clock: timer_clock          | Frequency: N/A       | Target:   1.0 MHz
+Clock: timer_clock(fixed-function) | Frequency: N/A       | Target:   1.0 MHz
+
+======================================================================
+                     End of Clock Summary
+######################################################################
+
+D2088: Phase 6, elapsed time : 1.0 (sec)
+
+Phase 7
+######################################################################
+                     Clock Summary 
+======================================================================
+Number of clocks: 11
+Clock: CyBUS_CLK            | Frequency:  52.1 MHz | Target:  40.0 MHz
+Clock: CyILO                | Frequency: N/A       | Target:   0.1 MHz
+Clock: CyIMO                | Frequency: N/A       | Target:  24.0 MHz
+Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  40.0 MHz
+Clock: CyPLL_OUT            | Frequency: N/A       | Target:  40.0 MHz
+Clock: SCSI_CLK             | Frequency:  52.1 MHz | Target:  20.0 MHz
+Clock: SD_Data_Clk          | Frequency:  65.9 MHz | Target:  40.0 MHz
+Clock: SOUND_CLK            | Frequency: N/A       | Target:   0.0 MHz
+Clock: SOUND_CLK(routed)    | Frequency: N/A       | Target:   0.0 MHz
+Clock: timer_clock          | Frequency: N/A       | Target:   1.0 MHz
+Clock: timer_clock(fixed-function) | Frequency: N/A       | Target:   1.0 MHz
+
+======================================================================
+                     End of Clock Summary
+######################################################################
+D2088: Phase 7, elapsed time : 7.8 (sec)
+
+Final Design Statistics
+    Number of Combinational MCs 	:	25
+    Number of Sequential MCs    	:	58
+    Number of DPs               	:	2
+    Number of Controls          	:	5
+    Number of Status            	:	5
+    Number of SyncCells         	:	14
+    Number of count7cells       	:	1
+    Number of IOs       	:	45
+
+Device Utilization Summary
+    Macrocells                  :	83/192
+    IOs                         :	45/72
+
+
+
+######################################################################
+Placement Timing Summary
+
+The timing summary is based on estimated routing delays after
+placement. For final timing report, please carry out the timing
+analysis after routing.
+======================================================================
+
+
+######################################################################
+                     Clock Summary 
+======================================================================
+Number of clocks: 11
+Clock: CyBUS_CLK            | Frequency:  54.1 MHz | Target:  43.5 MHz
+Clock: CyILO                | Frequency: N/A       | Target:   0.1 MHz
+Clock: CyIMO                | Frequency: N/A       | Target:  24.0 MHz
+Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  40.0 MHz
+Clock: CyPLL_OUT            | Frequency: N/A       | Target:  40.0 MHz
+Clock: SCSI_CLK             | Frequency:  54.1 MHz | Target:  21.7 MHz
+Clock: SD_Data_Clk          | Frequency:  67.9 MHz | Target:  43.5 MHz
+Clock: SOUND_CLK            | Frequency: N/A       | Target:   0.0 MHz
+Clock: SOUND_CLK(routed)    | Frequency: N/A       | Target:   0.0 MHz
+Clock: timer_clock          | Frequency: N/A       | Target:   1.0 MHz
+Clock: timer_clock(fixed-function) | Frequency: N/A       | Target:   1.0 MHz
+
+======================================================================
+                     End of Clock Summary
+######################################################################
+
+Phase 8
+D2088: Phase 8, elapsed time : 0.0 (sec)
+
+D2054: Placement of the design completed successfully
+
+I2076: Total run-time: 12.2 sec.
+

@@ -1,0 +1,4907 @@
+-- Project:   C:\Users\r\Documents\Data Sheets\apple\SCSI2SD\SCSI2SDKit_Copy_03.cydsn\SCSI2SDKit_Copy_03.cyprj
+-- Generated: 12/14/2018 21:18:13
+-- PSoC Creator  4.2
+
+ENTITY SCSI2SDKit_Copy_03 IS
+    PORT(
+        SD_CD(0)_PAD : IN std_ulogic;
+        SD_CS(0)_PAD : INOUT std_ulogic;
+        SD_SCK(0)_PAD : OUT std_ulogic;
+        SD_MOSI(0)_PAD : OUT std_ulogic;
+        SCSI_Noise(0)_PAD : IN std_ulogic;
+        SCSI_Noise(1)_PAD : IN std_ulogic;
+        SCSI_Noise(2)_PAD : IN std_ulogic;
+        SCSI_Noise(3)_PAD : IN std_ulogic;
+        SCSI_Noise(4)_PAD : IN std_ulogic;
+        LED1(0)_PAD : OUT std_ulogic;
+        SD_MISO(0)_PAD : IN std_ulogic;
+        SCSI_Out(0)_PAD : OUT std_ulogic;
+        SCSI_Out(1)_PAD : OUT std_ulogic;
+        SCSI_Out(2)_PAD : OUT std_ulogic;
+        SCSI_Out(3)_PAD : OUT std_ulogic;
+        SCSI_Out(4)_PAD : OUT std_ulogic;
+        SCSI_Out(5)_PAD : OUT std_ulogic;
+        SCSI_Out(6)_PAD : OUT std_ulogic;
+        SCSI_Out(7)_PAD : OUT std_ulogic;
+        SCSI_Out(8)_PAD : OUT std_ulogic;
+        SCSI_Out(9)_PAD : OUT std_ulogic;
+        SCSI_In(0)_PAD : IN std_ulogic;
+        SCSI_In(1)_PAD : IN std_ulogic;
+        SCSI_In(2)_PAD : IN std_ulogic;
+        SCSI_In(3)_PAD : IN std_ulogic;
+        SCSI_In(4)_PAD : IN std_ulogic;
+        SCSI_Out_DBx(0)_PAD : OUT std_ulogic;
+        SCSI_Out_DBx(1)_PAD : OUT std_ulogic;
+        SCSI_Out_DBx(2)_PAD : OUT std_ulogic;
+        SCSI_Out_DBx(3)_PAD : OUT std_ulogic;
+        SCSI_Out_DBx(4)_PAD : OUT std_ulogic;
+        SCSI_Out_DBx(5)_PAD : OUT std_ulogic;
+        SCSI_Out_DBx(6)_PAD : OUT std_ulogic;
+        SCSI_Out_DBx(7)_PAD : OUT std_ulogic;
+        SCSI_In_DBx(0)_PAD : IN std_ulogic;
+        SCSI_In_DBx(1)_PAD : IN std_ulogic;
+        SCSI_In_DBx(2)_PAD : IN std_ulogic;
+        SCSI_In_DBx(3)_PAD : IN std_ulogic;
+        SCSI_In_DBx(4)_PAD : IN std_ulogic;
+        SCSI_In_DBx(5)_PAD : IN std_ulogic;
+        SCSI_In_DBx(6)_PAD : IN std_ulogic;
+        SCSI_In_DBx(7)_PAD : IN std_ulogic);
+    ATTRIBUTE voltage_VDDABUF OF __DEFAULT__ : ENTITY IS 5e0;
+    ATTRIBUTE voltage_VDDA OF __DEFAULT__ : ENTITY IS 5e0;
+    ATTRIBUTE voltage_VUSB OF __DEFAULT__ : ENTITY IS 5e0;
+    ATTRIBUTE voltage_VDDD OF __DEFAULT__ : ENTITY IS 5e0;
+    ATTRIBUTE voltage_VDDIO0 OF __DEFAULT__ : ENTITY IS 5e0;
+    ATTRIBUTE voltage_VDDIO1 OF __DEFAULT__ : ENTITY IS 5e0;
+    ATTRIBUTE voltage_VDDIO2 OF __DEFAULT__ : ENTITY IS 5e0;
+    ATTRIBUTE voltage_VDDIO3 OF __DEFAULT__ : ENTITY IS 5e0;
+END SCSI2SDKit_Copy_03;
+
+ARCHITECTURE __DEFAULT__ OF SCSI2SDKit_Copy_03 IS
+    SIGNAL ClockBlock_100k : bit;
+    SIGNAL ClockBlock_1k : bit;
+    SIGNAL ClockBlock_32k : bit;
+    SIGNAL ClockBlock_BUS_CLK : bit;
+    ATTRIBUTE global_signal OF ClockBlock_BUS_CLK : SIGNAL IS true;
+    SIGNAL ClockBlock_BUS_CLK_local : bit;
+    SIGNAL ClockBlock_ILO : bit;
+    SIGNAL ClockBlock_IMO : bit;
+    SIGNAL ClockBlock_MASTER_CLK : bit;
+    SIGNAL ClockBlock_PLL_OUT : bit;
+    SIGNAL ClockBlock_XTAL : bit;
+    SIGNAL ClockBlock_XTAL_32KHZ : bit;
+    SIGNAL LED1(0)__PA : bit;
+    SIGNAL Net_10 : bit;
+    ATTRIBUTE global_signal OF Net_10 : SIGNAL IS true;
+    SIGNAL Net_10_local : bit;
+    SIGNAL Net_1106 : bit;
+    SIGNAL Net_1500 : bit;
+    ATTRIBUTE placement_force OF Net_1500 : SIGNAL IS "U(3,4,A)0";
+    SIGNAL Net_1606 : bit;
+    ATTRIBUTE placement_force OF Net_1606 : SIGNAL IS "U(2,3,B)0";
+    SIGNAL Net_1655 : bit;
+    SIGNAL Net_1668 : bit;
+    SIGNAL Net_1684 : bit;
+    SIGNAL Net_1691 : bit;
+    ATTRIBUTE placement_force OF Net_1691 : SIGNAL IS "U(2,4,A)0";
+    SIGNAL Net_1699 : bit;
+    ATTRIBUTE placement_force OF Net_1699 : SIGNAL IS "U(3,1,A)1";
+    SIGNAL Net_1706_0 : bit;
+    ATTRIBUTE placement_force OF Net_1706_0 : SIGNAL IS "U(2,5,A)0";
+    SIGNAL Net_1706_1 : bit;
+    ATTRIBUTE placement_force OF Net_1706_1 : SIGNAL IS "U(1,5,A)1";
+    SIGNAL Net_1706_2 : bit;
+    ATTRIBUTE placement_force OF Net_1706_2 : SIGNAL IS "U(2,5,B)1";
+    SIGNAL Net_1706_3 : bit;
+    ATTRIBUTE placement_force OF Net_1706_3 : SIGNAL IS "U(2,5,B)0";
+    SIGNAL Net_1706_4 : bit;
+    ATTRIBUTE placement_force OF Net_1706_4 : SIGNAL IS "U(2,5,A)1";
+    SIGNAL Net_1706_5 : bit;
+    ATTRIBUTE placement_force OF Net_1706_5 : SIGNAL IS "U(3,3,A)3";
+    SIGNAL Net_1706_6 : bit;
+    ATTRIBUTE placement_force OF Net_1706_6 : SIGNAL IS "U(1,3,A)3";
+    SIGNAL Net_1706_7 : bit;
+    ATTRIBUTE placement_force OF Net_1706_7 : SIGNAL IS "U(1,5,A)0";
+    SIGNAL Net_1707_0 : bit;
+    SIGNAL Net_1707_1 : bit;
+    SIGNAL Net_1707_2 : bit;
+    SIGNAL Net_1707_3 : bit;
+    SIGNAL Net_1707_4 : bit;
+    SIGNAL Net_1707_5 : bit;
+    SIGNAL Net_1707_6 : bit;
+    SIGNAL Net_1707_7 : bit;
+    SIGNAL Net_1708 : bit;
+    SIGNAL Net_1714 : bit;
+    SIGNAL Net_1724 : bit;
+    ATTRIBUTE placement_force OF Net_1724 : SIGNAL IS "U(3,3,B)0";
+    ATTRIBUTE soft OF Net_1724 : SIGNAL IS 1;
+    SIGNAL Net_1728_0 : bit;
+    SIGNAL Net_1728_0_SYNCOUT : bit;
+    SIGNAL Net_1728_1 : bit;
+    SIGNAL Net_1728_1_SYNCOUT : bit;
+    SIGNAL Net_1728_2 : bit;
+    SIGNAL Net_1728_2_SYNCOUT : bit;
+    SIGNAL Net_1728_3 : bit;
+    SIGNAL Net_1728_3_SYNCOUT : bit;
+    SIGNAL Net_1728_4 : bit;
+    SIGNAL Net_1728_4_SYNCOUT : bit;
+    SIGNAL Net_1799 : bit;
+    ATTRIBUTE global_signal OF Net_1799 : SIGNAL IS true;
+    SIGNAL Net_1799_local : bit;
+    SIGNAL Net_252 : bit;
+    ATTRIBUTE placement_force OF Net_252 : SIGNAL IS "U(0,4,A)0";
+    SIGNAL Net_252_split : bit;
+    ATTRIBUTE placement_force OF Net_252_split : SIGNAL IS "U(1,5,B)0";
+    SIGNAL Net_252_split_1 : bit;
+    ATTRIBUTE placement_force OF Net_252_split_1 : SIGNAL IS "U(0,5,A)0";
+    SIGNAL Net_252_split_2 : bit;
+    ATTRIBUTE placement_force OF Net_252_split_2 : SIGNAL IS "U(0,5,B)0";
+    SIGNAL Net_252_split_3 : bit;
+    ATTRIBUTE placement_force OF Net_252_split_3 : SIGNAL IS "U(0,4,B)0";
+    SIGNAL Net_585 : bit;
+    ATTRIBUTE udbclken_assigned OF Net_585 : SIGNAL IS "True";
+    ATTRIBUTE global_signal OF Net_585 : SIGNAL IS true;
+    SIGNAL Net_585_local : bit;
+    SIGNAL Net_682 : bit;
+    ATTRIBUTE placement_force OF Net_682 : SIGNAL IS "U(3,2,A)2";
+    SIGNAL Net_683 : bit;
+    ATTRIBUTE placement_force OF Net_683 : SIGNAL IS "U(2,3,B)1";
+    SIGNAL Net_686 : bit;
+    SIGNAL Net_701 : bit;
+    SIGNAL Net_710 : bit;
+    ATTRIBUTE udbclken_assigned OF Net_710 : SIGNAL IS "True";
+    ATTRIBUTE global_signal OF Net_710 : SIGNAL IS true;
+    SIGNAL Net_710_local : bit;
+    SIGNAL Net_765 : bit;
+    SIGNAL Net_791_0 : bit;
+    ATTRIBUTE placement_force OF Net_791_0 : SIGNAL IS "U(2,3,B)2";
+    SIGNAL Net_791_1 : bit;
+    ATTRIBUTE placement_force OF Net_791_1 : SIGNAL IS "U(0,4,A)1";
+    SIGNAL Net_791_2 : bit;
+    ATTRIBUTE placement_force OF Net_791_2 : SIGNAL IS "U(3,5,B)0";
+    SIGNAL Net_791_3 : bit;
+    ATTRIBUTE placement_force OF Net_791_3 : SIGNAL IS "U(2,3,A)2";
+    SIGNAL Net_791_4 : bit;
+    ATTRIBUTE placement_force OF Net_791_4 : SIGNAL IS "U(2,3,A)0";
+    SIGNAL Net_791_5 : bit;
+    ATTRIBUTE placement_force OF Net_791_5 : SIGNAL IS "U(0,4,A)2";
+    SIGNAL Net_791_6 : bit;
+    ATTRIBUTE placement_force OF Net_791_6 : SIGNAL IS "U(1,3,A)1";
+    SIGNAL Net_791_7 : bit;
+    ATTRIBUTE placement_force OF Net_791_7 : SIGNAL IS "U(1,3,A)2";
+    SIGNAL Net_855 : bit;
+    SIGNAL Net_903 : bit;
+    SIGNAL Net_910 : bit;
+    SIGNAL Net_913 : bit;
+    SIGNAL Net_918 : bit;
+    SIGNAL Net_919 : bit;
+    SIGNAL Net_928 : bit;
+    SIGNAL Net_952_0 : bit;
+    SIGNAL Net_952_0_SYNCOUT : bit;
+    SIGNAL Net_952_1 : bit;
+    SIGNAL Net_952_1_SYNCOUT : bit;
+    SIGNAL Net_952_2 : bit;
+    SIGNAL Net_952_2_SYNCOUT : bit;
+    SIGNAL Net_952_3 : bit;
+    SIGNAL Net_952_3_SYNCOUT : bit;
+    SIGNAL Net_952_4 : bit;
+    SIGNAL Net_952_4_SYNCOUT : bit;
+    SIGNAL Net_952_5 : bit;
+    SIGNAL Net_952_5_SYNCOUT : bit;
+    SIGNAL Net_952_6 : bit;
+    SIGNAL Net_952_6_SYNCOUT : bit;
+    SIGNAL Net_952_7 : bit;
+    SIGNAL Net_952_7_SYNCOUT : bit;
+    SIGNAL SCSI_In(0)__PA : bit;
+    SIGNAL SCSI_In(1)__PA : bit;
+    SIGNAL SCSI_In(2)__PA : bit;
+    SIGNAL SCSI_In(3)__PA : bit;
+    SIGNAL SCSI_In(4)__PA : bit;
+    SIGNAL SCSI_In_DBx(0)__PA : bit;
+    SIGNAL SCSI_In_DBx(1)__PA : bit;
+    SIGNAL SCSI_In_DBx(2)__PA : bit;
+    SIGNAL SCSI_In_DBx(3)__PA : bit;
+    SIGNAL SCSI_In_DBx(4)__PA : bit;
+    SIGNAL SCSI_In_DBx(5)__PA : bit;
+    SIGNAL SCSI_In_DBx(6)__PA : bit;
+    SIGNAL SCSI_In_DBx(7)__PA : bit;
+    SIGNAL SCSI_Noise(0)__PA : bit;
+    SIGNAL SCSI_Noise(1)__PA : bit;
+    SIGNAL SCSI_Noise(2)__PA : bit;
+    SIGNAL SCSI_Noise(3)__PA : bit;
+    SIGNAL SCSI_Noise(4)__PA : bit;
+    SIGNAL SCSI_Out(0)__PA : bit;
+    SIGNAL SCSI_Out(1)__PA : bit;
+    SIGNAL SCSI_Out(2)__PA : bit;
+    SIGNAL SCSI_Out(3)__PA : bit;
+    SIGNAL SCSI_Out(4)__PA : bit;
+    SIGNAL SCSI_Out(5)__PA : bit;
+    SIGNAL SCSI_Out(6)__PA : bit;
+    SIGNAL SCSI_Out(7)__PA : bit;
+    SIGNAL SCSI_Out(8)__PA : bit;
+    SIGNAL SCSI_Out(9)__PA : bit;
+    SIGNAL SCSI_Out_DBx(0)__PA : bit;
+    SIGNAL SCSI_Out_DBx(1)__PA : bit;
+    SIGNAL SCSI_Out_DBx(2)__PA : bit;
+    SIGNAL SCSI_Out_DBx(3)__PA : bit;
+    SIGNAL SCSI_Out_DBx(4)__PA : bit;
+    SIGNAL SCSI_Out_DBx(5)__PA : bit;
+    SIGNAL SCSI_Out_DBx(6)__PA : bit;
+    SIGNAL SCSI_Out_DBx(7)__PA : bit;
+    SIGNAL SD_CD(0)__PA : bit;
+    SIGNAL SD_CS(0)__PA : bit;
+    SIGNAL SD_MISO(0)__PA : bit;
+    SIGNAL SD_MOSI(0)__PA : bit;
+    SIGNAL SD_SCK(0)__PA : bit;
+    SIGNAL SOUND(0)__PA : bit;
+    SIGNAL \Debug_Timer:Net_261\ : bit;
+    SIGNAL \Debug_Timer:Net_57\ : bit;
+    SIGNAL \GlitchFilter_1:genblk1[0]:samples_0\ : bit;
+    ATTRIBUTE placement_force OF \GlitchFilter_1:genblk1[0]:samples_0\ : SIGNAL IS "U(2,2,A)3";
+    SIGNAL \GlitchFilter_1:genblk1[0]:samples_1\ : bit;
+    ATTRIBUTE placement_force OF \GlitchFilter_1:genblk1[0]:samples_1\ : SIGNAL IS "U(0,3,B)3";
+    SIGNAL \GlitchFilter_1:genblk1[0]:samples_2\ : bit;
+    ATTRIBUTE placement_force OF \GlitchFilter_1:genblk1[0]:samples_2\ : SIGNAL IS "U(0,3,B)0";
+    SIGNAL \GlitchFilter_1:genblk1[1]:samples_0\ : bit;
+    ATTRIBUTE placement_force OF \GlitchFilter_1:genblk1[1]:samples_0\ : SIGNAL IS "U(0,3,A)1";
+    SIGNAL \GlitchFilter_1:genblk1[1]:samples_1\ : bit;
+    ATTRIBUTE placement_force OF \GlitchFilter_1:genblk1[1]:samples_1\ : SIGNAL IS "U(0,3,A)2";
+    SIGNAL \GlitchFilter_1:genblk1[1]:samples_2\ : bit;
+    ATTRIBUTE placement_force OF \GlitchFilter_1:genblk1[1]:samples_2\ : SIGNAL IS "U(0,3,A)3";
+    SIGNAL \GlitchFilter_1:genblk1[2]:samples_0\ : bit;
+    ATTRIBUTE placement_force OF \GlitchFilter_1:genblk1[2]:samples_0\ : SIGNAL IS "U(3,4,B)3";
+    SIGNAL \GlitchFilter_1:genblk1[2]:samples_1\ : bit;
+    ATTRIBUTE placement_force OF \GlitchFilter_1:genblk1[2]:samples_1\ : SIGNAL IS "U(3,0,A)2";
+    SIGNAL \GlitchFilter_1:genblk1[2]:samples_2\ : bit;
+    ATTRIBUTE placement_force OF \GlitchFilter_1:genblk1[2]:samples_2\ : SIGNAL IS "U(3,0,A)1";
+    SIGNAL \GlitchFilter_1:genblk1[3]:samples_0\ : bit;
+    ATTRIBUTE placement_force OF \GlitchFilter_1:genblk1[3]:samples_0\ : SIGNAL IS "U(3,3,B)1";
+    SIGNAL \GlitchFilter_1:genblk1[3]:samples_1\ : bit;
+    ATTRIBUTE placement_force OF \GlitchFilter_1:genblk1[3]:samples_1\ : SIGNAL IS "U(3,1,B)0";
+    SIGNAL \GlitchFilter_1:genblk1[3]:samples_2\ : bit;
+    ATTRIBUTE placement_force OF \GlitchFilter_1:genblk1[3]:samples_2\ : SIGNAL IS "U(3,3,B)2";
+    SIGNAL \GlitchFilter_1:genblk1[4]:samples_0\ : bit;
+    ATTRIBUTE placement_force OF \GlitchFilter_1:genblk1[4]:samples_0\ : SIGNAL IS "U(3,3,A)2";
+    SIGNAL \GlitchFilter_1:genblk1[4]:samples_1\ : bit;
+    ATTRIBUTE placement_force OF \GlitchFilter_1:genblk1[4]:samples_1\ : SIGNAL IS "U(3,0,A)3";
+    SIGNAL \GlitchFilter_1:genblk1[4]:samples_2\ : bit;
+    ATTRIBUTE placement_force OF \GlitchFilter_1:genblk1[4]:samples_2\ : SIGNAL IS "U(3,3,A)1";
+    SIGNAL \OddParityGen_1:tmpb\ : bit;
+    ATTRIBUTE placement_force OF \OddParityGen_1:tmpb\ : SIGNAL IS "U(2,3,A)1";
+    ATTRIBUTE soft OF \OddParityGen_1:tmpb\ : SIGNAL IS 1;
+    SIGNAL \OddParityGen_1:tmpc\ : bit;
+    ATTRIBUTE placement_force OF \OddParityGen_1:tmpc\ : SIGNAL IS "U(1,4,B)0";
+    ATTRIBUTE soft OF \OddParityGen_1:tmpc\ : SIGNAL IS 1;
+    SIGNAL \PGA_1:Net_41\ : bit;
+    SIGNAL \SCSI_CTL_PHASE:control_3\ : bit;
+    SIGNAL \SCSI_CTL_PHASE:control_4\ : bit;
+    SIGNAL \SCSI_CTL_PHASE:control_5\ : bit;
+    SIGNAL \SCSI_CTL_PHASE:control_6\ : bit;
+    SIGNAL \SCSI_CTL_PHASE:control_7\ : bit;
+    SIGNAL \SCSI_Glitch_Ctl:control_1\ : bit;
+    SIGNAL \SCSI_Glitch_Ctl:control_2\ : bit;
+    SIGNAL \SCSI_Glitch_Ctl:control_3\ : bit;
+    SIGNAL \SCSI_Glitch_Ctl:control_4\ : bit;
+    SIGNAL \SCSI_Glitch_Ctl:control_5\ : bit;
+    SIGNAL \SCSI_Glitch_Ctl:control_6\ : bit;
+    SIGNAL \SCSI_Glitch_Ctl:control_7\ : bit;
+    SIGNAL \SCSI_Out_Ctl:control_1\ : bit;
+    SIGNAL \SCSI_Out_Ctl:control_2\ : bit;
+    SIGNAL \SCSI_Out_Ctl:control_3\ : bit;
+    SIGNAL \SCSI_Out_Ctl:control_4\ : bit;
+    SIGNAL \SCSI_Out_Ctl:control_5\ : bit;
+    SIGNAL \SCSI_Out_Ctl:control_6\ : bit;
+    SIGNAL \SCSI_Out_Ctl:control_7\ : bit;
+    SIGNAL \SDCard:BSPIM:cnt_enable\ : bit;
+    ATTRIBUTE placement_force OF \SDCard:BSPIM:cnt_enable\ : SIGNAL IS "U(2,1,B)1";
+    SIGNAL \SDCard:BSPIM:cnt_tc\ : bit;
+    SIGNAL \SDCard:BSPIM:count_0\ : bit;
+    SIGNAL \SDCard:BSPIM:count_1\ : bit;
+    SIGNAL \SDCard:BSPIM:count_2\ : bit;
+    SIGNAL \SDCard:BSPIM:count_3\ : bit;
+    SIGNAL \SDCard:BSPIM:count_4\ : bit;
+    SIGNAL \SDCard:BSPIM:count_5\ : bit;
+    SIGNAL \SDCard:BSPIM:count_6\ : bit;
+    SIGNAL \SDCard:BSPIM:ld_ident\ : bit;
+    ATTRIBUTE placement_force OF \SDCard:BSPIM:ld_ident\ : SIGNAL IS "U(2,1,A)2";
+    SIGNAL \SDCard:BSPIM:load_cond\ : bit;
+    ATTRIBUTE placement_force OF \SDCard:BSPIM:load_cond\ : SIGNAL IS "U(2,2,B)3";
+    SIGNAL \SDCard:BSPIM:load_rx_data\ : bit;
+    ATTRIBUTE placement_force OF \SDCard:BSPIM:load_rx_data\ : SIGNAL IS "U(2,2,B)2";
+    SIGNAL \SDCard:BSPIM:mosi_from_dp\ : bit;
+    SIGNAL \SDCard:BSPIM:mosi_from_dp_reg\ : bit;
+    ATTRIBUTE placement_force OF \SDCard:BSPIM:mosi_from_dp_reg\ : SIGNAL IS "U(3,2,A)1";
+    SIGNAL \SDCard:BSPIM:mosi_hs_reg\ : bit;
+    ATTRIBUTE placement_force OF \SDCard:BSPIM:mosi_hs_reg\ : SIGNAL IS "U(3,2,A)0";
+    SIGNAL \SDCard:BSPIM:mosi_pre_reg\ : bit;
+    ATTRIBUTE placement_force OF \SDCard:BSPIM:mosi_pre_reg\ : SIGNAL IS "U(2,0,A)1";
+    SIGNAL \SDCard:BSPIM:mosi_pre_reg_split\ : bit;
+    ATTRIBUTE placement_force OF \SDCard:BSPIM:mosi_pre_reg_split\ : SIGNAL IS "U(2,0,B)0";
+    SIGNAL \SDCard:BSPIM:mosi_pre_reg_split_1\ : bit;
+    ATTRIBUTE placement_force OF \SDCard:BSPIM:mosi_pre_reg_split_1\ : SIGNAL IS "U(2,0,A)0";
+    SIGNAL \SDCard:BSPIM:rx_status_4\ : bit;
+    SIGNAL \SDCard:BSPIM:rx_status_5\ : bit;
+    SIGNAL \SDCard:BSPIM:rx_status_6\ : bit;
+    ATTRIBUTE placement_force OF \SDCard:BSPIM:rx_status_6\ : SIGNAL IS "U(2,2,B)0";
+    SIGNAL \SDCard:BSPIM:state_0\ : bit;
+    ATTRIBUTE placement_force OF \SDCard:BSPIM:state_0\ : SIGNAL IS "U(2,1,A)1";
+    SIGNAL \SDCard:BSPIM:state_1\ : bit;
+    ATTRIBUTE placement_force OF \SDCard:BSPIM:state_1\ : SIGNAL IS "U(2,1,B)0";
+    SIGNAL \SDCard:BSPIM:state_2\ : bit;
+    ATTRIBUTE placement_force OF \SDCard:BSPIM:state_2\ : SIGNAL IS "U(2,1,A)0";
+    SIGNAL \SDCard:BSPIM:tx_status_0\ : bit;
+    ATTRIBUTE placement_force OF \SDCard:BSPIM:tx_status_0\ : SIGNAL IS "U(2,1,B)3";
+    SIGNAL \SDCard:BSPIM:tx_status_1\ : bit;
+    SIGNAL \SDCard:BSPIM:tx_status_2\ : bit;
+    SIGNAL \SDCard:BSPIM:tx_status_4\ : bit;
+    ATTRIBUTE placement_force OF \SDCard:BSPIM:tx_status_4\ : SIGNAL IS "U(2,1,B)2";
+    SIGNAL \\\USBFS:Dm(0)\\__PA\ : bit;
+    SIGNAL \\\USBFS:Dp(0)\\__PA\ : bit;
+    SIGNAL \USBFS:Net_1010\ : bit;
+    SIGNAL \USBFS:Net_1876\ : bit;
+    SIGNAL \USBFS:Net_1889\ : bit;
+    SIGNAL \USBFS:Net_95\ : bit;
+    SIGNAL \USBFS:dma_request_0\ : bit;
+    SIGNAL \USBFS:dma_request_1\ : bit;
+    SIGNAL \USBFS:dma_request_2\ : bit;
+    SIGNAL \USBFS:dma_request_3\ : bit;
+    SIGNAL \USBFS:dma_request_4\ : bit;
+    SIGNAL \USBFS:dma_request_5\ : bit;
+    SIGNAL \USBFS:dma_request_6\ : bit;
+    SIGNAL \USBFS:dma_request_7\ : bit;
+    SIGNAL \USBFS:dma_terminate\ : bit;
+    SIGNAL \USBFS:ep_int_0\ : bit;
+    SIGNAL \USBFS:ep_int_1\ : bit;
+    SIGNAL \USBFS:ep_int_2\ : bit;
+    SIGNAL \USBFS:ep_int_3\ : bit;
+    SIGNAL \USBFS:ep_int_4\ : bit;
+    SIGNAL \USBFS:ep_int_5\ : bit;
+    SIGNAL \USBFS:ep_int_6\ : bit;
+    SIGNAL \USBFS:ep_int_7\ : bit;
+    SIGNAL \USBFS:ep_int_8\ : bit;
+    SIGNAL \scsiTarget:deskewComplete\ : bit;
+    SIGNAL \scsiTarget:f0_blk_stat\ : bit;
+    SIGNAL \scsiTarget:f1_blk_stat\ : bit;
+    SIGNAL \scsiTarget:fifoStore\ : bit;
+    ATTRIBUTE placement_force OF \scsiTarget:fifoStore\ : SIGNAL IS "U(3,5,A)1";
+    SIGNAL \scsiTarget:genParity_0\ : bit;
+    ATTRIBUTE placement_force OF \scsiTarget:genParity_0\ : SIGNAL IS "U(1,3,B)0";
+    SIGNAL \scsiTarget:genParity_1\ : bit;
+    ATTRIBUTE placement_force OF \scsiTarget:genParity_1\ : SIGNAL IS "U(3,2,B)0";
+    SIGNAL \scsiTarget:genParity_2\ : bit;
+    ATTRIBUTE placement_force OF \scsiTarget:genParity_2\ : SIGNAL IS "U(1,4,A)0";
+    SIGNAL \scsiTarget:pi_0\ : bit;
+    ATTRIBUTE placement_force OF \scsiTarget:pi_0\ : SIGNAL IS "U(2,2,A)1";
+    SIGNAL \scsiTarget:pi_1\ : bit;
+    ATTRIBUTE placement_force OF \scsiTarget:pi_1\ : SIGNAL IS "U(2,4,A)1";
+    SIGNAL \scsiTarget:pi_2\ : bit;
+    ATTRIBUTE placement_force OF \scsiTarget:pi_2\ : SIGNAL IS "U(2,2,A)0";
+    SIGNAL \scsiTarget:pi_3\ : bit;
+    ATTRIBUTE placement_force OF \scsiTarget:pi_3\ : SIGNAL IS "U(2,4,B)3";
+    SIGNAL \scsiTarget:pi_4\ : bit;
+    ATTRIBUTE placement_force OF \scsiTarget:pi_4\ : SIGNAL IS "U(3,4,B)1";
+    SIGNAL \scsiTarget:pi_5\ : bit;
+    ATTRIBUTE placement_force OF \scsiTarget:pi_5\ : SIGNAL IS "U(3,1,B)2";
+    SIGNAL \scsiTarget:pi_6\ : bit;
+    ATTRIBUTE placement_force OF \scsiTarget:pi_6\ : SIGNAL IS "U(2,2,A)2";
+    SIGNAL \scsiTarget:pi_7\ : bit;
+    ATTRIBUTE placement_force OF \scsiTarget:pi_7\ : SIGNAL IS "U(3,1,B)3";
+    SIGNAL \scsiTarget:po_0\ : bit;
+    SIGNAL \scsiTarget:po_1\ : bit;
+    SIGNAL \scsiTarget:po_2\ : bit;
+    SIGNAL \scsiTarget:po_3\ : bit;
+    SIGNAL \scsiTarget:po_4\ : bit;
+    SIGNAL \scsiTarget:po_5\ : bit;
+    SIGNAL \scsiTarget:po_6\ : bit;
+    SIGNAL \scsiTarget:po_7\ : bit;
+    SIGNAL \scsiTarget:state_0\ : bit;
+    ATTRIBUTE placement_force OF \scsiTarget:state_0\ : SIGNAL IS "U(2,4,B)0";
+    SIGNAL \scsiTarget:state_1\ : bit;
+    ATTRIBUTE placement_force OF \scsiTarget:state_1\ : SIGNAL IS "U(3,4,B)0";
+    SIGNAL \scsiTarget:state_2\ : bit;
+    ATTRIBUTE placement_force OF \scsiTarget:state_2\ : SIGNAL IS "U(3,5,A)0";
+    SIGNAL \scsiTarget:txComplete\ : bit;
+    ATTRIBUTE placement_force OF \scsiTarget:txComplete\ : SIGNAL IS "U(2,4,A)2";
+    SIGNAL __ONE__ : bit;
+    ATTRIBUTE placement_force OF __ONE__ : SIGNAL IS "U(1,0,A)3";
+    ATTRIBUTE POWER OF __ONE__ : SIGNAL IS true;
+    SIGNAL __ZERO__ : bit;
+    ATTRIBUTE GROUND OF __ZERO__ : SIGNAL IS true;
+    SIGNAL cydff_1 : bit;
+    ATTRIBUTE placement_force OF cydff_1 : SIGNAL IS "U(3,5,B)2";
+    SIGNAL filteredIn_0 : bit;
+    ATTRIBUTE placement_force OF filteredIn_0 : SIGNAL IS "U(0,3,B)2";
+    SIGNAL filteredIn_1 : bit;
+    ATTRIBUTE placement_force OF filteredIn_1 : SIGNAL IS "U(0,3,A)0";
+    SIGNAL filteredIn_2 : bit;
+    ATTRIBUTE placement_force OF filteredIn_2 : SIGNAL IS "U(3,0,A)0";
+    SIGNAL filteredIn_3 : bit;
+    ATTRIBUTE placement_force OF filteredIn_3 : SIGNAL IS "U(3,3,B)3";
+    SIGNAL filteredIn_4 : bit;
+    ATTRIBUTE placement_force OF filteredIn_4 : SIGNAL IS "U(3,3,A)0";
+    SIGNAL scsiIn_0 : bit;
+    SIGNAL scsiIn_0_SYNCOUT : bit;
+    SIGNAL tmpOE__SD_CD_net_0 : bit;
+    ATTRIBUTE POWER OF tmpOE__SD_CD_net_0 : SIGNAL IS true;
+    SIGNAL zero : bit;
+    ATTRIBUTE GROUND OF zero : SIGNAL IS true;
+    SIGNAL \ClockBlock.dclk_glb_ff_2__sig\ : bit;
+    ATTRIBUTE lib_model OF Net_252_split : LABEL IS "macrocell1";
+    ATTRIBUTE Location OF Net_252_split : LABEL IS "U(1,5)";
+    ATTRIBUTE Location OF ClockBlock : LABEL IS "F(Clock,0)";
+    ATTRIBUTE lib_model OF SD_CD(0) : LABEL IS "iocell1";
+    ATTRIBUTE Location OF SD_CD(0) : LABEL IS "P2[2]";
+    ATTRIBUTE lib_model OF SD_CS(0) : LABEL IS "iocell2";
+    ATTRIBUTE Location OF SD_CS(0) : LABEL IS "P3[0]";
+    ATTRIBUTE lib_model OF SD_SCK(0) : LABEL IS "iocell3";
+    ATTRIBUTE Location OF SD_SCK(0) : LABEL IS "P3[1]";
+    ATTRIBUTE lib_model OF SD_MOSI(0) : LABEL IS "iocell4";
+    ATTRIBUTE Location OF SD_MOSI(0) : LABEL IS "P3[2]";
+    ATTRIBUTE lib_model OF SCSI_Noise(0) : LABEL IS "iocell5";
+    ATTRIBUTE Location OF SCSI_Noise(0) : LABEL IS "P0[7]";
+    ATTRIBUTE lib_model OF SCSI_Noise(1) : LABEL IS "iocell6";
+    ATTRIBUTE Location OF SCSI_Noise(1) : LABEL IS "P0[6]";
+    ATTRIBUTE lib_model OF SCSI_Noise(2) : LABEL IS "iocell7";
+    ATTRIBUTE Location OF SCSI_Noise(2) : LABEL IS "P0[2]";
+    ATTRIBUTE lib_model OF SCSI_Noise(3) : LABEL IS "iocell8";
+    ATTRIBUTE Location OF SCSI_Noise(3) : LABEL IS "P0[4]";
+    ATTRIBUTE lib_model OF SCSI_Noise(4) : LABEL IS "iocell9";
+    ATTRIBUTE Location OF SCSI_Noise(4) : LABEL IS "P0[5]";
+    ATTRIBUTE lib_model OF LED1(0) : LABEL IS "iocell10";
+    ATTRIBUTE Location OF LED1(0) : LABEL IS "P2[1]";
+    ATTRIBUTE lib_model OF SD_MISO(0) : LABEL IS "iocell11";
+    ATTRIBUTE Location OF SD_MISO(0) : LABEL IS "P3[3]";
+    ATTRIBUTE lib_model OF \USBFS:Dm(0)\ : LABEL IS "iocell12";
+    ATTRIBUTE Location OF \USBFS:Dm(0)\ : LABEL IS "P15[7]";
+    ATTRIBUTE Location OF \USBFS:Dp\ : LABEL IS "F(PICU,8)";
+    ATTRIBUTE lib_model OF \USBFS:Dp(0)\ : LABEL IS "iocell13";
+    ATTRIBUTE Location OF \USBFS:Dp(0)\ : LABEL IS "P15[6]";
+    ATTRIBUTE lib_model OF SCSI_Out(0) : LABEL IS "iocell14";
+    ATTRIBUTE Location OF SCSI_Out(0) : LABEL IS "P1[3]";
+    ATTRIBUTE lib_model OF SCSI_Out(1) : LABEL IS "iocell15";
+    ATTRIBUTE Location OF SCSI_Out(1) : LABEL IS "P3[5]";
+    ATTRIBUTE lib_model OF SCSI_Out(2) : LABEL IS "iocell16";
+    ATTRIBUTE Location OF SCSI_Out(2) : LABEL IS "P3[6]";
+    ATTRIBUTE lib_model OF SCSI_Out(3) : LABEL IS "iocell17";
+    ATTRIBUTE Location OF SCSI_Out(3) : LABEL IS "P3[7]";
+    ATTRIBUTE lib_model OF SCSI_Out(4) : LABEL IS "iocell18";
+    ATTRIBUTE Location OF SCSI_Out(4) : LABEL IS "P15[0]";
+    ATTRIBUTE lib_model OF SCSI_Out(5) : LABEL IS "iocell19";
+    ATTRIBUTE Location OF SCSI_Out(5) : LABEL IS "P15[1]";
+    ATTRIBUTE lib_model OF SCSI_Out(6) : LABEL IS "iocell20";
+    ATTRIBUTE Location OF SCSI_Out(6) : LABEL IS "P15[4]";
+    ATTRIBUTE lib_model OF SCSI_Out(7) : LABEL IS "iocell21";
+    ATTRIBUTE Location OF SCSI_Out(7) : LABEL IS "P1[6]";
+    ATTRIBUTE lib_model OF SCSI_Out(8) : LABEL IS "iocell22";
+    ATTRIBUTE Location OF SCSI_Out(8) : LABEL IS "P1[7]";
+    ATTRIBUTE lib_model OF SCSI_Out(9) : LABEL IS "iocell23";
+    ATTRIBUTE Location OF SCSI_Out(9) : LABEL IS "P3[4]";
+    ATTRIBUTE lib_model OF SCSI_In(0) : LABEL IS "iocell24";
+    ATTRIBUTE Location OF SCSI_In(0) : LABEL IS "P12[5]";
+    ATTRIBUTE lib_model OF SCSI_In(1) : LABEL IS "iocell25";
+    ATTRIBUTE Location OF SCSI_In(1) : LABEL IS "P0[3]";
+    ATTRIBUTE lib_model OF SCSI_In(2) : LABEL IS "iocell26";
+    ATTRIBUTE Location OF SCSI_In(2) : LABEL IS "P0[1]";
+    ATTRIBUTE lib_model OF SCSI_In(3) : LABEL IS "iocell27";
+    ATTRIBUTE Location OF SCSI_In(3) : LABEL IS "P0[0]";
+    ATTRIBUTE lib_model OF SCSI_In(4) : LABEL IS "iocell28";
+    ATTRIBUTE Location OF SCSI_In(4) : LABEL IS "P15[5]";
+    ATTRIBUTE lib_model OF SCSI_Out_DBx(0) : LABEL IS "iocell29";
+    ATTRIBUTE Location OF SCSI_Out_DBx(0) : LABEL IS "P12[0]";
+    ATTRIBUTE lib_model OF SCSI_Out_DBx(1) : LABEL IS "iocell30";
+    ATTRIBUTE Location OF SCSI_Out_DBx(1) : LABEL IS "P1[2]";
+    ATTRIBUTE lib_model OF SCSI_Out_DBx(2) : LABEL IS "iocell31";
+    ATTRIBUTE Location OF SCSI_Out_DBx(2) : LABEL IS "P12[1]";
+    ATTRIBUTE lib_model OF SCSI_Out_DBx(3) : LABEL IS "iocell32";
+    ATTRIBUTE Location OF SCSI_Out_DBx(3) : LABEL IS "P12[2]";
+    ATTRIBUTE lib_model OF SCSI_Out_DBx(4) : LABEL IS "iocell33";
+    ATTRIBUTE Location OF SCSI_Out_DBx(4) : LABEL IS "P12[3]";
+    ATTRIBUTE lib_model OF SCSI_Out_DBx(5) : LABEL IS "iocell34";
+    ATTRIBUTE Location OF SCSI_Out_DBx(5) : LABEL IS "P12[4]";
+    ATTRIBUTE lib_model OF SCSI_Out_DBx(6) : LABEL IS "iocell35";
+    ATTRIBUTE Location OF SCSI_Out_DBx(6) : LABEL IS "P1[5]";
+    ATTRIBUTE lib_model OF SCSI_Out_DBx(7) : LABEL IS "iocell36";
+    ATTRIBUTE Location OF SCSI_Out_DBx(7) : LABEL IS "P1[4]";
+    ATTRIBUTE lib_model OF SCSI_In_DBx(0) : LABEL IS "iocell37";
+    ATTRIBUTE Location OF SCSI_In_DBx(0) : LABEL IS "P2[3]";
+    ATTRIBUTE lib_model OF SCSI_In_DBx(1) : LABEL IS "iocell38";
+    ATTRIBUTE Location OF SCSI_In_DBx(1) : LABEL IS "P2[0]";
+    ATTRIBUTE lib_model OF SCSI_In_DBx(2) : LABEL IS "iocell39";
+    ATTRIBUTE Location OF SCSI_In_DBx(2) : LABEL IS "P2[4]";
+    ATTRIBUTE lib_model OF SCSI_In_DBx(3) : LABEL IS "iocell40";
+    ATTRIBUTE Location OF SCSI_In_DBx(3) : LABEL IS "P2[5]";
+    ATTRIBUTE lib_model OF SCSI_In_DBx(4) : LABEL IS "iocell41";
+    ATTRIBUTE Location OF SCSI_In_DBx(4) : LABEL IS "P2[6]";
+    ATTRIBUTE lib_model OF SCSI_In_DBx(5) : LABEL IS "iocell42";
+    ATTRIBUTE Location OF SCSI_In_DBx(5) : LABEL IS "P2[7]";
+    ATTRIBUTE lib_model OF SCSI_In_DBx(6) : LABEL IS "iocell43";
+    ATTRIBUTE Location OF SCSI_In_DBx(6) : LABEL IS "P12[7]";
+    ATTRIBUTE lib_model OF SCSI_In_DBx(7) : LABEL IS "iocell44";
+    ATTRIBUTE Location OF SCSI_In_DBx(7) : LABEL IS "P12[6]";
+    ATTRIBUTE lib_model OF SOUND(0) : LABEL IS "iocell45";
+    ATTRIBUTE Location OF SOUND(0) : LABEL IS "P15[2]";
+    ATTRIBUTE lib_model OF Net_1724 : LABEL IS "macrocell2";
+    ATTRIBUTE Location OF Net_1724 : LABEL IS "U(3,3)";
+    ATTRIBUTE lib_model OF \SDCard:BSPIM:load_rx_data\ : LABEL IS "macrocell3";
+    ATTRIBUTE Location OF \SDCard:BSPIM:load_rx_data\ : LABEL IS "U(2,2)";
+    ATTRIBUTE lib_model OF Net_683 : LABEL IS "macrocell4";
+    ATTRIBUTE Location OF Net_683 : LABEL IS "U(2,3)";
+    ATTRIBUTE lib_model OF \SDCard:BSPIM:tx_status_0\ : LABEL IS "macrocell5";
+    ATTRIBUTE Location OF \SDCard:BSPIM:tx_status_0\ : LABEL IS "U(2,1)";
+    ATTRIBUTE lib_model OF \SDCard:BSPIM:tx_status_4\ : LABEL IS "macrocell6";
+    ATTRIBUTE Location OF \SDCard:BSPIM:tx_status_4\ : LABEL IS "U(2,1)";
+    ATTRIBUTE lib_model OF \SDCard:BSPIM:rx_status_6\ : LABEL IS "macrocell7";
+    ATTRIBUTE Location OF \SDCard:BSPIM:rx_status_6\ : LABEL IS "U(2,2)";
+    ATTRIBUTE lib_model OF Net_791_7 : LABEL IS "macrocell8";
+    ATTRIBUTE Location OF Net_791_7 : LABEL IS "U(1,3)";
+    ATTRIBUTE lib_model OF Net_791_6 : LABEL IS "macrocell9";
+    ATTRIBUTE Location OF Net_791_6 : LABEL IS "U(1,3)";
+    ATTRIBUTE lib_model OF Net_791_5 : LABEL IS "macrocell10";
+    ATTRIBUTE Location OF Net_791_5 : LABEL IS "U(0,4)";
+    ATTRIBUTE lib_model OF Net_791_4 : LABEL IS "macrocell11";
+    ATTRIBUTE Location OF Net_791_4 : LABEL IS "U(2,3)";
+    ATTRIBUTE lib_model OF Net_791_3 : LABEL IS "macrocell12";
+    ATTRIBUTE Location OF Net_791_3 : LABEL IS "U(2,3)";
+    ATTRIBUTE lib_model OF Net_791_2 : LABEL IS "macrocell13";
+    ATTRIBUTE Location OF Net_791_2 : LABEL IS "U(3,5)";
+    ATTRIBUTE lib_model OF Net_791_1 : LABEL IS "macrocell14";
+    ATTRIBUTE Location OF Net_791_1 : LABEL IS "U(0,4)";
+    ATTRIBUTE lib_model OF Net_791_0 : LABEL IS "macrocell15";
+    ATTRIBUTE Location OF Net_791_0 : LABEL IS "U(2,3)";
+    ATTRIBUTE lib_model OF \scsiTarget:txComplete\ : LABEL IS "macrocell16";
+    ATTRIBUTE Location OF \scsiTarget:txComplete\ : LABEL IS "U(2,4)";
+    ATTRIBUTE lib_model OF \SDCard:BSPIM:mosi_pre_reg_split_1\ : LABEL IS "macrocell17";
+    ATTRIBUTE Location OF \SDCard:BSPIM:mosi_pre_reg_split_1\ : LABEL IS "U(2,0)";
+    ATTRIBUTE lib_model OF \SDCard:BSPIM:mosi_pre_reg_split\ : LABEL IS "macrocell18";
+    ATTRIBUTE Location OF \SDCard:BSPIM:mosi_pre_reg_split\ : LABEL IS "U(2,0)";
+    ATTRIBUTE lib_model OF Net_252_split_3 : LABEL IS "macrocell19";
+    ATTRIBUTE Location OF Net_252_split_3 : LABEL IS "U(0,4)";
+    ATTRIBUTE lib_model OF Net_252_split_2 : LABEL IS "macrocell20";
+    ATTRIBUTE Location OF Net_252_split_2 : LABEL IS "U(0,5)";
+    ATTRIBUTE lib_model OF \OddParityGen_1:tmpb\ : LABEL IS "macrocell21";
+    ATTRIBUTE Location OF \OddParityGen_1:tmpb\ : LABEL IS "U(2,3)";
+    ATTRIBUTE lib_model OF \OddParityGen_1:tmpc\ : LABEL IS "macrocell22";
+    ATTRIBUTE Location OF \OddParityGen_1:tmpc\ : LABEL IS "U(1,4)";
+    ATTRIBUTE lib_model OF Net_252 : LABEL IS "macrocell23";
+    ATTRIBUTE Location OF Net_252 : LABEL IS "U(0,4)";
+    ATTRIBUTE lib_model OF \SCSI_Glitch_Ctl:Sync:ctrl_reg\ : LABEL IS "controlcell1";
+    ATTRIBUTE Location OF \SCSI_Glitch_Ctl:Sync:ctrl_reg\ : LABEL IS "U(3,3)";
+    ATTRIBUTE lib_model OF Net_252_split_1 : LABEL IS "macrocell24";
+    ATTRIBUTE Location OF Net_252_split_1 : LABEL IS "U(0,5)";
+    ATTRIBUTE Location OF SCSI_In_DBx(0)_SYNC : LABEL IS "U(0,3)";
+    ATTRIBUTE Location OF SCSI_SEL_ISR : LABEL IS "[IntrContainer=(0)][IntrId=(3)]";
+    ATTRIBUTE Location OF SCSI_In_DBx(2)_SYNC : LABEL IS "U(0,3)";
+    ATTRIBUTE Location OF SCSI_In_DBx(1)_SYNC : LABEL IS "U(0,4)";
+    ATTRIBUTE lib_model OF __ONE__ : LABEL IS "macrocell25";
+    ATTRIBUTE Location OF __ONE__ : LABEL IS "U(1,0)";
+    ATTRIBUTE Location OF \SDCard:BSPIM:BitCounter\ : LABEL IS "U(2,0)";
+    ATTRIBUTE lib_model OF \SDCard:BSPIM:TxStsReg\ : LABEL IS "statusicell1";
+    ATTRIBUTE Location OF \SDCard:BSPIM:TxStsReg\ : LABEL IS "U(2,1)";
+    ATTRIBUTE lib_model OF \SDCard:BSPIM:RxStsReg\ : LABEL IS "statusicell2";
+    ATTRIBUTE Location OF \SDCard:BSPIM:RxStsReg\ : LABEL IS "U(2,2)";
+    ATTRIBUTE lib_model OF \SDCard:BSPIM:sR8:Dp:u0\ : LABEL IS "datapathcell1";
+    ATTRIBUTE Location OF \SDCard:BSPIM:sR8:Dp:u0\ : LABEL IS "U(2,0)";
+    ATTRIBUTE Location OF \USBFS:dp_int\ : LABEL IS "[IntrContainer=(0)][IntrId=(12)]";
+    ATTRIBUTE Location OF \USBFS:USB\ : LABEL IS "F(USB,0)";
+    ATTRIBUTE Location OF \USBFS:ep_4\ : LABEL IS "[IntrContainer=(0)][IntrId=(11)]";
+    ATTRIBUTE Location OF \USBFS:ep_3\ : LABEL IS "[IntrContainer=(0)][IntrId=(10)]";
+    ATTRIBUTE Location OF \USBFS:ep_2\ : LABEL IS "[IntrContainer=(0)][IntrId=(9)]";
+    ATTRIBUTE Location OF \USBFS:ep_1\ : LABEL IS "[IntrContainer=(0)][IntrId=(8)]";
+    ATTRIBUTE Location OF \USBFS:ep_0\ : LABEL IS "[IntrContainer=(0)][IntrId=(24)]";
+    ATTRIBUTE Location OF \USBFS:bus_reset\ : LABEL IS "[IntrContainer=(0)][IntrId=(23)]";
+    ATTRIBUTE Location OF \USBFS:arb_int\ : LABEL IS "[IntrContainer=(0)][IntrId=(22)]";
+    ATTRIBUTE Location OF \USBFS:sof_int\ : LABEL IS "[IntrContainer=(0)][IntrId=(21)]";
+    ATTRIBUTE lib_model OF \SCSI_Filtered:sts:sts_reg\ : LABEL IS "statuscell1";
+    ATTRIBUTE Location OF \SCSI_Filtered:sts:sts_reg\ : LABEL IS "U(1,3)";
+    ATTRIBUTE lib_model OF \SCSI_Parity_Error:sts:sts_reg\ : LABEL IS "statuscell2";
+    ATTRIBUTE Location OF \SCSI_Parity_Error:sts:sts_reg\ : LABEL IS "U(3,4)";
+    ATTRIBUTE Location OF \Debug_Timer:TimerHW\ : LABEL IS "F(Timer,0)";
+    ATTRIBUTE Location OF SCSI_Noise(4)_SYNC : LABEL IS "U(3,3)";
+    ATTRIBUTE Location OF Debug_Timer_Interrupt : LABEL IS "[IntrContainer=(0)][IntrId=(0)]";
+    ATTRIBUTE Location OF SCSI_RX_DMA_COMPLETE : LABEL IS "[IntrContainer=(0)][IntrId=(2)]";
+    ATTRIBUTE lib_model OF SCSI_RX_DMA : LABEL IS "drqcell1";
+    ATTRIBUTE Location OF SCSI_RX_DMA : LABEL IS "[DrqContainer=(0)][DrqId=(0)]";
+    ATTRIBUTE lib_model OF SD_RX_DMA : LABEL IS "drqcell2";
+    ATTRIBUTE Location OF SD_RX_DMA : LABEL IS "[DrqContainer=(0)][DrqId=(2)]";
+    ATTRIBUTE lib_model OF SD_TX_DMA : LABEL IS "drqcell3";
+    ATTRIBUTE Location OF SD_TX_DMA : LABEL IS "[DrqContainer=(0)][DrqId=(3)]";
+    ATTRIBUTE Location OF SD_RX_DMA_COMPLETE : LABEL IS "[IntrContainer=(0)][IntrId=(5)]";
+    ATTRIBUTE Location OF SD_TX_DMA_COMPLETE : LABEL IS "[IntrContainer=(0)][IntrId=(6)]";
+    ATTRIBUTE Location OF SCSI_TX_DMA_COMPLETE : LABEL IS "[IntrContainer=(0)][IntrId=(4)]";
+    ATTRIBUTE lib_model OF SCSI_TX_DMA : LABEL IS "drqcell4";
+    ATTRIBUTE Location OF SCSI_TX_DMA : LABEL IS "[DrqContainer=(0)][DrqId=(1)]";
+    ATTRIBUTE lib_model OF \SCSI_Out_Ctl:Sync:ctrl_reg\ : LABEL IS "controlcell2";
+    ATTRIBUTE Location OF \SCSI_Out_Ctl:Sync:ctrl_reg\ : LABEL IS "U(1,5)";
+    ATTRIBUTE lib_model OF \SCSI_Out_Bits:Sync:ctrl_reg\ : LABEL IS "controlcell3";
+    ATTRIBUTE Location OF \SCSI_Out_Bits:Sync:ctrl_reg\ : LABEL IS "U(1,4)";
+    ATTRIBUTE Location OF SCSI_In(0)_SYNC : LABEL IS "U(0,5)";
+    ATTRIBUTE lib_model OF \scsiTarget:StatusReg\ : LABEL IS "statuscell3";
+    ATTRIBUTE Location OF \scsiTarget:StatusReg\ : LABEL IS "U(1,5)";
+    ATTRIBUTE lib_model OF \scsiTarget:datapath\ : LABEL IS "datapathcell2";
+    ATTRIBUTE Location OF \scsiTarget:datapath\ : LABEL IS "U(2,5)";
+    ATTRIBUTE lib_model OF \SCSI_CTL_PHASE:Sync:ctrl_reg\ : LABEL IS "controlcell4";
+    ATTRIBUTE Location OF \SCSI_CTL_PHASE:Sync:ctrl_reg\ : LABEL IS "U(2,3)";
+    ATTRIBUTE Location OF SCSI_RST_ISR : LABEL IS "[IntrContainer=(0)][IntrId=(1)]";
+    ATTRIBUTE Location OF \VDAC8_1:viDAC8\ : LABEL IS "F(VIDAC,0)";
+    ATTRIBUTE Location OF SCSI_Noise(3)_SYNC : LABEL IS "U(3,3)";
+    ATTRIBUTE Location OF SOUND_ISR : LABEL IS "[IntrContainer=(0)][IntrId=(7)]";
+    ATTRIBUTE Location OF \PGA_1:SC\ : LABEL IS "F(SC,0)";
+    ATTRIBUTE Location OF SCSI_In_DBx(3)_SYNC : LABEL IS "U(2,4)";
+    ATTRIBUTE Location OF \LPF_1:cy_psoc3_lpf_1\ : LABEL IS "F(LPF,0)";
+    ATTRIBUTE lib_model OF Net_1699 : LABEL IS "macrocell26";
+    ATTRIBUTE Location OF Net_1699 : LABEL IS "U(3,1)";
+    ATTRIBUTE lib_model OF Net_682 : LABEL IS "macrocell27";
+    ATTRIBUTE Location OF Net_682 : LABEL IS "U(3,2)";
+    ATTRIBUTE lib_model OF cydff_1 : LABEL IS "macrocell28";
+    ATTRIBUTE Location OF cydff_1 : LABEL IS "U(3,5)";
+    ATTRIBUTE Location OF SCSI_Noise(2)_SYNC : LABEL IS "U(3,1)";
+    ATTRIBUTE lib_model OF \SDCard:BSPIM:state_2\ : LABEL IS "macrocell29";
+    ATTRIBUTE Location OF \SDCard:BSPIM:state_2\ : LABEL IS "U(2,1)";
+    ATTRIBUTE lib_model OF \SDCard:BSPIM:state_1\ : LABEL IS "macrocell30";
+    ATTRIBUTE Location OF \SDCard:BSPIM:state_1\ : LABEL IS "U(2,1)";
+    ATTRIBUTE lib_model OF \SDCard:BSPIM:state_0\ : LABEL IS "macrocell31";
+    ATTRIBUTE Location OF \SDCard:BSPIM:state_0\ : LABEL IS "U(2,1)";
+    ATTRIBUTE lib_model OF Net_1606 : LABEL IS "macrocell32";
+    ATTRIBUTE Location OF Net_1606 : LABEL IS "U(2,3)";
+    ATTRIBUTE lib_model OF \SDCard:BSPIM:mosi_hs_reg\ : LABEL IS "macrocell33";
+    ATTRIBUTE Location OF \SDCard:BSPIM:mosi_hs_reg\ : LABEL IS "U(3,2)";
+    ATTRIBUTE lib_model OF \SDCard:BSPIM:mosi_pre_reg\ : LABEL IS "macrocell34";
+    ATTRIBUTE Location OF \SDCard:BSPIM:mosi_pre_reg\ : LABEL IS "U(2,0)";
+    ATTRIBUTE Location OF SCSI_Noise(1)_SYNC : LABEL IS "U(0,4)";
+    ATTRIBUTE lib_model OF \SDCard:BSPIM:load_cond\ : LABEL IS "macrocell35";
+    ATTRIBUTE Location OF \SDCard:BSPIM:load_cond\ : LABEL IS "U(2,2)";
+    ATTRIBUTE Location OF SCSI_Noise(0)_SYNC : LABEL IS "U(3,3)";
+    ATTRIBUTE lib_model OF \SDCard:BSPIM:mosi_from_dp_reg\ : LABEL IS "macrocell36";
+    ATTRIBUTE Location OF \SDCard:BSPIM:mosi_from_dp_reg\ : LABEL IS "U(3,2)";
+    ATTRIBUTE lib_model OF \SDCard:BSPIM:ld_ident\ : LABEL IS "macrocell37";
+    ATTRIBUTE Location OF \SDCard:BSPIM:ld_ident\ : LABEL IS "U(2,1)";
+    ATTRIBUTE lib_model OF \SDCard:BSPIM:cnt_enable\ : LABEL IS "macrocell38";
+    ATTRIBUTE Location OF \SDCard:BSPIM:cnt_enable\ : LABEL IS "U(2,1)";
+    ATTRIBUTE lib_model OF \GlitchFilter_1:genblk1[0]:samples_2\ : LABEL IS "macrocell39";
+    ATTRIBUTE Location OF \GlitchFilter_1:genblk1[0]:samples_2\ : LABEL IS "U(0,3)";
+    ATTRIBUTE lib_model OF \GlitchFilter_1:genblk1[0]:samples_1\ : LABEL IS "macrocell40";
+    ATTRIBUTE Location OF \GlitchFilter_1:genblk1[0]:samples_1\ : LABEL IS "U(0,3)";
+    ATTRIBUTE lib_model OF \GlitchFilter_1:genblk1[0]:samples_0\ : LABEL IS "macrocell41";
+    ATTRIBUTE Location OF \GlitchFilter_1:genblk1[0]:samples_0\ : LABEL IS "U(2,2)";
+    ATTRIBUTE lib_model OF filteredIn_0 : LABEL IS "macrocell42";
+    ATTRIBUTE Location OF filteredIn_0 : LABEL IS "U(0,3)";
+    ATTRIBUTE lib_model OF \GlitchFilter_1:genblk1[1]:samples_2\ : LABEL IS "macrocell43";
+    ATTRIBUTE Location OF \GlitchFilter_1:genblk1[1]:samples_2\ : LABEL IS "U(0,3)";
+    ATTRIBUTE lib_model OF \GlitchFilter_1:genblk1[1]:samples_1\ : LABEL IS "macrocell44";
+    ATTRIBUTE Location OF \GlitchFilter_1:genblk1[1]:samples_1\ : LABEL IS "U(0,3)";
+    ATTRIBUTE lib_model OF \GlitchFilter_1:genblk1[1]:samples_0\ : LABEL IS "macrocell45";
+    ATTRIBUTE Location OF \GlitchFilter_1:genblk1[1]:samples_0\ : LABEL IS "U(0,3)";
+    ATTRIBUTE lib_model OF filteredIn_1 : LABEL IS "macrocell46";
+    ATTRIBUTE Location OF filteredIn_1 : LABEL IS "U(0,3)";
+    ATTRIBUTE lib_model OF \GlitchFilter_1:genblk1[2]:samples_2\ : LABEL IS "macrocell47";
+    ATTRIBUTE Location OF \GlitchFilter_1:genblk1[2]:samples_2\ : LABEL IS "U(3,0)";
+    ATTRIBUTE lib_model OF \GlitchFilter_1:genblk1[2]:samples_1\ : LABEL IS "macrocell48";
+    ATTRIBUTE Location OF \GlitchFilter_1:genblk1[2]:samples_1\ : LABEL IS "U(3,0)";
+    ATTRIBUTE lib_model OF \GlitchFilter_1:genblk1[2]:samples_0\ : LABEL IS "macrocell49";
+    ATTRIBUTE Location OF \GlitchFilter_1:genblk1[2]:samples_0\ : LABEL IS "U(3,4)";
+    ATTRIBUTE lib_model OF filteredIn_2 : LABEL IS "macrocell50";
+    ATTRIBUTE Location OF filteredIn_2 : LABEL IS "U(3,0)";
+    ATTRIBUTE lib_model OF \GlitchFilter_1:genblk1[3]:samples_2\ : LABEL IS "macrocell51";
+    ATTRIBUTE Location OF \GlitchFilter_1:genblk1[3]:samples_2\ : LABEL IS "U(3,3)";
+    ATTRIBUTE lib_model OF \GlitchFilter_1:genblk1[3]:samples_1\ : LABEL IS "macrocell52";
+    ATTRIBUTE Location OF \GlitchFilter_1:genblk1[3]:samples_1\ : LABEL IS "U(3,1)";
+    ATTRIBUTE lib_model OF \GlitchFilter_1:genblk1[3]:samples_0\ : LABEL IS "macrocell53";
+    ATTRIBUTE Location OF \GlitchFilter_1:genblk1[3]:samples_0\ : LABEL IS "U(3,3)";
+    ATTRIBUTE lib_model OF filteredIn_3 : LABEL IS "macrocell54";
+    ATTRIBUTE Location OF filteredIn_3 : LABEL IS "U(3,3)";
+    ATTRIBUTE lib_model OF \GlitchFilter_1:genblk1[4]:samples_2\ : LABEL IS "macrocell55";
+    ATTRIBUTE Location OF \GlitchFilter_1:genblk1[4]:samples_2\ : LABEL IS "U(3,3)";
+    ATTRIBUTE lib_model OF \GlitchFilter_1:genblk1[4]:samples_1\ : LABEL IS "macrocell56";
+    ATTRIBUTE Location OF \GlitchFilter_1:genblk1[4]:samples_1\ : LABEL IS "U(3,0)";
+    ATTRIBUTE lib_model OF \GlitchFilter_1:genblk1[4]:samples_0\ : LABEL IS "macrocell57";
+    ATTRIBUTE Location OF \GlitchFilter_1:genblk1[4]:samples_0\ : LABEL IS "U(3,3)";
+    ATTRIBUTE lib_model OF filteredIn_4 : LABEL IS "macrocell58";
+    ATTRIBUTE Location OF filteredIn_4 : LABEL IS "U(3,3)";
+    ATTRIBUTE lib_model OF Net_1691 : LABEL IS "macrocell59";
+    ATTRIBUTE Location OF Net_1691 : LABEL IS "U(2,4)";
+    ATTRIBUTE lib_model OF Net_1706_7 : LABEL IS "macrocell60";
+    ATTRIBUTE Location OF Net_1706_7 : LABEL IS "U(1,5)";
+    ATTRIBUTE lib_model OF Net_1706_6 : LABEL IS "macrocell61";
+    ATTRIBUTE Location OF Net_1706_6 : LABEL IS "U(1,3)";
+    ATTRIBUTE lib_model OF Net_1706_5 : LABEL IS "macrocell62";
+    ATTRIBUTE Location OF Net_1706_5 : LABEL IS "U(3,3)";
+    ATTRIBUTE lib_model OF Net_1706_4 : LABEL IS "macrocell63";
+    ATTRIBUTE Location OF Net_1706_4 : LABEL IS "U(2,5)";
+    ATTRIBUTE lib_model OF Net_1706_3 : LABEL IS "macrocell64";
+    ATTRIBUTE Location OF Net_1706_3 : LABEL IS "U(2,5)";
+    ATTRIBUTE lib_model OF Net_1706_2 : LABEL IS "macrocell65";
+    ATTRIBUTE Location OF Net_1706_2 : LABEL IS "U(2,5)";
+    ATTRIBUTE lib_model OF Net_1706_1 : LABEL IS "macrocell66";
+    ATTRIBUTE Location OF Net_1706_1 : LABEL IS "U(1,5)";
+    ATTRIBUTE lib_model OF Net_1706_0 : LABEL IS "macrocell67";
+    ATTRIBUTE Location OF Net_1706_0 : LABEL IS "U(2,5)";
+    ATTRIBUTE lib_model OF \scsiTarget:pi_7\ : LABEL IS "macrocell68";
+    ATTRIBUTE Location OF \scsiTarget:pi_7\ : LABEL IS "U(3,1)";
+    ATTRIBUTE lib_model OF \scsiTarget:pi_6\ : LABEL IS "macrocell69";
+    ATTRIBUTE Location OF \scsiTarget:pi_6\ : LABEL IS "U(2,2)";
+    ATTRIBUTE lib_model OF \scsiTarget:pi_5\ : LABEL IS "macrocell70";
+    ATTRIBUTE Location OF \scsiTarget:pi_5\ : LABEL IS "U(3,1)";
+    ATTRIBUTE lib_model OF \scsiTarget:pi_4\ : LABEL IS "macrocell71";
+    ATTRIBUTE Location OF \scsiTarget:pi_4\ : LABEL IS "U(3,4)";
+    ATTRIBUTE lib_model OF \scsiTarget:pi_3\ : LABEL IS "macrocell72";
+    ATTRIBUTE Location OF \scsiTarget:pi_3\ : LABEL IS "U(2,4)";
+    ATTRIBUTE lib_model OF \scsiTarget:pi_2\ : LABEL IS "macrocell73";
+    ATTRIBUTE Location OF \scsiTarget:pi_2\ : LABEL IS "U(2,2)";
+    ATTRIBUTE lib_model OF \scsiTarget:pi_1\ : LABEL IS "macrocell74";
+    ATTRIBUTE Location OF \scsiTarget:pi_1\ : LABEL IS "U(2,4)";
+    ATTRIBUTE lib_model OF \scsiTarget:pi_0\ : LABEL IS "macrocell75";
+    ATTRIBUTE Location OF \scsiTarget:pi_0\ : LABEL IS "U(2,2)";
+    ATTRIBUTE lib_model OF Net_1500 : LABEL IS "macrocell76";
+    ATTRIBUTE Location OF Net_1500 : LABEL IS "U(3,4)";
+    ATTRIBUTE lib_model OF \scsiTarget:state_2\ : LABEL IS "macrocell77";
+    ATTRIBUTE Location OF \scsiTarget:state_2\ : LABEL IS "U(3,5)";
+    ATTRIBUTE lib_model OF \scsiTarget:state_1\ : LABEL IS "macrocell78";
+    ATTRIBUTE Location OF \scsiTarget:state_1\ : LABEL IS "U(3,4)";
+    ATTRIBUTE lib_model OF \scsiTarget:state_0\ : LABEL IS "macrocell79";
+    ATTRIBUTE Location OF \scsiTarget:state_0\ : LABEL IS "U(2,4)";
+    ATTRIBUTE lib_model OF \scsiTarget:fifoStore\ : LABEL IS "macrocell80";
+    ATTRIBUTE Location OF \scsiTarget:fifoStore\ : LABEL IS "U(3,5)";
+    ATTRIBUTE lib_model OF \scsiTarget:genParity_2\ : LABEL IS "macrocell81";
+    ATTRIBUTE Location OF \scsiTarget:genParity_2\ : LABEL IS "U(1,4)";
+    ATTRIBUTE lib_model OF \scsiTarget:genParity_1\ : LABEL IS "macrocell82";
+    ATTRIBUTE Location OF \scsiTarget:genParity_1\ : LABEL IS "U(3,2)";
+    ATTRIBUTE lib_model OF \scsiTarget:genParity_0\ : LABEL IS "macrocell83";
+    ATTRIBUTE Location OF \scsiTarget:genParity_0\ : LABEL IS "U(1,3)";
+    ATTRIBUTE Location OF SCSI_In_DBx(4)_SYNC : LABEL IS "U(2,4)";
+    ATTRIBUTE Location OF SCSI_In_DBx(5)_SYNC : LABEL IS "U(3,1)";
+    ATTRIBUTE Location OF SCSI_In_DBx(6)_SYNC : LABEL IS "U(0,3)";
+    ATTRIBUTE Location OF SCSI_In_DBx(7)_SYNC : LABEL IS "U(3,2)";
+    COMPONENT clockblockcell
+        PORT (
+            dclk_0 : OUT std_ulogic;
+            dclk_1 : OUT std_ulogic;
+            dclk_2 : OUT std_ulogic;
+            dclk_3 : OUT std_ulogic;
+            dclk_4 : OUT std_ulogic;
+            dclk_5 : OUT std_ulogic;
+            dclk_6 : OUT std_ulogic;
+            dclk_7 : OUT std_ulogic;
+            dclk_glb_0 : OUT std_ulogic;
+            dclk_glb_1 : OUT std_ulogic;
+            dclk_glb_2 : OUT std_ulogic;
+            dclk_glb_3 : OUT std_ulogic;
+            dclk_glb_4 : OUT std_ulogic;
+            dclk_glb_5 : OUT std_ulogic;
+            dclk_glb_6 : OUT std_ulogic;
+            dclk_glb_7 : OUT std_ulogic;
+            aclk_0 : OUT std_ulogic;
+            aclk_1 : OUT std_ulogic;
+            aclk_2 : OUT std_ulogic;
+            aclk_3 : OUT std_ulogic;
+            aclk_glb_0 : OUT std_ulogic;
+            aclk_glb_1 : OUT std_ulogic;
+            aclk_glb_2 : OUT std_ulogic;
+            aclk_glb_3 : OUT std_ulogic;
+            clk_a_dig_0 : OUT std_ulogic;
+            clk_a_dig_1 : OUT std_ulogic;
+            clk_a_dig_2 : OUT std_ulogic;
+            clk_a_dig_3 : OUT std_ulogic;
+            clk_a_dig_glb_0 : OUT std_ulogic;
+            clk_a_dig_glb_1 : OUT std_ulogic;
+            clk_a_dig_glb_2 : OUT std_ulogic;
+            clk_a_dig_glb_3 : OUT std_ulogic;
+            clk_bus : OUT std_ulogic;
+            clk_bus_glb : OUT std_ulogic;
+            clk_sync : OUT std_ulogic;
+            clk_32k_xtal : OUT std_ulogic;
+            clk_100k : OUT std_ulogic;
+            clk_32k : OUT std_ulogic;
+            clk_1k : OUT std_ulogic;
+            clk_usb : OUT std_ulogic;
+            xmhz_xerr : OUT std_ulogic;
+            pll_lock_out : OUT std_ulogic;
+            dsi_dig_div_0 : IN std_ulogic;
+            dsi_dig_div_1 : IN std_ulogic;
+            dsi_dig_div_2 : IN std_ulogic;
+            dsi_dig_div_3 : IN std_ulogic;
+            dsi_dig_div_4 : IN std_ulogic;
+            dsi_dig_div_5 : IN std_ulogic;
+            dsi_dig_div_6 : IN std_ulogic;
+            dsi_dig_div_7 : IN std_ulogic;
+            dsi_ana_div_0 : IN std_ulogic;
+            dsi_ana_div_1 : IN std_ulogic;
+            dsi_ana_div_2 : IN std_ulogic;
+            dsi_ana_div_3 : IN std_ulogic;
+            dsi_glb_div : IN std_ulogic;
+            dsi_clkin_div : IN std_ulogic;
+            imo : OUT std_ulogic;
+            ilo : OUT std_ulogic;
+            xtal : OUT std_ulogic;
+            pllout : OUT std_ulogic;
+            clk_bus_glb_ff : OUT std_ulogic;
+            aclk_glb_ff_0 : OUT std_ulogic;
+            clk_a_dig_glb_ff_0 : OUT std_ulogic;
+            aclk_glb_ff_1 : OUT std_ulogic;
+            clk_a_dig_glb_ff_1 : OUT std_ulogic;
+            aclk_glb_ff_2 : OUT std_ulogic;
+            clk_a_dig_glb_ff_2 : OUT std_ulogic;
+            aclk_glb_ff_3 : OUT std_ulogic;
+            clk_a_dig_glb_ff_3 : OUT std_ulogic;
+            dclk_glb_ff_0 : OUT std_ulogic;
+            dclk_glb_ff_1 : OUT std_ulogic;
+            dclk_glb_ff_2 : OUT std_ulogic;
+            dclk_glb_ff_3 : OUT std_ulogic;
+            dclk_glb_ff_4 : OUT std_ulogic;
+            dclk_glb_ff_5 : OUT std_ulogic;
+            dclk_glb_ff_6 : OUT std_ulogic;
+            dclk_glb_ff_7 : OUT std_ulogic);
+    END COMPONENT;
+    COMPONENT controlcell
+        PORT (
+            control_0 : OUT std_ulogic;
+            control_1 : OUT std_ulogic;
+            control_2 : OUT std_ulogic;
+            control_3 : OUT std_ulogic;
+            control_4 : OUT std_ulogic;
+            control_5 : OUT std_ulogic;
+            control_6 : OUT std_ulogic;
+            control_7 : OUT std_ulogic;
+            clock : IN std_ulogic;
+            reset : IN std_ulogic;
+            clk_en : IN std_ulogic;
+            busclk : IN std_ulogic);
+    END COMPONENT;
+    COMPONENT count7cell
+        PORT (
+            clock : IN std_ulogic;
+            reset : IN std_ulogic;
+            load : IN std_ulogic;
+            enable : IN std_ulogic;
+            clk_en : IN std_ulogic;
+            count_0 : OUT std_ulogic;
+            count_1 : OUT std_ulogic;
+            count_2 : OUT std_ulogic;
+            count_3 : OUT std_ulogic;
+            count_4 : OUT std_ulogic;
+            count_5 : OUT std_ulogic;
+            count_6 : OUT std_ulogic;
+            tc : OUT std_ulogic;
+            clock_n : IN std_ulogic;
+            extclk : IN std_ulogic;
+            extclk_n : IN std_ulogic);
+    END COMPONENT;
+    COMPONENT datapathcell
+        PORT (
+            clock : IN std_ulogic;
+            clk_en : IN std_ulogic;
+            reset : IN std_ulogic;
+            cs_addr_0 : IN std_ulogic;
+            cs_addr_1 : IN std_ulogic;
+            cs_addr_2 : IN std_ulogic;
+            route_si : IN std_ulogic;
+            route_ci : IN std_ulogic;
+            f0_load : IN std_ulogic;
+            f1_load : IN std_ulogic;
+            d0_load : IN std_ulogic;
+            d1_load : IN std_ulogic;
+            ce0_reg : OUT std_ulogic;
+            cl0_reg : OUT std_ulogic;
+            z0_reg : OUT std_ulogic;
+            f0_reg : OUT std_ulogic;
+            ce1_reg : OUT std_ulogic;
+            cl1_reg : OUT std_ulogic;
+            z1_reg : OUT std_ulogic;
+            f1_reg : OUT std_ulogic;
+            ov_msb_reg : OUT std_ulogic;
+            co_msb_reg : OUT std_ulogic;
+            cmsb_reg : OUT std_ulogic;
+            so_reg : OUT std_ulogic;
+            f0_bus_stat_reg : OUT std_ulogic;
+            f0_blk_stat_reg : OUT std_ulogic;
+            f1_bus_stat_reg : OUT std_ulogic;
+            f1_blk_stat_reg : OUT std_ulogic;
+            ce0_comb : OUT std_ulogic;
+            cl0_comb : OUT std_ulogic;
+            z0_comb : OUT std_ulogic;
+            f0_comb : OUT std_ulogic;
+            ce1_comb : OUT std_ulogic;
+            cl1_comb : OUT std_ulogic;
+            z1_comb : OUT std_ulogic;
+            f1_comb : OUT std_ulogic;
+            ov_msb_comb : OUT std_ulogic;
+            co_msb_comb : OUT std_ulogic;
+            cmsb_comb : OUT std_ulogic;
+            so_comb : OUT std_ulogic;
+            f0_bus_stat_comb : OUT std_ulogic;
+            f0_blk_stat_comb : OUT std_ulogic;
+            f1_bus_stat_comb : OUT std_ulogic;
+            f1_blk_stat_comb : OUT std_ulogic;
+            p_in_0 : IN std_ulogic;
+            p_in_1 : IN std_ulogic;
+            p_in_2 : IN std_ulogic;
+            p_in_3 : IN std_ulogic;
+            p_in_4 : IN std_ulogic;
+            p_in_5 : IN std_ulogic;
+            p_in_6 : IN std_ulogic;
+            p_in_7 : IN std_ulogic;
+            p_out_0 : OUT std_ulogic;
+            p_out_1 : OUT std_ulogic;
+            p_out_2 : OUT std_ulogic;
+            p_out_3 : OUT std_ulogic;
+            p_out_4 : OUT std_ulogic;
+            p_out_5 : OUT std_ulogic;
+            p_out_6 : OUT std_ulogic;
+            p_out_7 : OUT std_ulogic;
+            ce0i : IN std_ulogic;
+            ce0 : OUT std_ulogic;
+            cl0i : IN std_ulogic;
+            cl0 : OUT std_ulogic;
+            z0i : IN std_ulogic;
+            z0 : OUT std_ulogic;
+            ff0i : IN std_ulogic;
+            ff0 : OUT std_ulogic;
+            ce1i : IN std_ulogic;
+            ce1 : OUT std_ulogic;
+            cl1i : IN std_ulogic;
+            cl1 : OUT std_ulogic;
+            z1i : IN std_ulogic;
+            z1 : OUT std_ulogic;
+            ff1i : IN std_ulogic;
+            ff1 : OUT std_ulogic;
+            cap0i : IN std_ulogic;
+            cap0 : OUT std_ulogic;
+            cap1i : IN std_ulogic;
+            cap1 : OUT std_ulogic;
+            ci : IN std_ulogic;
+            co_msb : OUT std_ulogic;
+            sir : IN std_ulogic;
+            sol_msb : OUT std_ulogic;
+            cfbi : IN std_ulogic;
+            cfbo : OUT std_ulogic;
+            sil : IN std_ulogic;
+            sor : OUT std_ulogic;
+            cmsbi : IN std_ulogic;
+            cmsbo : OUT std_ulogic;
+            busclk : IN std_ulogic);
+    END COMPONENT;
+    COMPONENT drqcell
+        PORT (
+            dmareq : IN std_ulogic;
+            termin : IN std_ulogic;
+            termout : OUT std_ulogic;
+            interrupt : OUT std_ulogic;
+            clock : IN std_ulogic);
+    END COMPONENT;
+    COMPONENT interrupt
+        PORT (
+            interrupt : IN std_ulogic;
+            clock : IN std_ulogic);
+    END COMPONENT;
+    COMPONENT iocell
+        PORT (
+            oe : IN std_ulogic;
+            fb : OUT std_ulogic;
+            pa_out : OUT std_ulogic;
+            pin_input : IN std_ulogic;
+            pad_in : IN std_ulogic;
+            pad_out : OUT std_ulogic;
+            oe_reg : OUT std_ulogic;
+            oe_internal : IN std_ulogic;
+            in_clock : IN std_ulogic;
+            in_clock_en : IN std_ulogic;
+            in_reset : IN std_ulogic;
+            out_clock : IN std_ulogic;
+            out_clock_en : IN std_ulogic;
+            out_reset : IN std_ulogic);
+    END COMPONENT;
+    COMPONENT logicalport
+        PORT (
+            interrupt : OUT std_ulogic;
+            precharge : IN std_ulogic;
+            in_clock : IN std_ulogic;
+            in_clock_en : IN std_ulogic;
+            in_reset : IN std_ulogic;
+            out_clock : IN std_ulogic;
+            out_clock_en : IN std_ulogic;
+            out_reset : IN std_ulogic);
+    END COMPONENT;
+    COMPONENT lpfcell
+    END COMPONENT;
+    COMPONENT macrocell
+        PORT (
+            main_0 : IN std_ulogic;
+            main_1 : IN std_ulogic;
+            main_2 : IN std_ulogic;
+            main_3 : IN std_ulogic;
+            main_4 : IN std_ulogic;
+            main_5 : IN std_ulogic;
+            main_6 : IN std_ulogic;
+            main_7 : IN std_ulogic;
+            main_8 : IN std_ulogic;
+            main_9 : IN std_ulogic;
+            main_10 : IN std_ulogic;
+            main_11 : IN std_ulogic;
+            ar_0 : IN std_ulogic;
+            ap_0 : IN std_ulogic;
+            clock_0 : IN std_ulogic;
+            clk_en : IN std_ulogic;
+            cin : IN std_ulogic;
+            cpt0_0 : IN std_ulogic;
+            cpt0_1 : IN std_ulogic;
+            cpt0_2 : IN std_ulogic;
+            cpt0_3 : IN std_ulogic;
+            cpt0_4 : IN std_ulogic;
+            cpt0_5 : IN std_ulogic;
+            cpt0_6 : IN std_ulogic;
+            cpt0_7 : IN std_ulogic;
+            cpt0_8 : IN std_ulogic;
+            cpt0_9 : IN std_ulogic;
+            cpt0_10 : IN std_ulogic;
+            cpt0_11 : IN std_ulogic;
+            cpt1_0 : IN std_ulogic;
+            cpt1_1 : IN std_ulogic;
+            cpt1_2 : IN std_ulogic;
+            cpt1_3 : IN std_ulogic;
+            cpt1_4 : IN std_ulogic;
+            cpt1_5 : IN std_ulogic;
+            cpt1_6 : IN std_ulogic;
+            cpt1_7 : IN std_ulogic;
+            cpt1_8 : IN std_ulogic;
+            cpt1_9 : IN std_ulogic;
+            cpt1_10 : IN std_ulogic;
+            cpt1_11 : IN std_ulogic;
+            cout : OUT std_ulogic;
+            q : OUT std_ulogic;
+            q_fixed : OUT std_ulogic);
+    END COMPONENT;
+    COMPONENT sccell
+        PORT (
+            aclk : IN std_ulogic;
+            bst_clk : IN std_ulogic;
+            clk_udb : IN std_ulogic;
+            modout : OUT std_ulogic;
+            dyn_cntl_udb : IN std_ulogic);
+    END COMPONENT;
+    COMPONENT statuscell
+        PORT (
+            status_0 : IN std_ulogic;
+            status_1 : IN std_ulogic;
+            status_2 : IN std_ulogic;
+            status_3 : IN std_ulogic;
+            status_4 : IN std_ulogic;
+            status_5 : IN std_ulogic;
+            status_6 : IN std_ulogic;
+            status_7 : IN std_ulogic;
+            clock : IN std_ulogic;
+            reset : IN std_ulogic;
+            clk_en : IN std_ulogic);
+    END COMPONENT;
+    COMPONENT statusicell
+        PORT (
+            status_0 : IN std_ulogic;
+            status_1 : IN std_ulogic;
+            status_2 : IN std_ulogic;
+            status_3 : IN std_ulogic;
+            status_4 : IN std_ulogic;
+            status_5 : IN std_ulogic;
+            status_6 : IN std_ulogic;
+            clock : IN std_ulogic;
+            reset : IN std_ulogic;
+            interrupt : OUT std_ulogic;
+            clk_en : IN std_ulogic);
+    END COMPONENT;
+    COMPONENT synccell
+        PORT (
+            in : IN std_ulogic;
+            clock : IN std_ulogic;
+            out : OUT std_ulogic;
+            clk_en : IN std_ulogic;
+            clock_n : IN std_ulogic;
+            extclk : IN std_ulogic;
+            extclk_n : IN std_ulogic);
+    END COMPONENT;
+    COMPONENT timercell
+        PORT (
+            clock : IN std_ulogic;
+            kill : IN std_ulogic;
+            enable : IN std_ulogic;
+            capture : IN std_ulogic;
+            timer_reset : IN std_ulogic;
+            tc : OUT std_ulogic;
+            cmp : OUT std_ulogic;
+            irq : OUT std_ulogic);
+    END COMPONENT;
+    COMPONENT usbcell
+        PORT (
+            sof_int : OUT std_ulogic;
+            arb_int : OUT std_ulogic;
+            usb_int : OUT std_ulogic;
+            ord_int : OUT std_ulogic;
+            ept_int_0 : OUT std_ulogic;
+            ept_int_1 : OUT std_ulogic;
+            ept_int_2 : OUT std_ulogic;
+            ept_int_3 : OUT std_ulogic;
+            ept_int_4 : OUT std_ulogic;
+            ept_int_5 : OUT std_ulogic;
+            ept_int_6 : OUT std_ulogic;
+            ept_int_7 : OUT std_ulogic;
+            ept_int_8 : OUT std_ulogic;
+            dma_req_0 : OUT std_ulogic;
+            dma_req_1 : OUT std_ulogic;
+            dma_req_2 : OUT std_ulogic;
+            dma_req_3 : OUT std_ulogic;
+            dma_req_4 : OUT std_ulogic;
+            dma_req_5 : OUT std_ulogic;
+            dma_req_6 : OUT std_ulogic;
+            dma_req_7 : OUT std_ulogic;
+            dma_termin : OUT std_ulogic);
+    END COMPONENT;
+    COMPONENT vidaccell
+        PORT (
+            data_0 : IN std_ulogic;
+            data_1 : IN std_ulogic;
+            data_2 : IN std_ulogic;
+            data_3 : IN std_ulogic;
+            data_4 : IN std_ulogic;
+            data_5 : IN std_ulogic;
+            data_6 : IN std_ulogic;
+            data_7 : IN std_ulogic;
+            strobe : IN std_ulogic;
+            strobe_udb : IN std_ulogic;
+            reset : IN std_ulogic;
+            idir : IN std_ulogic;
+            ioff : IN std_ulogic);
+    END COMPONENT;
+BEGIN
+
+    Net_252_split:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_4 * main_5 * main_6 * main_7 * main_8 * !main_9) + (main_0 * main_1 * !main_2 * !main_3 * main_7 * main_8 * !main_9) + (main_0 * main_1 * !main_2 * main_3 * main_7 * !main_8 * !main_9) + (main_0 * main_1 * !main_2 * main_3 * main_7 * main_8 * main_9) + (main_0 * main_1 * main_2 * !main_3 * main_7 * !main_8 * !main_9) + (main_0 * main_1 * main_2 * !main_3 * main_7 * main_8 * main_9) + (main_0 * main_1 * main_2 * main_3 * main_7 * !main_8 * main_9) + (main_0 * main_1 * main_2 * main_3 * main_7 * main_8 * !main_9)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_252_split,
+            main_0 => Net_1708,
+            main_1 => Net_1707_2,
+            main_2 => Net_1707_1,
+            main_3 => Net_1707_0,
+            main_4 => Net_1706_2,
+            main_5 => Net_1706_1,
+            main_6 => Net_1706_0,
+            main_7 => Net_1106,
+            main_8 => \OddParityGen_1:tmpb\,
+            main_9 => \OddParityGen_1:tmpc\);
+
+    ClockBlock:clockblockcell
+        PORT MAP(
+            imo => ClockBlock_IMO,
+            pllout => ClockBlock_PLL_OUT,
+            ilo => ClockBlock_ILO,
+            clk_100k => ClockBlock_100k,
+            clk_1k => ClockBlock_1k,
+            clk_32k => ClockBlock_32k,
+            xtal => ClockBlock_XTAL,
+            clk_32k_xtal => ClockBlock_XTAL_32KHZ,
+            clk_sync => ClockBlock_MASTER_CLK,
+            clk_bus_glb => ClockBlock_BUS_CLK,
+            clk_bus => ClockBlock_BUS_CLK_local,
+            dsi_clkin_div => open,
+            dsi_glb_div => open,
+            dclk_glb_0 => Net_710,
+            dclk_0 => Net_710_local,
+            dclk_glb_1 => Net_585,
+            dclk_1 => Net_585_local,
+            dclk_glb_2 => Net_10,
+            dclk_2 => Net_10_local,
+            dclk_glb_3 => Net_1799,
+            dclk_3 => Net_1799_local,
+            dclk_glb_ff_2 => \ClockBlock.dclk_glb_ff_2__sig\);
+
+    SD_CD:logicalport
+        GENERIC MAP(
+            drive_mode => "001",
+            ibuf_enabled => "1",
+            id => "b5324e10-5947-4eb7-9e5c-75dae671b6dc",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "3.3",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "I",
+            por_state => 2,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open,
+            in_clock => open);
+
+    SD_CD(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 2,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SD_CD",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SD_CD(0)__PA,
+            oe => open,
+            pad_in => SD_CD(0)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SD_CS:logicalport
+        GENERIC MAP(
+            drive_mode => "110",
+            ibuf_enabled => "1",
+            id => "ba1e380f-c607-4906-96ae-bbe0f65227f0",
+            init_dr_st => "1",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "3.3",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "B",
+            por_state => 2,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "1",
+            vtrip => "01",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open,
+            in_clock => open);
+
+    SD_CS(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 2,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SD_CS",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SD_CS(0)__PA,
+            oe => open,
+            pad_in => SD_CS(0)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SD_SCK:logicalport
+        GENERIC MAP(
+            drive_mode => "110",
+            ibuf_enabled => "1",
+            id => "32f0aa9d-67c0-4e16-af15-f38ab16ecd75",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "3.3",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "1",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "O",
+            por_state => 2,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    SD_SCK(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SD_SCK",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SD_SCK(0)__PA,
+            oe => open,
+            pin_input => Net_682,
+            pad_out => SD_SCK(0)_PAD,
+            pad_in => SD_SCK(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SD_MOSI:logicalport
+        GENERIC MAP(
+            drive_mode => "110",
+            ibuf_enabled => "1",
+            id => "b5255b72-3857-4b85-b455-d625a7fbd978",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "3.3",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "1",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "O",
+            por_state => 2,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    SD_MOSI(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SD_MOSI",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SD_MOSI(0)__PA,
+            oe => open,
+            pin_input => Net_683,
+            pad_out => SD_MOSI(0)_PAD,
+            pad_in => SD_MOSI(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Noise:logicalport
+        GENERIC MAP(
+            drive_mode => "001001001001001",
+            ibuf_enabled => "11111",
+            id => "0953ba78-d08c-41cc-a5ba-a28ac6cf9ee6",
+            init_dr_st => "00000",
+            input_buffer_sel => "0000000000",
+            input_clk_en => 0,
+            input_sync => "11111",
+            input_sync_mode => "00000",
+            intr_mode => "0000000000",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => ",,,,",
+            layout_mode => "NONCONTIGUOUS",
+            oe_conn => "00000",
+            oe_reset => 0,
+            oe_sync => "00000",
+            output_clk_en => 0,
+            output_clock_mode => "00000",
+            output_conn => "00000",
+            output_mode => "00000",
+            output_reset => 0,
+            output_sync => "00000",
+            ovt_hyst_trim => "00000",
+            ovt_needed => "00000",
+            ovt_slew_control => "0000000000",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "ATN,BSY,SEL,RST,ACK",
+            pin_mode => "IIIII",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "11111",
+            sio_ibuf => "00000000",
+            sio_info => "0000000000",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "00000",
+            spanning => 1,
+            sw_only => 0,
+            use_annotation => "00000",
+            vtrip => "0101010101",
+            width => 5,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open,
+            in_clock => open);
+
+    SCSI_Noise(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Noise",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_Noise(0)__PA,
+            oe => open,
+            fb => Net_1728_0,
+            pad_in => SCSI_Noise(0)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Noise(1):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Noise",
+            logicalport_pin_id => 1,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_Noise(1)__PA,
+            oe => open,
+            fb => Net_1728_1,
+            pad_in => SCSI_Noise(1)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Noise(2):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Noise",
+            logicalport_pin_id => 2,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_Noise(2)__PA,
+            oe => open,
+            fb => Net_1728_2,
+            pad_in => SCSI_Noise(2)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Noise(3):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Noise",
+            logicalport_pin_id => 3,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_Noise(3)__PA,
+            oe => open,
+            fb => Net_1728_3,
+            pad_in => SCSI_Noise(3)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Noise(4):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Noise",
+            logicalport_pin_id => 4,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_Noise(4)__PA,
+            oe => open,
+            fb => Net_1728_4,
+            pad_in => SCSI_Noise(4)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    LED1:logicalport
+        GENERIC MAP(
+            drive_mode => "110",
+            ibuf_enabled => "1",
+            id => "52b56294-36b1-4f21-a98a-a7ce3de7f759",
+            init_dr_st => "1",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "O",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "1",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    LED1(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "LED1",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => LED1(0)__PA,
+            oe => open,
+            pad_in => LED1(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SD_MISO:logicalport
+        GENERIC MAP(
+            drive_mode => "001",
+            ibuf_enabled => "1",
+            id => "1bd12db2-da87-4f00-90d1-0a734e846c58",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "0",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "3.3",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "I",
+            por_state => 2,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    SD_MISO(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SD_MISO",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SD_MISO(0)__PA,
+            oe => open,
+            fb => Net_686,
+            pad_in => SD_MISO(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    \USBFS:Dm\:logicalport
+        GENERIC MAP(
+            drive_mode => "000",
+            ibuf_enabled => "0",
+            id => "791071b3-a348-49c4-b578-64e66d701d0f/8b77a6c4-10a0-4390-971c-672353e2a49c",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "NONCONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "A",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 1,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    \USBFS:Dm(0)\:iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "\USBFS:Dm\",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000100000000000000000000000")
+        PORT MAP(
+            pa_out => \\\USBFS:Dm(0)\\__PA\,
+            oe => open,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    \USBFS:Dp\:logicalport
+        GENERIC MAP(
+            drive_mode => "000",
+            ibuf_enabled => "0",
+            id => "791071b3-a348-49c4-b578-64e66d701d0f/618a72fc-5ddd-4df5-958f-a3d55102db42",
+            init_dr_st => "1",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "10",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "I",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "00",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open,
+            interrupt => \USBFS:Net_1010\,
+            in_clock => open);
+
+    \USBFS:Dp(0)\:iocell
+        GENERIC MAP(
+            in_sync_mode => 2,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "\USBFS:Dp\",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000010000000000000000000000")
+        PORT MAP(
+            pa_out => \\\USBFS:Dp(0)\\__PA\,
+            oe => open,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Out:logicalport
+        GENERIC MAP(
+            drive_mode => "110110110110110110110110110110",
+            ibuf_enabled => "1111111111",
+            id => "11f071e8-9c92-47e0-872a-3f48765a75b8",
+            init_dr_st => "0000000000",
+            input_buffer_sel => "00000000000000000000",
+            input_clk_en => 0,
+            input_sync => "1111111111",
+            input_sync_mode => "0000000000",
+            intr_mode => "00000000000000000000",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "4,4,4,4,4,4,4,4,4,4",
+            layout_mode => "NONCONTIGUOUS",
+            oe_conn => "0000000000",
+            oe_reset => 0,
+            oe_sync => "0000000000",
+            output_clk_en => 0,
+            output_clock_mode => "0000000000",
+            output_conn => "1000010111",
+            output_mode => "0000000000",
+            output_reset => 0,
+            output_sync => "0000000000",
+            ovt_hyst_trim => "0000000000",
+            ovt_needed => "0000000000",
+            ovt_slew_control => "00000000000000000000",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "DBP_raw,ATN,BSY,ACK,RST,MSG_raw,SEL,CD_raw,REQ,IO_raw",
+            pin_mode => "OOOOOOOOOO",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1111111111",
+            sio_ibuf => "00000000",
+            sio_info => "00000000000000000000",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0000000000",
+            spanning => 1,
+            sw_only => 0,
+            use_annotation => "1111111111",
+            vtrip => "10101010101010101010",
+            width => 10,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    SCSI_Out(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Out",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_Out(0)__PA,
+            oe => open,
+            pin_input => Net_252,
+            pad_out => SCSI_Out(0)_PAD,
+            pad_in => SCSI_Out(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Out(1):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Out",
+            logicalport_pin_id => 1,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => SCSI_Out(1)__PA,
+            oe => open,
+            pad_in => SCSI_Out(1)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Out(2):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Out",
+            logicalport_pin_id => 2,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => SCSI_Out(2)__PA,
+            oe => open,
+            pad_in => SCSI_Out(2)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Out(3):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Out",
+            logicalport_pin_id => 3,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => SCSI_Out(3)__PA,
+            oe => open,
+            pad_in => SCSI_Out(3)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Out(4):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Out",
+            logicalport_pin_id => 4,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => SCSI_Out(4)__PA,
+            oe => open,
+            pad_in => SCSI_Out(4)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Out(5):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Out",
+            logicalport_pin_id => 5,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_Out(5)__PA,
+            oe => open,
+            pin_input => Net_765,
+            pad_out => SCSI_Out(5)_PAD,
+            pad_in => SCSI_Out(5)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Out(6):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Out",
+            logicalport_pin_id => 6,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => SCSI_Out(6)__PA,
+            oe => open,
+            pad_in => SCSI_Out(6)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Out(7):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Out",
+            logicalport_pin_id => 7,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_Out(7)__PA,
+            oe => open,
+            pin_input => Net_701,
+            pad_out => SCSI_Out(7)_PAD,
+            pad_in => SCSI_Out(7)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Out(8):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Out",
+            logicalport_pin_id => 8,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_Out(8)__PA,
+            oe => open,
+            pin_input => Net_1691,
+            pad_out => SCSI_Out(8)_PAD,
+            pad_in => SCSI_Out(8)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Out(9):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Out",
+            logicalport_pin_id => 9,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_Out(9)__PA,
+            oe => open,
+            pin_input => Net_1106,
+            pad_out => SCSI_Out(9)_PAD,
+            pad_in => SCSI_Out(9)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_In:logicalport
+        GENERIC MAP(
+            drive_mode => "001001001001001",
+            ibuf_enabled => "11111",
+            id => "bc0102aa-f4d9-4793-b77a-8c3463edcafa",
+            init_dr_st => "00000",
+            input_buffer_sel => "0000000000",
+            input_clk_en => 0,
+            input_sync => "11111",
+            input_sync_mode => "00000",
+            intr_mode => "0000000000",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => ",,,,",
+            layout_mode => "NONCONTIGUOUS",
+            oe_conn => "00000",
+            oe_reset => 0,
+            oe_sync => "00000",
+            output_clk_en => 0,
+            output_clock_mode => "00000",
+            output_conn => "00000",
+            output_mode => "00000",
+            output_reset => 0,
+            output_sync => "00000",
+            ovt_hyst_trim => "00000",
+            ovt_needed => "00000",
+            ovt_slew_control => "0000000000",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "DBP,MSG,CD,REQ,IO",
+            pin_mode => "IIIII",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "11111",
+            sio_ibuf => "00000000",
+            sio_info => "0000000000",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "00000",
+            spanning => 1,
+            sw_only => 0,
+            use_annotation => "00000",
+            vtrip => "0101010110",
+            width => 5,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open,
+            in_clock => open);
+
+    SCSI_In(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_In",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_In(0)__PA,
+            oe => open,
+            fb => scsiIn_0,
+            pad_in => SCSI_In(0)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_In(1):iocell
+        GENERIC MAP(
+            in_sync_mode => 2,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_In",
+            logicalport_pin_id => 1,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_In(1)__PA,
+            oe => open,
+            pad_in => SCSI_In(1)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_In(2):iocell
+        GENERIC MAP(
+            in_sync_mode => 2,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_In",
+            logicalport_pin_id => 2,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_In(2)__PA,
+            oe => open,
+            pad_in => SCSI_In(2)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_In(3):iocell
+        GENERIC MAP(
+            in_sync_mode => 2,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_In",
+            logicalport_pin_id => 3,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_In(3)__PA,
+            oe => open,
+            pad_in => SCSI_In(3)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_In(4):iocell
+        GENERIC MAP(
+            in_sync_mode => 2,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_In",
+            logicalport_pin_id => 4,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_In(4)__PA,
+            oe => open,
+            pad_in => SCSI_In(4)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Out_DBx:logicalport
+        GENERIC MAP(
+            drive_mode => "110110110110110110110110",
+            ibuf_enabled => "11111111",
+            id => "52f31aa9-2f0a-497d-9a1f-1424095e13e6",
+            init_dr_st => "00000000",
+            input_buffer_sel => "0000000000000000",
+            input_clk_en => 0,
+            input_sync => "11111111",
+            input_sync_mode => "00000000",
+            intr_mode => "0000000000000000",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "4,4,4,4,4,4,4,4",
+            layout_mode => "NONCONTIGUOUS",
+            oe_conn => "00000000",
+            oe_reset => 0,
+            oe_sync => "00000000",
+            output_clk_en => 0,
+            output_clock_mode => "00000000",
+            output_conn => "11111111",
+            output_mode => "00000000",
+            output_reset => 0,
+            output_sync => "00000000",
+            ovt_hyst_trim => "00000000",
+            ovt_needed => "00000000",
+            ovt_slew_control => "0000000000000000",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "DB0,DB1,DB2,DB3,DB4,DB5,DB6,DB7",
+            pin_mode => "OOOOOOOO",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "11111111",
+            sio_ibuf => "00000000",
+            sio_info => "0000000000000000",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "00000000",
+            spanning => 1,
+            sw_only => 0,
+            use_annotation => "11111111",
+            vtrip => "1010101010101010",
+            width => 8,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    SCSI_Out_DBx(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Out_DBx",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_Out_DBx(0)__PA,
+            oe => open,
+            pin_input => Net_791_0,
+            pad_out => SCSI_Out_DBx(0)_PAD,
+            pad_in => SCSI_Out_DBx(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Out_DBx(1):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Out_DBx",
+            logicalport_pin_id => 1,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_Out_DBx(1)__PA,
+            oe => open,
+            pin_input => Net_791_1,
+            pad_out => SCSI_Out_DBx(1)_PAD,
+            pad_in => SCSI_Out_DBx(1)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Out_DBx(2):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Out_DBx",
+            logicalport_pin_id => 2,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_Out_DBx(2)__PA,
+            oe => open,
+            pin_input => Net_791_2,
+            pad_out => SCSI_Out_DBx(2)_PAD,
+            pad_in => SCSI_Out_DBx(2)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Out_DBx(3):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Out_DBx",
+            logicalport_pin_id => 3,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_Out_DBx(3)__PA,
+            oe => open,
+            pin_input => Net_791_3,
+            pad_out => SCSI_Out_DBx(3)_PAD,
+            pad_in => SCSI_Out_DBx(3)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Out_DBx(4):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Out_DBx",
+            logicalport_pin_id => 4,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_Out_DBx(4)__PA,
+            oe => open,
+            pin_input => Net_791_4,
+            pad_out => SCSI_Out_DBx(4)_PAD,
+            pad_in => SCSI_Out_DBx(4)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Out_DBx(5):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Out_DBx",
+            logicalport_pin_id => 5,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_Out_DBx(5)__PA,
+            oe => open,
+            pin_input => Net_791_5,
+            pad_out => SCSI_Out_DBx(5)_PAD,
+            pad_in => SCSI_Out_DBx(5)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Out_DBx(6):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Out_DBx",
+            logicalport_pin_id => 6,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_Out_DBx(6)__PA,
+            oe => open,
+            pin_input => Net_791_6,
+            pad_out => SCSI_Out_DBx(6)_PAD,
+            pad_in => SCSI_Out_DBx(6)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_Out_DBx(7):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_Out_DBx",
+            logicalport_pin_id => 7,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_Out_DBx(7)__PA,
+            oe => open,
+            pin_input => Net_791_7,
+            pad_out => SCSI_Out_DBx(7)_PAD,
+            pad_in => SCSI_Out_DBx(7)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_In_DBx:logicalport
+        GENERIC MAP(
+            drive_mode => "001001001001001001001001",
+            ibuf_enabled => "11111111",
+            id => "4c15b41e-e284-4978-99e7-5aaee19bd0ce",
+            init_dr_st => "00000000",
+            input_buffer_sel => "0000000000000000",
+            input_clk_en => 0,
+            input_sync => "11111111",
+            input_sync_mode => "00000000",
+            intr_mode => "0000000000000000",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => ",,,,,,,",
+            layout_mode => "NONCONTIGUOUS",
+            oe_conn => "00000000",
+            oe_reset => 0,
+            oe_sync => "00000000",
+            output_clk_en => 0,
+            output_clock_mode => "00000000",
+            output_conn => "00000000",
+            output_mode => "00000000",
+            output_reset => 0,
+            output_sync => "00000000",
+            ovt_hyst_trim => "00000000",
+            ovt_needed => "00000000",
+            ovt_slew_control => "0000000000000000",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "DB0,DB1,DB2,DB3,DB4,DB5,DB6,DB7",
+            pin_mode => "IIIIIIII",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "11111111",
+            sio_ibuf => "00000000",
+            sio_info => "0000000000000000",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "00000000",
+            spanning => 1,
+            sw_only => 0,
+            use_annotation => "00000000",
+            vtrip => "0101010101010101",
+            width => 8,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open,
+            in_clock => open);
+
+    SCSI_In_DBx(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_In_DBx",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_In_DBx(0)__PA,
+            oe => open,
+            fb => Net_952_0,
+            pad_in => SCSI_In_DBx(0)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_In_DBx(1):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_In_DBx",
+            logicalport_pin_id => 1,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_In_DBx(1)__PA,
+            oe => open,
+            fb => Net_952_1,
+            pad_in => SCSI_In_DBx(1)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_In_DBx(2):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_In_DBx",
+            logicalport_pin_id => 2,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_In_DBx(2)__PA,
+            oe => open,
+            fb => Net_952_2,
+            pad_in => SCSI_In_DBx(2)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_In_DBx(3):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_In_DBx",
+            logicalport_pin_id => 3,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_In_DBx(3)__PA,
+            oe => open,
+            fb => Net_952_3,
+            pad_in => SCSI_In_DBx(3)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_In_DBx(4):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_In_DBx",
+            logicalport_pin_id => 4,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_In_DBx(4)__PA,
+            oe => open,
+            fb => Net_952_4,
+            pad_in => SCSI_In_DBx(4)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_In_DBx(5):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_In_DBx",
+            logicalport_pin_id => 5,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_In_DBx(5)__PA,
+            oe => open,
+            fb => Net_952_5,
+            pad_in => SCSI_In_DBx(5)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_In_DBx(6):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_In_DBx",
+            logicalport_pin_id => 6,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_In_DBx(6)__PA,
+            oe => open,
+            fb => Net_952_6,
+            pad_in => SCSI_In_DBx(6)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SCSI_In_DBx(7):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SCSI_In_DBx",
+            logicalport_pin_id => 7,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SCSI_In_DBx(7)__PA,
+            oe => open,
+            fb => Net_952_7,
+            pad_in => SCSI_In_DBx(7)_PAD,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    SOUND:logicalport
+        GENERIC MAP(
+            drive_mode => "000",
+            ibuf_enabled => "0",
+            id => "3b04c7a0-4ee9-4635-8b02-d4e48eba2376",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "A",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "1",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    SOUND(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SOUND",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
+        PORT MAP(
+            pa_out => SOUND(0)__PA,
+            oe => open,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    Net_1724:macrocell
+        GENERIC MAP(
+            soft => 1,
+            eqn_main => "(!main_0 * main_1) + (main_0 * main_2)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_1724,
+            main_0 => Net_1714,
+            main_1 => filteredIn_4,
+            main_2 => Net_1728_4_SYNCOUT);
+
+    \SDCard:BSPIM:load_rx_data\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * !main_1 * !main_2 * !main_3 * main_4)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => \SDCard:BSPIM:load_rx_data\,
+            main_0 => \SDCard:BSPIM:count_4\,
+            main_1 => \SDCard:BSPIM:count_3\,
+            main_2 => \SDCard:BSPIM:count_2\,
+            main_3 => \SDCard:BSPIM:count_1\,
+            main_4 => \SDCard:BSPIM:count_0\);
+
+    Net_683:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * !main_3 * main_4) + (main_1 * !main_3 * main_4) + (!main_2 * !main_3 * main_4)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_683,
+            main_0 => \SDCard:BSPIM:state_2\,
+            main_1 => \SDCard:BSPIM:state_1\,
+            main_2 => \SDCard:BSPIM:state_0\,
+            main_3 => Net_1606,
+            main_4 => \SDCard:BSPIM:mosi_hs_reg\);
+
+    \SDCard:BSPIM:tx_status_0\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * !main_1 * main_2)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => \SDCard:BSPIM:tx_status_0\,
+            main_0 => \SDCard:BSPIM:state_2\,
+            main_1 => \SDCard:BSPIM:state_1\,
+            main_2 => \SDCard:BSPIM:state_0\);
+
+    \SDCard:BSPIM:tx_status_4\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * !main_1 * !main_2)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => \SDCard:BSPIM:tx_status_4\,
+            main_0 => \SDCard:BSPIM:state_2\,
+            main_1 => \SDCard:BSPIM:state_1\,
+            main_2 => \SDCard:BSPIM:state_0\);
+
+    \SDCard:BSPIM:rx_status_6\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * !main_1 * !main_2 * !main_3 * main_4 * main_5)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => \SDCard:BSPIM:rx_status_6\,
+            main_0 => \SDCard:BSPIM:count_4\,
+            main_1 => \SDCard:BSPIM:count_3\,
+            main_2 => \SDCard:BSPIM:count_2\,
+            main_3 => \SDCard:BSPIM:count_1\,
+            main_4 => \SDCard:BSPIM:count_0\,
+            main_5 => \SDCard:BSPIM:rx_status_4\);
+
+    Net_791_7:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_2) + (main_0 * main_1)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_791_7,
+            main_0 => Net_1708,
+            main_1 => Net_1707_7,
+            main_2 => Net_1706_7);
+
+    Net_791_6:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_2) + (main_0 * main_1)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_791_6,
+            main_0 => Net_1708,
+            main_1 => Net_1707_6,
+            main_2 => Net_1706_6);
+
+    Net_791_5:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_2) + (main_0 * main_1)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_791_5,
+            main_0 => Net_1708,
+            main_1 => Net_1707_5,
+            main_2 => Net_1706_5);
+
+    Net_791_4:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_2) + (main_0 * main_1)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_791_4,
+            main_0 => Net_1708,
+            main_1 => Net_1707_4,
+            main_2 => Net_1706_4);
+
+    Net_791_3:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_2) + (main_0 * main_1)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_791_3,
+            main_0 => Net_1708,
+            main_1 => Net_1707_3,
+            main_2 => Net_1706_3);
+
+    Net_791_2:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_2) + (main_0 * main_1)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_791_2,
+            main_0 => Net_1708,
+            main_1 => Net_1707_2,
+            main_2 => Net_1706_2);
+
+    Net_791_1:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_2) + (main_0 * main_1)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_791_1,
+            main_0 => Net_1708,
+            main_1 => Net_1707_1,
+            main_2 => Net_1706_1);
+
+    Net_791_0:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_2) + (main_0 * main_1)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_791_0,
+            main_0 => Net_1708,
+            main_1 => Net_1707_0,
+            main_2 => Net_1706_0);
+
+    \scsiTarget:txComplete\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * !main_1 * !main_2 * !main_3)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => \scsiTarget:txComplete\,
+            main_0 => \scsiTarget:f0_blk_stat\,
+            main_1 => \scsiTarget:state_2\,
+            main_2 => \scsiTarget:state_1\,
+            main_3 => \scsiTarget:state_0\);
+
+    \SDCard:BSPIM:mosi_pre_reg_split_1\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * !main_4 * !main_5 * !main_6 * !main_7 * !main_9) + (!main_0 * !main_2) + (!main_0 * !main_8) + (main_0 * !main_1 * main_2) + (main_0 * !main_3) + (main_1 * !main_2)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => \SDCard:BSPIM:mosi_pre_reg_split_1\,
+            main_0 => \SDCard:BSPIM:state_2\,
+            main_1 => \SDCard:BSPIM:state_1\,
+            main_2 => \SDCard:BSPIM:state_0\,
+            main_3 => \SDCard:BSPIM:mosi_from_dp\,
+            main_4 => \SDCard:BSPIM:count_4\,
+            main_5 => \SDCard:BSPIM:count_3\,
+            main_6 => \SDCard:BSPIM:count_2\,
+            main_7 => \SDCard:BSPIM:count_0\,
+            main_8 => \SDCard:BSPIM:mosi_pre_reg\,
+            main_9 => \SDCard:BSPIM:ld_ident\);
+
+    \SDCard:BSPIM:mosi_pre_reg_split\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * !main_2 * main_3 * main_4) + (!main_0 * main_1 * !main_2 * main_3 * main_5) + (!main_0 * main_1 * !main_2 * main_3 * main_6) + (!main_0 * main_1 * !main_2 * main_3 * main_7) + (!main_0 * main_1 * !main_2 * main_3 * !main_8) + (main_0 * main_1 * !main_2 * main_9) + (main_1 * !main_2 * !main_4 * !main_5 * !main_6 * !main_7 * main_8 * main_9) + (main_1 * main_2 * main_3 * !main_4 * !main_5 * !main_6 * !main_7 * !main_8 * !main_10)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => \SDCard:BSPIM:mosi_pre_reg_split\,
+            main_0 => \SDCard:BSPIM:state_2\,
+            main_1 => \SDCard:BSPIM:state_1\,
+            main_2 => \SDCard:BSPIM:state_0\,
+            main_3 => \SDCard:BSPIM:mosi_from_dp\,
+            main_4 => \SDCard:BSPIM:count_4\,
+            main_5 => \SDCard:BSPIM:count_3\,
+            main_6 => \SDCard:BSPIM:count_2\,
+            main_7 => \SDCard:BSPIM:count_1\,
+            main_8 => \SDCard:BSPIM:count_0\,
+            main_9 => \SDCard:BSPIM:mosi_pre_reg\,
+            main_10 => \SDCard:BSPIM:ld_ident\);
+
+    Net_252_split_3:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * !main_1 * !main_2 * !main_3 * main_4 * !main_5 * !main_6) + (!main_0 * !main_1 * !main_2 * !main_3 * main_4 * main_5 * main_6) + (!main_0 * !main_1 * !main_2 * main_3 * main_4 * !main_5 * main_6) + (!main_0 * !main_1 * !main_2 * main_3 * main_4 * main_5 * !main_6) + (!main_0 * !main_1 * main_2 * !main_3 * main_4 * !main_5 * main_6) + (!main_0 * !main_1 * main_2 * !main_3 * main_4 * main_5 * !main_6) + (!main_0 * !main_1 * main_2 * main_3 * main_4 * !main_5 * !main_6) + (!main_0 * !main_1 * main_2 * main_3 * main_4 * main_5 * main_6)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_252_split_3,
+            main_0 => Net_1708,
+            main_1 => Net_1706_2,
+            main_2 => Net_1706_1,
+            main_3 => Net_1706_0,
+            main_4 => Net_1106,
+            main_5 => \OddParityGen_1:tmpb\,
+            main_6 => \OddParityGen_1:tmpc\);
+
+    Net_252_split_2:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_4 * !main_5 * !main_6 * main_7 * !main_8 * main_9) + (!main_0 * main_4 * !main_5 * !main_6 * main_7 * main_8 * !main_9) + (!main_0 * main_4 * !main_5 * main_6 * main_7 * !main_8 * !main_9) + (!main_0 * main_4 * !main_5 * main_6 * main_7 * main_8 * main_9) + (!main_0 * main_4 * main_5 * !main_6 * main_7 * !main_8 * !main_9) + (!main_0 * main_4 * main_5 * !main_6 * main_7 * main_8 * main_9) + (main_0 * !main_1 * !main_2 * !main_3 * main_7 * !main_8 * !main_9) + (main_0 * !main_1 * !main_2 * !main_3 * main_7 * main_8 * main_9)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_252_split_2,
+            main_0 => Net_1708,
+            main_1 => Net_1707_2,
+            main_2 => Net_1707_1,
+            main_3 => Net_1707_0,
+            main_4 => Net_1706_2,
+            main_5 => Net_1706_1,
+            main_6 => Net_1706_0,
+            main_7 => Net_1106,
+            main_8 => \OddParityGen_1:tmpb\,
+            main_9 => \OddParityGen_1:tmpc\);
+
+    \OddParityGen_1:tmpb\:macrocell
+        GENERIC MAP(
+            soft => 1,
+            eqn_main => "(!main_0 * !main_3 * main_4) + (!main_0 * main_3 * !main_4) + (main_0 * !main_1 * main_2) + (main_0 * main_1 * !main_2)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => \OddParityGen_1:tmpb\,
+            main_0 => Net_1708,
+            main_1 => Net_1707_4,
+            main_2 => Net_1707_3,
+            main_3 => Net_1706_4,
+            main_4 => Net_1706_3);
+
+    \OddParityGen_1:tmpc\:macrocell
+        GENERIC MAP(
+            soft => 1,
+            eqn_main => "(!main_0 * !main_4 * !main_5 * main_6) + (!main_0 * !main_4 * main_5 * !main_6) + (!main_0 * main_4 * !main_5 * !main_6) + (!main_0 * main_4 * main_5 * main_6) + (main_0 * !main_1 * !main_2 * main_3) + (main_0 * !main_1 * main_2 * !main_3) + (main_0 * main_1 * !main_2 * !main_3) + (main_0 * main_1 * main_2 * main_3)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => \OddParityGen_1:tmpc\,
+            main_0 => Net_1708,
+            main_1 => Net_1707_7,
+            main_2 => Net_1707_6,
+            main_3 => Net_1707_5,
+            main_4 => Net_1706_7,
+            main_5 => Net_1706_6,
+            main_6 => Net_1706_5);
+
+    Net_252:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * !main_1 * !main_2 * !main_3)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_252,
+            main_0 => Net_252_split,
+            main_1 => Net_252_split_1,
+            main_2 => Net_252_split_2,
+            main_3 => Net_252_split_3);
+
+    \SCSI_Glitch_Ctl:Sync:ctrl_reg\:controlcell
+        GENERIC MAP(
+            cy_ctrl_mode_0 => "00000000",
+            cy_ctrl_mode_1 => "00000000",
+            cy_ext_reset => 0,
+            cy_force_order => 1,
+            cy_init_value => "00000000",
+            clken_mode => 1)
+        PORT MAP(
+            control_7 => \SCSI_Glitch_Ctl:control_7\,
+            control_6 => \SCSI_Glitch_Ctl:control_6\,
+            control_5 => \SCSI_Glitch_Ctl:control_5\,
+            control_4 => \SCSI_Glitch_Ctl:control_4\,
+            control_3 => \SCSI_Glitch_Ctl:control_3\,
+            control_2 => \SCSI_Glitch_Ctl:control_2\,
+            control_1 => \SCSI_Glitch_Ctl:control_1\,
+            control_0 => Net_1714,
+            busclk => ClockBlock_BUS_CLK);
+
+    Net_252_split_1:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_4 * main_5 * main_6 * main_7 * !main_8 * main_9) + (main_0 * !main_1 * !main_2 * main_3 * main_7 * !main_8 * main_9) + (main_0 * !main_1 * !main_2 * main_3 * main_7 * main_8 * !main_9) + (main_0 * !main_1 * main_2 * !main_3 * main_7 * !main_8 * main_9) + (main_0 * !main_1 * main_2 * !main_3 * main_7 * main_8 * !main_9) + (main_0 * !main_1 * main_2 * main_3 * main_7 * !main_8 * !main_9) + (main_0 * !main_1 * main_2 * main_3 * main_7 * main_8 * main_9) + (main_0 * main_1 * !main_2 * !main_3 * main_7 * !main_8 * main_9)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_252_split_1,
+            main_0 => Net_1708,
+            main_1 => Net_1707_2,
+            main_2 => Net_1707_1,
+            main_3 => Net_1707_0,
+            main_4 => Net_1706_2,
+            main_5 => Net_1706_1,
+            main_6 => Net_1706_0,
+            main_7 => Net_1106,
+            main_8 => \OddParityGen_1:tmpb\,
+            main_9 => \OddParityGen_1:tmpc\);
+
+    SCSI_In_DBx(0)_SYNC:synccell
+        GENERIC MAP(
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            in => Net_952_0,
+            out => Net_952_0_SYNCOUT,
+            clock => ClockBlock_BUS_CLK);
+
+    SCSI_SEL_ISR:interrupt
+        GENERIC MAP(
+            int_type => "00",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_1699,
+            clock => ClockBlock_BUS_CLK);
+
+    SCSI_In_DBx(2)_SYNC:synccell
+        GENERIC MAP(
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            in => Net_952_2,
+            out => Net_952_2_SYNCOUT,
+            clock => ClockBlock_BUS_CLK);
+
+    SCSI_In_DBx(1)_SYNC:synccell
+        GENERIC MAP(
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            in => Net_952_1,
+            out => Net_952_1_SYNCOUT,
+            clock => ClockBlock_BUS_CLK);
+
+    __ONE__:macrocell
+        GENERIC MAP(
+            eqn_main => "1'b0",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => __ONE__);
+
+    \SDCard:BSPIM:BitCounter\:count7cell
+        GENERIC MAP(
+            cy_alt_mode => 0,
+            cy_init_value => "0000000",
+            cy_period => "0001111",
+            cy_route_en => 1,
+            cy_route_ld => 0,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            clock => Net_710,
+            load => open,
+            enable => \SDCard:BSPIM:cnt_enable\,
+            count_6 => \SDCard:BSPIM:count_6\,
+            count_5 => \SDCard:BSPIM:count_5\,
+            count_4 => \SDCard:BSPIM:count_4\,
+            count_3 => \SDCard:BSPIM:count_3\,
+            count_2 => \SDCard:BSPIM:count_2\,
+            count_1 => \SDCard:BSPIM:count_1\,
+            count_0 => \SDCard:BSPIM:count_0\,
+            tc => \SDCard:BSPIM:cnt_tc\);
+
+    \SDCard:BSPIM:TxStsReg\:statusicell
+        GENERIC MAP(
+            cy_force_order => 1,
+            cy_int_mask => "0000000",
+            cy_md_select => "0001001",
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            clock => Net_710,
+            status_6 => open,
+            status_5 => open,
+            status_4 => \SDCard:BSPIM:tx_status_4\,
+            status_3 => \SDCard:BSPIM:load_rx_data\,
+            status_2 => \SDCard:BSPIM:tx_status_2\,
+            status_1 => \SDCard:BSPIM:tx_status_1\,
+            status_0 => \SDCard:BSPIM:tx_status_0\,
+            interrupt => Net_913);
+
+    \SDCard:BSPIM:RxStsReg\:statusicell
+        GENERIC MAP(
+            cy_force_order => 1,
+            cy_int_mask => "0000000",
+            cy_md_select => "1000000",
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            clock => Net_710,
+            status_6 => \SDCard:BSPIM:rx_status_6\,
+            status_5 => \SDCard:BSPIM:rx_status_5\,
+            status_4 => \SDCard:BSPIM:rx_status_4\,
+            status_3 => open,
+            status_2 => open,
+            status_1 => open,
+            status_0 => open,
+            interrupt => Net_910);
+
+    \SDCard:BSPIM:sR8:Dp:u0\:datapathcell
+        GENERIC MAP(
+            a0_init => "00000000",
+            a1_init => "00000000",
+            ce0_sync => 1,
+            ce1_sync => 1,
+            cl0_sync => 1,
+            cl1_sync => 1,
+            cmsb_sync => 1,
+            co_msb_sync => 1,
+            cy_dpconfig => "0000000000000000000000001100000000000001010000000001000100010000000000011100000000010001000000000000000101000000000000010100000011111111000000001111111111111111000000000010001000001000111100000000000000000100",
+            d0_init => "00000000",
+            d1_init => "00000000",
+            f0_blk_sync => 1,
+            f0_bus_sync => 1,
+            f1_blk_sync => 1,
+            f1_bus_sync => 1,
+            ff0_sync => 1,
+            ff1_sync => 1,
+            ov_msb_sync => 1,
+            placement_force => "U(2,0)",
+            so_sync => 1,
+            z0_sync => 1,
+            z1_sync => 1,
+            uses_p_in => '0',
+            uses_p_out => '0',
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            clock => Net_710,
+            cs_addr_2 => \SDCard:BSPIM:state_2\,
+            cs_addr_1 => \SDCard:BSPIM:state_1\,
+            cs_addr_0 => \SDCard:BSPIM:state_0\,
+            route_si => Net_686,
+            f1_load => \SDCard:BSPIM:load_rx_data\,
+            so_comb => \SDCard:BSPIM:mosi_from_dp\,
+            f0_bus_stat_comb => \SDCard:BSPIM:tx_status_2\,
+            f0_blk_stat_comb => \SDCard:BSPIM:tx_status_1\,
+            f1_bus_stat_comb => \SDCard:BSPIM:rx_status_5\,
+            f1_blk_stat_comb => \SDCard:BSPIM:rx_status_4\,
+            busclk => ClockBlock_BUS_CLK);
+
+    \USBFS:dp_int\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBFS:Net_1010\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBFS:USB\:usbcell
+        GENERIC MAP(
+            cy_registers => "")
+        PORT MAP(
+            sof_int => Net_1684,
+            arb_int => \USBFS:Net_1889\,
+            usb_int => \USBFS:Net_1876\,
+            ept_int_8 => \USBFS:ep_int_8\,
+            ept_int_7 => \USBFS:ep_int_7\,
+            ept_int_6 => \USBFS:ep_int_6\,
+            ept_int_5 => \USBFS:ep_int_5\,
+            ept_int_4 => \USBFS:ep_int_4\,
+            ept_int_3 => \USBFS:ep_int_3\,
+            ept_int_2 => \USBFS:ep_int_2\,
+            ept_int_1 => \USBFS:ep_int_1\,
+            ept_int_0 => \USBFS:ep_int_0\,
+            ord_int => \USBFS:Net_95\,
+            dma_req_7 => \USBFS:dma_request_7\,
+            dma_req_6 => \USBFS:dma_request_6\,
+            dma_req_5 => \USBFS:dma_request_5\,
+            dma_req_4 => \USBFS:dma_request_4\,
+            dma_req_3 => \USBFS:dma_request_3\,
+            dma_req_2 => \USBFS:dma_request_2\,
+            dma_req_1 => \USBFS:dma_request_1\,
+            dma_req_0 => \USBFS:dma_request_0\,
+            dma_termin => \USBFS:dma_terminate\);
+
+    \USBFS:ep_4\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBFS:ep_int_4\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBFS:ep_3\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBFS:ep_int_3\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBFS:ep_2\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBFS:ep_int_2\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBFS:ep_1\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBFS:ep_int_1\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBFS:ep_0\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBFS:ep_int_0\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBFS:bus_reset\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBFS:Net_1876\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBFS:arb_int\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBFS:Net_1889\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBFS:sof_int\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_1684,
+            clock => ClockBlock_BUS_CLK);
+
+    \SCSI_Filtered:sts:sts_reg\:statuscell
+        GENERIC MAP(
+            cy_force_order => 1,
+            cy_md_select => "00000000",
+            clken_mode => 1)
+        PORT MAP(
+            clock => open,
+            status_7 => open,
+            status_6 => open,
+            status_5 => open,
+            status_4 => filteredIn_4,
+            status_3 => filteredIn_3,
+            status_2 => filteredIn_2,
+            status_1 => filteredIn_1,
+            status_0 => filteredIn_0);
+
+    \SCSI_Parity_Error:sts:sts_reg\:statuscell
+        GENERIC MAP(
+            cy_force_order => 1,
+            cy_md_select => "00000001",
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            clock => Net_585,
+            status_7 => open,
+            status_6 => open,
+            status_5 => open,
+            status_4 => open,
+            status_3 => open,
+            status_2 => open,
+            status_1 => open,
+            status_0 => Net_1500);
+
+    \Debug_Timer:TimerHW\:timercell
+        GENERIC MAP(
+            cy_registers => "")
+        PORT MAP(
+            clock => \ClockBlock.dclk_glb_ff_2__sig\,
+            kill => open,
+            enable => __ONE__,
+            capture => open,
+            timer_reset => open,
+            tc => Net_855,
+            cmp => \Debug_Timer:Net_261\,
+            irq => \Debug_Timer:Net_57\);
+
+    SCSI_Noise(4)_SYNC:synccell
+        GENERIC MAP(
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            in => Net_1728_4,
+            out => Net_1728_4_SYNCOUT,
+            clock => ClockBlock_BUS_CLK);
+
+    Debug_Timer_Interrupt:interrupt
+        GENERIC MAP(
+            int_type => "00",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_855,
+            clock => ClockBlock_BUS_CLK);
+
+    SCSI_RX_DMA_COMPLETE:interrupt
+        GENERIC MAP(
+            int_type => "00",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_928,
+            clock => ClockBlock_BUS_CLK);
+
+    SCSI_RX_DMA:drqcell
+        GENERIC MAP(
+            drq_type => "01",
+            num_tds => 0)
+        PORT MAP(
+            dmareq => Net_1655,
+            termin => '0',
+            termout => Net_928,
+            clock => ClockBlock_BUS_CLK);
+
+    SD_RX_DMA:drqcell
+        GENERIC MAP(
+            drq_type => "01",
+            num_tds => 0)
+        PORT MAP(
+            dmareq => Net_910,
+            termin => '0',
+            termout => Net_918,
+            clock => ClockBlock_BUS_CLK);
+
+    SD_TX_DMA:drqcell
+        GENERIC MAP(
+            drq_type => "00",
+            num_tds => 0)
+        PORT MAP(
+            dmareq => Net_913,
+            termin => '0',
+            termout => Net_919,
+            clock => ClockBlock_BUS_CLK);
+
+    SD_RX_DMA_COMPLETE:interrupt
+        GENERIC MAP(
+            int_type => "00",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_918,
+            clock => ClockBlock_BUS_CLK);
+
+    SD_TX_DMA_COMPLETE:interrupt
+        GENERIC MAP(
+            int_type => "00",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_919,
+            clock => ClockBlock_BUS_CLK);
+
+    SCSI_TX_DMA_COMPLETE:interrupt
+        GENERIC MAP(
+            int_type => "00",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_903,
+            clock => ClockBlock_BUS_CLK);
+
+    SCSI_TX_DMA:drqcell
+        GENERIC MAP(
+            drq_type => "01",
+            num_tds => 0)
+        PORT MAP(
+            dmareq => Net_1668,
+            termin => '0',
+            termout => Net_903,
+            clock => ClockBlock_BUS_CLK);
+
+    \SCSI_Out_Ctl:Sync:ctrl_reg\:controlcell
+        GENERIC MAP(
+            cy_ctrl_mode_0 => "00000000",
+            cy_ctrl_mode_1 => "00000000",
+            cy_ext_reset => 0,
+            cy_force_order => 1,
+            cy_init_value => "00000000",
+            clken_mode => 1)
+        PORT MAP(
+            control_7 => \SCSI_Out_Ctl:control_7\,
+            control_6 => \SCSI_Out_Ctl:control_6\,
+            control_5 => \SCSI_Out_Ctl:control_5\,
+            control_4 => \SCSI_Out_Ctl:control_4\,
+            control_3 => \SCSI_Out_Ctl:control_3\,
+            control_2 => \SCSI_Out_Ctl:control_2\,
+            control_1 => \SCSI_Out_Ctl:control_1\,
+            control_0 => Net_1708,
+            busclk => ClockBlock_BUS_CLK);
+
+    \SCSI_Out_Bits:Sync:ctrl_reg\:controlcell
+        GENERIC MAP(
+            cy_ctrl_mode_0 => "00000000",
+            cy_ctrl_mode_1 => "00000000",
+            cy_ext_reset => 0,
+            cy_force_order => 1,
+            cy_init_value => "00000000",
+            clken_mode => 1)
+        PORT MAP(
+            control_7 => Net_1707_7,
+            control_6 => Net_1707_6,
+            control_5 => Net_1707_5,
+            control_4 => Net_1707_4,
+            control_3 => Net_1707_3,
+            control_2 => Net_1707_2,
+            control_1 => Net_1707_1,
+            control_0 => Net_1707_0,
+            busclk => ClockBlock_BUS_CLK);
+
+    SCSI_In(0)_SYNC:synccell
+        GENERIC MAP(
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            in => scsiIn_0,
+            out => scsiIn_0_SYNCOUT,
+            clock => ClockBlock_BUS_CLK);
+
+    \scsiTarget:StatusReg\:statuscell
+        GENERIC MAP(
+            cy_force_order => 1,
+            cy_md_select => "00000000",
+            clken_mode => 1)
+        PORT MAP(
+            clock => open,
+            status_7 => open,
+            status_6 => open,
+            status_5 => open,
+            status_4 => \scsiTarget:txComplete\,
+            status_3 => \scsiTarget:f1_blk_stat\,
+            status_2 => \scsiTarget:f0_blk_stat\,
+            status_1 => Net_1655,
+            status_0 => Net_1668);
+
+    \scsiTarget:datapath\:datapathcell
+        GENERIC MAP(
+            a0_init => "00000000",
+            a1_init => "00000000",
+            ce0_sync => 1,
+            ce1_sync => 1,
+            cl0_sync => 1,
+            cl1_sync => 1,
+            cmsb_sync => 1,
+            co_msb_sync => 1,
+            cy_dpconfig => "0000000000001000000000001100100000000000000000000000000010000000010000000100000000000000000000000000000000000000000000000000100011111111000000001111111111111111000000000000000000101100000000000000000000000000",
+            d0_init => "00000001",
+            d1_init => "00000000",
+            f0_blk_sync => 1,
+            f0_bus_sync => 1,
+            f1_blk_sync => 1,
+            f1_bus_sync => 1,
+            ff0_sync => 1,
+            ff1_sync => 1,
+            ov_msb_sync => 1,
+            placement_force => "U(2,5)",
+            so_sync => 1,
+            z0_sync => 1,
+            z1_sync => 1,
+            uses_p_in => '1',
+            uses_p_out => '1',
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            clock => Net_585,
+            cs_addr_2 => \scsiTarget:state_2\,
+            cs_addr_1 => \scsiTarget:state_1\,
+            cs_addr_0 => \scsiTarget:state_0\,
+            f1_load => \scsiTarget:fifoStore\,
+            z0_comb => \scsiTarget:deskewComplete\,
+            f0_bus_stat_comb => Net_1668,
+            f0_blk_stat_comb => \scsiTarget:f0_blk_stat\,
+            f1_bus_stat_comb => Net_1655,
+            f1_blk_stat_comb => \scsiTarget:f1_blk_stat\,
+            p_in_7 => \scsiTarget:pi_7\,
+            p_in_6 => \scsiTarget:pi_6\,
+            p_in_5 => \scsiTarget:pi_5\,
+            p_in_4 => \scsiTarget:pi_4\,
+            p_in_3 => \scsiTarget:pi_3\,
+            p_in_2 => \scsiTarget:pi_2\,
+            p_in_1 => \scsiTarget:pi_1\,
+            p_in_0 => \scsiTarget:pi_0\,
+            p_out_7 => \scsiTarget:po_7\,
+            p_out_6 => \scsiTarget:po_6\,
+            p_out_5 => \scsiTarget:po_5\,
+            p_out_4 => \scsiTarget:po_4\,
+            p_out_3 => \scsiTarget:po_3\,
+            p_out_2 => \scsiTarget:po_2\,
+            p_out_1 => \scsiTarget:po_1\,
+            p_out_0 => \scsiTarget:po_0\,
+            busclk => ClockBlock_BUS_CLK);
+
+    \SCSI_CTL_PHASE:Sync:ctrl_reg\:controlcell
+        GENERIC MAP(
+            cy_ctrl_mode_0 => "00000000",
+            cy_ctrl_mode_1 => "00000000",
+            cy_ext_reset => 0,
+            cy_force_order => 1,
+            cy_init_value => "00000000",
+            clken_mode => 1)
+        PORT MAP(
+            control_7 => \SCSI_CTL_PHASE:control_7\,
+            control_6 => \SCSI_CTL_PHASE:control_6\,
+            control_5 => \SCSI_CTL_PHASE:control_5\,
+            control_4 => \SCSI_CTL_PHASE:control_4\,
+            control_3 => \SCSI_CTL_PHASE:control_3\,
+            control_2 => Net_1106,
+            control_1 => Net_701,
+            control_0 => Net_765,
+            busclk => ClockBlock_BUS_CLK);
+
+    SCSI_RST_ISR:interrupt
+        GENERIC MAP(
+            int_type => "00",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => cydff_1,
+            clock => ClockBlock_BUS_CLK);
+
+    \VDAC8_1:viDAC8\:vidaccell
+        GENERIC MAP(
+            cy_registers => "",
+            is_all_if_any => 0,
+            reg_data => 0)
+        PORT MAP(
+            reset => open,
+            idir => open,
+            ioff => open);
+
+    SCSI_Noise(3)_SYNC:synccell
+        GENERIC MAP(
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            in => Net_1728_3,
+            out => Net_1728_3_SYNCOUT,
+            clock => ClockBlock_BUS_CLK);
+
+    SOUND_ISR:interrupt
+        GENERIC MAP(
+            int_type => "00",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_1799_local,
+            clock => ClockBlock_BUS_CLK);
+
+    \PGA_1:SC\:sccell
+        GENERIC MAP(
+            cy_registers => "")
+        PORT MAP(
+            dyn_cntl_udb => open,
+            modout => \PGA_1:Net_41\);
+
+    SCSI_In_DBx(3)_SYNC:synccell
+        GENERIC MAP(
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            in => Net_952_3,
+            out => Net_952_3_SYNCOUT,
+            clock => ClockBlock_BUS_CLK);
+
+    \LPF_1:cy_psoc3_lpf_1\:lpfcell
+        GENERIC MAP(
+            cy_registers => "");
+
+    Net_1699:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_1699,
+            clock_0 => ClockBlock_BUS_CLK,
+            main_0 => filteredIn_2);
+
+    Net_682:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * main_1 * main_2) + (main_1 * !main_3) + (main_2 * !main_3)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_682,
+            clock_0 => Net_710,
+            main_0 => Net_682,
+            main_1 => \SDCard:BSPIM:state_2\,
+            main_2 => \SDCard:BSPIM:state_1\,
+            main_3 => \SDCard:BSPIM:state_0\);
+
+    cydff_1:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => cydff_1,
+            clock_0 => ClockBlock_BUS_CLK,
+            main_0 => filteredIn_3);
+
+    SCSI_Noise(2)_SYNC:synccell
+        GENERIC MAP(
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            in => Net_1728_2,
+            out => Net_1728_2_SYNCOUT,
+            clock => ClockBlock_BUS_CLK);
+
+    \SDCard:BSPIM:state_2\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * !main_1 * main_2) + (main_0 * main_1 * main_2) + (main_1 * main_2 * !main_3 * !main_4 * !main_5 * main_6 * !main_7 * !main_9) + (main_1 * main_2 * !main_3 * !main_4 * main_5 * main_6 * !main_7 * !main_8)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \SDCard:BSPIM:state_2\,
+            clock_0 => Net_710,
+            main_0 => \SDCard:BSPIM:state_2\,
+            main_1 => \SDCard:BSPIM:state_1\,
+            main_2 => \SDCard:BSPIM:state_0\,
+            main_3 => \SDCard:BSPIM:count_4\,
+            main_4 => \SDCard:BSPIM:count_3\,
+            main_5 => \SDCard:BSPIM:count_2\,
+            main_6 => \SDCard:BSPIM:count_1\,
+            main_7 => \SDCard:BSPIM:count_0\,
+            main_8 => \SDCard:BSPIM:tx_status_1\,
+            main_9 => \SDCard:BSPIM:ld_ident\);
+
+    \SDCard:BSPIM:state_1\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * !main_1 * !main_2) + (!main_0 * main_1 * main_2 * !main_3 * !main_4 * !main_5 * main_6 * !main_7 * !main_9) + (!main_0 * main_1 * main_2 * !main_3 * !main_4 * main_5 * main_6 * !main_7 * !main_8) + (main_0 * !main_1 * main_2)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \SDCard:BSPIM:state_1\,
+            clock_0 => Net_710,
+            main_0 => \SDCard:BSPIM:state_2\,
+            main_1 => \SDCard:BSPIM:state_1\,
+            main_2 => \SDCard:BSPIM:state_0\,
+            main_3 => \SDCard:BSPIM:count_4\,
+            main_4 => \SDCard:BSPIM:count_3\,
+            main_5 => \SDCard:BSPIM:count_2\,
+            main_6 => \SDCard:BSPIM:count_1\,
+            main_7 => \SDCard:BSPIM:count_0\,
+            main_8 => \SDCard:BSPIM:tx_status_1\,
+            main_9 => \SDCard:BSPIM:ld_ident\);
+
+    \SDCard:BSPIM:state_0\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * !main_1 * main_2) + (!main_0 * !main_1 * main_8) + (!main_0 * main_2 * !main_3 * !main_4 * !main_5 * main_6 * !main_7 * !main_9)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \SDCard:BSPIM:state_0\,
+            clock_0 => Net_710,
+            main_0 => \SDCard:BSPIM:state_2\,
+            main_1 => \SDCard:BSPIM:state_1\,
+            main_2 => \SDCard:BSPIM:state_0\,
+            main_3 => \SDCard:BSPIM:count_4\,
+            main_4 => \SDCard:BSPIM:count_3\,
+            main_5 => \SDCard:BSPIM:count_2\,
+            main_6 => \SDCard:BSPIM:count_1\,
+            main_7 => \SDCard:BSPIM:count_0\,
+            main_8 => \SDCard:BSPIM:tx_status_1\,
+            main_9 => \SDCard:BSPIM:ld_ident\);
+
+    Net_1606:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * !main_1 * main_2) + (main_0 * !main_2 * !main_3) + (main_1 * !main_3)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_1606,
+            clock_0 => Net_710,
+            main_0 => \SDCard:BSPIM:state_2\,
+            main_1 => \SDCard:BSPIM:state_1\,
+            main_2 => \SDCard:BSPIM:state_0\,
+            main_3 => Net_1606);
+
+    \SDCard:BSPIM:mosi_hs_reg\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * main_2 * main_5) + (main_0 * main_1 * main_2 * main_3) + (!main_1 * main_4) + (!main_2 * main_4)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \SDCard:BSPIM:mosi_hs_reg\,
+            clock_0 => Net_710,
+            main_0 => \SDCard:BSPIM:state_2\,
+            main_1 => \SDCard:BSPIM:state_1\,
+            main_2 => \SDCard:BSPIM:state_0\,
+            main_3 => \SDCard:BSPIM:mosi_from_dp\,
+            main_4 => \SDCard:BSPIM:mosi_hs_reg\,
+            main_5 => \SDCard:BSPIM:mosi_from_dp_reg\);
+
+    \SDCard:BSPIM:mosi_pre_reg\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * !main_1)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \SDCard:BSPIM:mosi_pre_reg\,
+            clock_0 => Net_710,
+            main_0 => \SDCard:BSPIM:mosi_pre_reg_split\,
+            main_1 => \SDCard:BSPIM:mosi_pre_reg_split_1\);
+
+    SCSI_Noise(1)_SYNC:synccell
+        GENERIC MAP(
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            in => Net_1728_1,
+            out => Net_1728_1_SYNCOUT,
+            clock => ClockBlock_BUS_CLK);
+
+    \SDCard:BSPIM:load_cond\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * !main_3 * !main_4 * !main_5 * !main_6 * !main_7 * main_8) + (main_0 * !main_1 * !main_2 * !main_8) + (main_1 * !main_3 * !main_4 * !main_5 * !main_6 * !main_7 * main_8) + (main_2 * !main_3 * !main_4 * !main_5 * !main_6 * !main_7 * main_8)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \SDCard:BSPIM:load_cond\,
+            clock_0 => Net_710,
+            main_0 => \SDCard:BSPIM:state_2\,
+            main_1 => \SDCard:BSPIM:state_1\,
+            main_2 => \SDCard:BSPIM:state_0\,
+            main_3 => \SDCard:BSPIM:count_4\,
+            main_4 => \SDCard:BSPIM:count_3\,
+            main_5 => \SDCard:BSPIM:count_2\,
+            main_6 => \SDCard:BSPIM:count_1\,
+            main_7 => \SDCard:BSPIM:count_0\,
+            main_8 => \SDCard:BSPIM:load_cond\);
+
+    SCSI_Noise(0)_SYNC:synccell
+        GENERIC MAP(
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            in => Net_1728_0,
+            out => Net_1728_0_SYNCOUT,
+            clock => ClockBlock_BUS_CLK);
+
+    \SDCard:BSPIM:mosi_from_dp_reg\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \SDCard:BSPIM:mosi_from_dp_reg\,
+            clock_0 => Net_710,
+            main_0 => \SDCard:BSPIM:mosi_from_dp\);
+
+    \SDCard:BSPIM:ld_ident\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * !main_2 * !main_3 * !main_4 * !main_5 * !main_6 * main_7 * main_8) + (main_0 * !main_1 * !main_2 * !main_8)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \SDCard:BSPIM:ld_ident\,
+            clock_0 => Net_710,
+            main_0 => \SDCard:BSPIM:state_2\,
+            main_1 => \SDCard:BSPIM:state_1\,
+            main_2 => \SDCard:BSPIM:state_0\,
+            main_3 => \SDCard:BSPIM:count_4\,
+            main_4 => \SDCard:BSPIM:count_3\,
+            main_5 => \SDCard:BSPIM:count_2\,
+            main_6 => \SDCard:BSPIM:count_1\,
+            main_7 => \SDCard:BSPIM:count_0\,
+            main_8 => \SDCard:BSPIM:ld_ident\);
+
+    \SDCard:BSPIM:cnt_enable\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * !main_1 * !main_2 * main_3) + (main_0 * !main_1 * main_2 * main_3) + (main_0 * main_1 * !main_2 * !main_3)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \SDCard:BSPIM:cnt_enable\,
+            clock_0 => Net_710,
+            main_0 => \SDCard:BSPIM:state_2\,
+            main_1 => \SDCard:BSPIM:state_1\,
+            main_2 => \SDCard:BSPIM:state_0\,
+            main_3 => \SDCard:BSPIM:cnt_enable\);
+
+    \GlitchFilter_1:genblk1[0]:samples_2\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \GlitchFilter_1:genblk1[0]:samples_2\,
+            clock_0 => Net_585,
+            main_0 => \GlitchFilter_1:genblk1[0]:samples_1\);
+
+    \GlitchFilter_1:genblk1[0]:samples_1\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \GlitchFilter_1:genblk1[0]:samples_1\,
+            clock_0 => Net_585,
+            main_0 => \GlitchFilter_1:genblk1[0]:samples_0\);
+
+    \GlitchFilter_1:genblk1[0]:samples_0\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \GlitchFilter_1:genblk1[0]:samples_0\,
+            clock_0 => Net_585,
+            main_0 => Net_1728_0_SYNCOUT);
+
+    filteredIn_0:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * main_2 * main_3 * main_4) + (main_0 * !main_1 * !main_2 * !main_3 * !main_4)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => filteredIn_0,
+            clock_0 => Net_585,
+            main_0 => filteredIn_0,
+            main_1 => \GlitchFilter_1:genblk1[0]:samples_2\,
+            main_2 => \GlitchFilter_1:genblk1[0]:samples_1\,
+            main_3 => \GlitchFilter_1:genblk1[0]:samples_0\,
+            main_4 => Net_1728_0_SYNCOUT);
+
+    \GlitchFilter_1:genblk1[1]:samples_2\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \GlitchFilter_1:genblk1[1]:samples_2\,
+            clock_0 => Net_585,
+            main_0 => \GlitchFilter_1:genblk1[1]:samples_1\);
+
+    \GlitchFilter_1:genblk1[1]:samples_1\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \GlitchFilter_1:genblk1[1]:samples_1\,
+            clock_0 => Net_585,
+            main_0 => \GlitchFilter_1:genblk1[1]:samples_0\);
+
+    \GlitchFilter_1:genblk1[1]:samples_0\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \GlitchFilter_1:genblk1[1]:samples_0\,
+            clock_0 => Net_585,
+            main_0 => Net_1728_1_SYNCOUT);
+
+    filteredIn_1:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * main_2 * main_3 * main_4) + (main_0 * !main_1 * !main_2 * !main_3 * !main_4)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => filteredIn_1,
+            clock_0 => Net_585,
+            main_0 => filteredIn_1,
+            main_1 => \GlitchFilter_1:genblk1[1]:samples_2\,
+            main_2 => \GlitchFilter_1:genblk1[1]:samples_1\,
+            main_3 => \GlitchFilter_1:genblk1[1]:samples_0\,
+            main_4 => Net_1728_1_SYNCOUT);
+
+    \GlitchFilter_1:genblk1[2]:samples_2\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \GlitchFilter_1:genblk1[2]:samples_2\,
+            clock_0 => Net_585,
+            main_0 => \GlitchFilter_1:genblk1[2]:samples_1\);
+
+    \GlitchFilter_1:genblk1[2]:samples_1\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \GlitchFilter_1:genblk1[2]:samples_1\,
+            clock_0 => Net_585,
+            main_0 => \GlitchFilter_1:genblk1[2]:samples_0\);
+
+    \GlitchFilter_1:genblk1[2]:samples_0\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \GlitchFilter_1:genblk1[2]:samples_0\,
+            clock_0 => Net_585,
+            main_0 => Net_1728_2_SYNCOUT);
+
+    filteredIn_2:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * main_2 * main_3 * main_4) + (main_0 * !main_1 * !main_2 * !main_3 * !main_4)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => filteredIn_2,
+            clock_0 => Net_585,
+            main_0 => filteredIn_2,
+            main_1 => \GlitchFilter_1:genblk1[2]:samples_2\,
+            main_2 => \GlitchFilter_1:genblk1[2]:samples_1\,
+            main_3 => \GlitchFilter_1:genblk1[2]:samples_0\,
+            main_4 => Net_1728_2_SYNCOUT);
+
+    \GlitchFilter_1:genblk1[3]:samples_2\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \GlitchFilter_1:genblk1[3]:samples_2\,
+            clock_0 => Net_585,
+            main_0 => \GlitchFilter_1:genblk1[3]:samples_1\);
+
+    \GlitchFilter_1:genblk1[3]:samples_1\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \GlitchFilter_1:genblk1[3]:samples_1\,
+            clock_0 => Net_585,
+            main_0 => \GlitchFilter_1:genblk1[3]:samples_0\);
+
+    \GlitchFilter_1:genblk1[3]:samples_0\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \GlitchFilter_1:genblk1[3]:samples_0\,
+            clock_0 => Net_585,
+            main_0 => Net_1728_3_SYNCOUT);
+
+    filteredIn_3:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * main_2 * main_3 * main_4) + (main_0 * !main_1 * !main_2 * !main_3 * !main_4)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => filteredIn_3,
+            clock_0 => Net_585,
+            main_0 => filteredIn_3,
+            main_1 => \GlitchFilter_1:genblk1[3]:samples_2\,
+            main_2 => \GlitchFilter_1:genblk1[3]:samples_1\,
+            main_3 => \GlitchFilter_1:genblk1[3]:samples_0\,
+            main_4 => Net_1728_3_SYNCOUT);
+
+    \GlitchFilter_1:genblk1[4]:samples_2\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \GlitchFilter_1:genblk1[4]:samples_2\,
+            clock_0 => Net_585,
+            main_0 => \GlitchFilter_1:genblk1[4]:samples_1\);
+
+    \GlitchFilter_1:genblk1[4]:samples_1\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \GlitchFilter_1:genblk1[4]:samples_1\,
+            clock_0 => Net_585,
+            main_0 => \GlitchFilter_1:genblk1[4]:samples_0\);
+
+    \GlitchFilter_1:genblk1[4]:samples_0\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \GlitchFilter_1:genblk1[4]:samples_0\,
+            clock_0 => Net_585,
+            main_0 => Net_1728_4_SYNCOUT);
+
+    filteredIn_4:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * main_2 * main_3 * main_4) + (main_0 * !main_1 * !main_2 * !main_3 * !main_4)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => filteredIn_4,
+            clock_0 => Net_585,
+            main_0 => filteredIn_4,
+            main_1 => \GlitchFilter_1:genblk1[4]:samples_2\,
+            main_2 => \GlitchFilter_1:genblk1[4]:samples_1\,
+            main_3 => \GlitchFilter_1:genblk1[4]:samples_0\,
+            main_4 => Net_1728_4_SYNCOUT);
+
+    Net_1691:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * main_2 * main_3 * main_4) + (main_1 * !main_2 * main_3 * !main_4 * !main_5 * main_7) + (main_1 * !main_2 * main_3 * !main_4 * main_5 * !main_6) + (main_2 * !main_3 * !main_4 * !main_5) + (main_2 * main_3 * main_4 * main_5)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_1691,
+            clock_0 => Net_585,
+            main_0 => Net_1724,
+            main_1 => filteredIn_3,
+            main_2 => Net_1691,
+            main_3 => \scsiTarget:state_2\,
+            main_4 => \scsiTarget:state_1\,
+            main_5 => \scsiTarget:state_0\,
+            main_6 => \scsiTarget:f1_blk_stat\,
+            main_7 => \scsiTarget:deskewComplete\);
+
+    Net_1706_7:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * !main_1 * main_3) + (main_0 * main_1 * !main_3) + (main_0 * !main_2 * main_3) + (!main_1 * main_2 * !main_3 * main_4)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_1706_7,
+            clock_0 => Net_585,
+            main_0 => Net_1706_7,
+            main_1 => \scsiTarget:state_2\,
+            main_2 => \scsiTarget:state_1\,
+            main_3 => \scsiTarget:state_0\,
+            main_4 => \scsiTarget:po_7\);
+
+    Net_1706_6:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * !main_1 * main_3) + (main_0 * main_1 * !main_3) + (main_0 * !main_2 * main_3) + (!main_1 * main_2 * !main_3 * main_4)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_1706_6,
+            clock_0 => Net_585,
+            main_0 => Net_1706_6,
+            main_1 => \scsiTarget:state_2\,
+            main_2 => \scsiTarget:state_1\,
+            main_3 => \scsiTarget:state_0\,
+            main_4 => \scsiTarget:po_6\);
+
+    Net_1706_5:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * !main_1 * main_3) + (main_0 * main_1 * !main_3) + (main_0 * !main_2 * main_3) + (!main_1 * main_2 * !main_3 * main_4)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_1706_5,
+            clock_0 => Net_585,
+            main_0 => Net_1706_5,
+            main_1 => \scsiTarget:state_2\,
+            main_2 => \scsiTarget:state_1\,
+            main_3 => \scsiTarget:state_0\,
+            main_4 => \scsiTarget:po_5\);
+
+    Net_1706_4:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * !main_1 * main_3) + (main_0 * main_1 * !main_3) + (main_0 * !main_2 * main_3) + (!main_1 * main_2 * !main_3 * main_4)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_1706_4,
+            clock_0 => Net_585,
+            main_0 => Net_1706_4,
+            main_1 => \scsiTarget:state_2\,
+            main_2 => \scsiTarget:state_1\,
+            main_3 => \scsiTarget:state_0\,
+            main_4 => \scsiTarget:po_4\);
+
+    Net_1706_3:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * !main_1 * main_3) + (main_0 * main_1 * !main_3) + (main_0 * !main_2 * main_3) + (!main_1 * main_2 * !main_3 * main_4)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_1706_3,
+            clock_0 => Net_585,
+            main_0 => Net_1706_3,
+            main_1 => \scsiTarget:state_2\,
+            main_2 => \scsiTarget:state_1\,
+            main_3 => \scsiTarget:state_0\,
+            main_4 => \scsiTarget:po_3\);
+
+    Net_1706_2:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * !main_1 * main_3) + (main_0 * main_1 * !main_3) + (main_0 * !main_2 * main_3) + (!main_1 * main_2 * !main_3 * main_4)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_1706_2,
+            clock_0 => Net_585,
+            main_0 => Net_1706_2,
+            main_1 => \scsiTarget:state_2\,
+            main_2 => \scsiTarget:state_1\,
+            main_3 => \scsiTarget:state_0\,
+            main_4 => \scsiTarget:po_2\);
+
+    Net_1706_1:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * !main_1 * main_3) + (main_0 * main_1 * !main_3) + (main_0 * !main_2 * main_3) + (!main_1 * main_2 * !main_3 * main_4)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_1706_1,
+            clock_0 => Net_585,
+            main_0 => Net_1706_1,
+            main_1 => \scsiTarget:state_2\,
+            main_2 => \scsiTarget:state_1\,
+            main_3 => \scsiTarget:state_0\,
+            main_4 => \scsiTarget:po_1\);
+
+    Net_1706_0:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * !main_1 * main_3) + (main_0 * main_1 * !main_3) + (main_0 * !main_2 * main_3) + (!main_1 * main_2 * !main_3 * main_4)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_1706_0,
+            clock_0 => Net_585,
+            main_0 => Net_1706_0,
+            main_1 => \scsiTarget:state_2\,
+            main_2 => \scsiTarget:state_1\,
+            main_3 => \scsiTarget:state_0\,
+            main_4 => \scsiTarget:po_0\);
+
+    \scsiTarget:pi_7\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * !main_2 * main_3 * main_4 * !main_5 * !main_6) + (!main_0 * main_1 * main_2 * main_3 * main_4 * !main_5 * main_6)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \scsiTarget:pi_7\,
+            clock_0 => Net_585,
+            main_0 => Net_1724,
+            main_1 => filteredIn_3,
+            main_2 => \scsiTarget:pi_7\,
+            main_3 => \scsiTarget:state_2\,
+            main_4 => \scsiTarget:state_1\,
+            main_5 => \scsiTarget:state_0\,
+            main_6 => Net_952_7_SYNCOUT);
+
+    \scsiTarget:pi_6\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * !main_2 * main_3 * main_4 * !main_5 * !main_6) + (!main_0 * main_1 * main_2 * main_3 * main_4 * !main_5 * main_6)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \scsiTarget:pi_6\,
+            clock_0 => Net_585,
+            main_0 => Net_1724,
+            main_1 => filteredIn_3,
+            main_2 => \scsiTarget:pi_6\,
+            main_3 => \scsiTarget:state_2\,
+            main_4 => \scsiTarget:state_1\,
+            main_5 => \scsiTarget:state_0\,
+            main_6 => Net_952_6_SYNCOUT);
+
+    \scsiTarget:pi_5\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * !main_2 * main_3 * main_4 * !main_5 * !main_6) + (!main_0 * main_1 * main_2 * main_3 * main_4 * !main_5 * main_6)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \scsiTarget:pi_5\,
+            clock_0 => Net_585,
+            main_0 => Net_1724,
+            main_1 => filteredIn_3,
+            main_2 => \scsiTarget:pi_5\,
+            main_3 => \scsiTarget:state_2\,
+            main_4 => \scsiTarget:state_1\,
+            main_5 => \scsiTarget:state_0\,
+            main_6 => Net_952_5_SYNCOUT);
+
+    \scsiTarget:pi_4\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * !main_2 * main_3 * main_4 * !main_5 * !main_6) + (!main_0 * main_1 * main_2 * main_3 * main_4 * !main_5 * main_6)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \scsiTarget:pi_4\,
+            clock_0 => Net_585,
+            main_0 => Net_1724,
+            main_1 => filteredIn_3,
+            main_2 => \scsiTarget:pi_4\,
+            main_3 => \scsiTarget:state_2\,
+            main_4 => \scsiTarget:state_1\,
+            main_5 => \scsiTarget:state_0\,
+            main_6 => Net_952_4_SYNCOUT);
+
+    \scsiTarget:pi_3\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * !main_2 * main_3 * main_4 * !main_5 * !main_6) + (!main_0 * main_1 * main_2 * main_3 * main_4 * !main_5 * main_6)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \scsiTarget:pi_3\,
+            clock_0 => Net_585,
+            main_0 => Net_1724,
+            main_1 => filteredIn_3,
+            main_2 => \scsiTarget:pi_3\,
+            main_3 => \scsiTarget:state_2\,
+            main_4 => \scsiTarget:state_1\,
+            main_5 => \scsiTarget:state_0\,
+            main_6 => Net_952_3_SYNCOUT);
+
+    \scsiTarget:pi_2\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * !main_2 * main_3 * main_4 * !main_5 * !main_6) + (!main_0 * main_1 * main_2 * main_3 * main_4 * !main_5 * main_6)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \scsiTarget:pi_2\,
+            clock_0 => Net_585,
+            main_0 => Net_1724,
+            main_1 => filteredIn_3,
+            main_2 => \scsiTarget:pi_2\,
+            main_3 => \scsiTarget:state_2\,
+            main_4 => \scsiTarget:state_1\,
+            main_5 => \scsiTarget:state_0\,
+            main_6 => Net_952_2_SYNCOUT);
+
+    \scsiTarget:pi_1\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * !main_2 * main_3 * main_4 * !main_5 * !main_6) + (!main_0 * main_1 * main_2 * main_3 * main_4 * !main_5 * main_6)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \scsiTarget:pi_1\,
+            clock_0 => Net_585,
+            main_0 => Net_1724,
+            main_1 => filteredIn_3,
+            main_2 => \scsiTarget:pi_1\,
+            main_3 => \scsiTarget:state_2\,
+            main_4 => \scsiTarget:state_1\,
+            main_5 => \scsiTarget:state_0\,
+            main_6 => Net_952_1_SYNCOUT);
+
+    \scsiTarget:pi_0\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * !main_2 * main_3 * main_4 * !main_5 * !main_6) + (!main_0 * main_1 * main_2 * main_3 * main_4 * !main_5 * main_6)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \scsiTarget:pi_0\,
+            clock_0 => Net_585,
+            main_0 => Net_1724,
+            main_1 => filteredIn_3,
+            main_2 => \scsiTarget:pi_0\,
+            main_3 => \scsiTarget:state_2\,
+            main_4 => \scsiTarget:state_1\,
+            main_5 => \scsiTarget:state_0\,
+            main_6 => Net_952_0_SYNCOUT);
+
+    Net_1500:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * !main_1 * main_2) + (main_0 * main_1 * !main_3) + (main_0 * !main_2 * main_3) + (main_1 * main_2 * main_3 * !main_4 * !main_5 * !main_6 * main_7) + (main_1 * main_2 * main_3 * !main_4 * !main_5 * main_6 * !main_7) + (main_1 * main_2 * main_3 * !main_4 * main_5 * !main_6 * !main_7) + (main_1 * main_2 * main_3 * !main_4 * main_5 * main_6 * main_7)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_1500,
+            clock_0 => Net_585,
+            main_0 => Net_1500,
+            main_1 => \scsiTarget:state_2\,
+            main_2 => \scsiTarget:state_1\,
+            main_3 => \scsiTarget:state_0\,
+            main_4 => Net_1106,
+            main_5 => \scsiTarget:genParity_2\,
+            main_6 => \scsiTarget:genParity_1\,
+            main_7 => \scsiTarget:genParity_0\);
+
+    \scsiTarget:state_2\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * main_2 * main_3 * main_4) + (!main_1) + (!main_2 * !main_3 * main_5) + (!main_2 * !main_4)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \scsiTarget:state_2\,
+            clock_0 => Net_585,
+            main_0 => Net_1724,
+            main_1 => filteredIn_3,
+            main_2 => \scsiTarget:state_2\,
+            main_3 => \scsiTarget:state_1\,
+            main_4 => \scsiTarget:state_0\,
+            main_5 => Net_1106);
+
+    \scsiTarget:state_1\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * main_2 * main_3) + (main_1 * !main_2 * !main_3 * main_4 * main_6) + (main_1 * main_2 * !main_3 * main_4 * !main_5) + (main_1 * main_2 * !main_4 * main_7) + (main_1 * main_3 * !main_4)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \scsiTarget:state_1\,
+            clock_0 => Net_585,
+            main_0 => Net_1724,
+            main_1 => filteredIn_3,
+            main_2 => \scsiTarget:state_2\,
+            main_3 => \scsiTarget:state_1\,
+            main_4 => \scsiTarget:state_0\,
+            main_5 => \scsiTarget:f1_blk_stat\,
+            main_6 => Net_1106,
+            main_7 => \scsiTarget:deskewComplete\);
+
+    \scsiTarget:state_0\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * main_3 * main_4) + (main_1 * !main_2 * !main_3 * !main_5) + (main_1 * !main_2 * main_3 * main_4 * main_5) + (main_1 * !main_3 * !main_4 * main_5 * !main_7) + (main_1 * !main_3 * main_4 * !main_5) + (main_1 * main_3 * !main_4 * main_5 * main_6)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \scsiTarget:state_0\,
+            clock_0 => Net_585,
+            main_0 => Net_1724,
+            main_1 => filteredIn_3,
+            main_2 => \scsiTarget:f0_blk_stat\,
+            main_3 => \scsiTarget:state_2\,
+            main_4 => \scsiTarget:state_1\,
+            main_5 => \scsiTarget:state_0\,
+            main_6 => \scsiTarget:f1_blk_stat\,
+            main_7 => Net_1106);
+
+    \scsiTarget:fifoStore\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * main_1 * main_2 * main_3 * main_4 * !main_5) + (!main_2 * !main_3 * main_5)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \scsiTarget:fifoStore\,
+            clock_0 => Net_585,
+            main_0 => Net_1724,
+            main_1 => filteredIn_3,
+            main_2 => \scsiTarget:state_2\,
+            main_3 => \scsiTarget:state_1\,
+            main_4 => \scsiTarget:state_0\,
+            main_5 => \scsiTarget:fifoStore\);
+
+    \scsiTarget:genParity_2\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * main_2 * main_3 * !main_4 * !main_5 * !main_6 * !main_7 * !main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * !main_5 * !main_6 * main_7 * main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * !main_5 * main_6 * !main_7 * main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * !main_5 * main_6 * main_7 * !main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * main_5 * !main_6 * !main_7 * main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * main_5 * !main_6 * main_7 * !main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * main_5 * main_6 * !main_7 * !main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * main_5 * main_6 * main_7 * main_8)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \scsiTarget:genParity_2\,
+            clock_0 => Net_585,
+            main_0 => Net_1724,
+            main_1 => filteredIn_3,
+            main_2 => \scsiTarget:state_2\,
+            main_3 => \scsiTarget:state_1\,
+            main_4 => \scsiTarget:state_0\,
+            main_5 => \scsiTarget:genParity_2\,
+            main_6 => Net_952_0_SYNCOUT,
+            main_7 => Net_952_1_SYNCOUT,
+            main_8 => Net_952_2_SYNCOUT);
+
+    \scsiTarget:genParity_1\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * main_2 * main_3 * !main_4 * !main_5 * !main_6 * !main_7 * !main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * !main_5 * !main_6 * main_7 * main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * !main_5 * main_6 * !main_7 * main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * !main_5 * main_6 * main_7 * !main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * main_5 * !main_6 * !main_7 * main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * main_5 * !main_6 * main_7 * !main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * main_5 * main_6 * !main_7 * !main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * main_5 * main_6 * main_7 * main_8)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \scsiTarget:genParity_1\,
+            clock_0 => Net_585,
+            main_0 => Net_1724,
+            main_1 => filteredIn_3,
+            main_2 => \scsiTarget:state_2\,
+            main_3 => \scsiTarget:state_1\,
+            main_4 => \scsiTarget:state_0\,
+            main_5 => \scsiTarget:genParity_1\,
+            main_6 => Net_952_3_SYNCOUT,
+            main_7 => Net_952_4_SYNCOUT,
+            main_8 => Net_952_5_SYNCOUT);
+
+    \scsiTarget:genParity_0\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * main_2 * main_3 * !main_4 * !main_5 * !main_6 * !main_7 * main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * !main_5 * !main_6 * main_7 * !main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * !main_5 * main_6 * !main_7 * !main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * !main_5 * main_6 * main_7 * main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * main_5 * !main_6 * !main_7 * !main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * main_5 * !main_6 * main_7 * main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * main_5 * main_6 * !main_7 * main_8) + (!main_0 * main_1 * main_2 * main_3 * !main_4 * main_5 * main_6 * main_7 * !main_8)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \scsiTarget:genParity_0\,
+            clock_0 => Net_585,
+            main_0 => Net_1724,
+            main_1 => filteredIn_3,
+            main_2 => \scsiTarget:state_2\,
+            main_3 => \scsiTarget:state_1\,
+            main_4 => \scsiTarget:state_0\,
+            main_5 => \scsiTarget:genParity_0\,
+            main_6 => scsiIn_0_SYNCOUT,
+            main_7 => Net_952_6_SYNCOUT,
+            main_8 => Net_952_7_SYNCOUT);
+
+    SCSI_In_DBx(4)_SYNC:synccell
+        GENERIC MAP(
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            in => Net_952_4,
+            out => Net_952_4_SYNCOUT,
+            clock => ClockBlock_BUS_CLK);
+
+    SCSI_In_DBx(5)_SYNC:synccell
+        GENERIC MAP(
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            in => Net_952_5,
+            out => Net_952_5_SYNCOUT,
+            clock => ClockBlock_BUS_CLK);
+
+    SCSI_In_DBx(6)_SYNC:synccell
+        GENERIC MAP(
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            in => Net_952_6,
+            out => Net_952_6_SYNCOUT,
+            clock => ClockBlock_BUS_CLK);
+
+    SCSI_In_DBx(7)_SYNC:synccell
+        GENERIC MAP(
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            in => Net_952_7,
+            out => Net_952_7_SYNCOUT,
+            clock => ClockBlock_BUS_CLK);
+
+END __DEFAULT__;

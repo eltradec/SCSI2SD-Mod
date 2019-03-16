@@ -1,0 +1,2830 @@
+--
+--	Conversion of SCSI2SDKit_Copy_03.v to vh2:
+--
+--	Cypress Semiconductor - WARP Version 6.3 IR 41
+--	Fri Dec 14 21:17:23 2018
+--
+
+USE cypress.cypress.all;
+USE cypress.rtlpkg.all;
+ENTITY top_RTL IS
+ATTRIBUTE part_name of top_RTL:TYPE IS "cpsoc3";
+END top_RTL;
+--------------------------------------------------------
+ARCHITECTURE R_T_L OF top_RTL IS
+SIGNAL \SCSI_Glitch_Ctl:clk\ : bit;
+SIGNAL \SCSI_Glitch_Ctl:rst\ : bit;
+SIGNAL Net_1714 : bit;
+SIGNAL \SCSI_Glitch_Ctl:control_out_0\ : bit;
+SIGNAL Net_1790 : bit;
+SIGNAL \SCSI_Glitch_Ctl:control_out_1\ : bit;
+SIGNAL Net_1791 : bit;
+SIGNAL \SCSI_Glitch_Ctl:control_out_2\ : bit;
+SIGNAL Net_1792 : bit;
+SIGNAL \SCSI_Glitch_Ctl:control_out_3\ : bit;
+SIGNAL Net_1793 : bit;
+SIGNAL \SCSI_Glitch_Ctl:control_out_4\ : bit;
+SIGNAL Net_1794 : bit;
+SIGNAL \SCSI_Glitch_Ctl:control_out_5\ : bit;
+SIGNAL Net_1795 : bit;
+SIGNAL \SCSI_Glitch_Ctl:control_out_6\ : bit;
+SIGNAL Net_1796 : bit;
+SIGNAL \SCSI_Glitch_Ctl:control_out_7\ : bit;
+SIGNAL \SCSI_Glitch_Ctl:control_7\ : bit;
+SIGNAL \SCSI_Glitch_Ctl:control_6\ : bit;
+SIGNAL \SCSI_Glitch_Ctl:control_5\ : bit;
+SIGNAL \SCSI_Glitch_Ctl:control_4\ : bit;
+SIGNAL \SCSI_Glitch_Ctl:control_3\ : bit;
+SIGNAL \SCSI_Glitch_Ctl:control_2\ : bit;
+SIGNAL \SCSI_Glitch_Ctl:control_1\ : bit;
+SIGNAL \SCSI_Glitch_Ctl:control_0\ : bit;
+SIGNAL \mux_1:tmp__mux_1_reg\ : bit;
+SIGNAL filteredIn_4 : bit;
+SIGNAL Net_1728_4 : bit;
+SIGNAL Net_1724 : bit;
+ATTRIBUTE soft of Net_1724:SIGNAL IS '1';
+SIGNAL Net_710 : bit;
+SIGNAL tmpOE__SD_CD_net_0 : bit;
+SIGNAL zero : bit;
+SIGNAL Net_677 : bit;
+SIGNAL tmpIO_0__SD_CD_net_0 : bit;
+TERMINAL tmpSIOVREF__SD_CD_net_0 : bit;
+SIGNAL one : bit;
+SIGNAL tmpINTERRUPT_0__SD_CD_net_0 : bit;
+SIGNAL Net_1699 : bit;
+SIGNAL Net_1700 : bit;
+SIGNAL cydff_2 : bit;
+SIGNAL Net_1788 : bit;
+SIGNAL filteredIn_2 : bit;
+SIGNAL tmpOE__SD_CS_net_0 : bit;
+SIGNAL tmpFB_0__SD_CS_net_0 : bit;
+SIGNAL Net_1553 : bit;
+TERMINAL tmpSIOVREF__SD_CS_net_0 : bit;
+TERMINAL Net_681 : bit;
+SIGNAL tmpINTERRUPT_0__SD_CS_net_0 : bit;
+SIGNAL tmpOE__SD_SCK_net_0 : bit;
+SIGNAL Net_682 : bit;
+SIGNAL tmpFB_0__SD_SCK_net_0 : bit;
+SIGNAL tmpIO_0__SD_SCK_net_0 : bit;
+TERMINAL tmpSIOVREF__SD_SCK_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__SD_SCK_net_0 : bit;
+SIGNAL tmpOE__SD_MOSI_net_0 : bit;
+SIGNAL Net_683 : bit;
+SIGNAL tmpFB_0__SD_MOSI_net_0 : bit;
+SIGNAL tmpIO_0__SD_MOSI_net_0 : bit;
+TERMINAL tmpSIOVREF__SD_MOSI_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__SD_MOSI_net_0 : bit;
+SIGNAL Net_1698 : bit;
+SIGNAL cydff_1 : bit;
+SIGNAL Net_1786 : bit;
+SIGNAL Net_1523 : bit;
+SIGNAL filteredIn_3 : bit;
+SIGNAL tmpOE__SCSI_Noise_net_4 : bit;
+SIGNAL tmpOE__SCSI_Noise_net_3 : bit;
+SIGNAL tmpOE__SCSI_Noise_net_2 : bit;
+SIGNAL tmpOE__SCSI_Noise_net_1 : bit;
+SIGNAL tmpOE__SCSI_Noise_net_0 : bit;
+SIGNAL Net_1728_3 : bit;
+SIGNAL Net_1728_2 : bit;
+SIGNAL Net_1728_1 : bit;
+SIGNAL Net_1728_0 : bit;
+SIGNAL tmpIO_4__SCSI_Noise_net_4 : bit;
+SIGNAL tmpIO_4__SCSI_Noise_net_3 : bit;
+SIGNAL tmpIO_4__SCSI_Noise_net_2 : bit;
+SIGNAL tmpIO_4__SCSI_Noise_net_1 : bit;
+SIGNAL tmpIO_4__SCSI_Noise_net_0 : bit;
+TERMINAL tmpSIOVREF__SCSI_Noise_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__SCSI_Noise_net_0 : bit;
+SIGNAL Net_1134 : bit;
+SIGNAL tmpOE__LED1_net_0 : bit;
+SIGNAL tmpFB_0__LED1_net_0 : bit;
+SIGNAL tmpIO_0__LED1_net_0 : bit;
+TERMINAL tmpSIOVREF__LED1_net_0 : bit;
+TERMINAL Net_699 : bit;
+SIGNAL tmpINTERRUPT_0__LED1_net_0 : bit;
+SIGNAL \SDCard:Net_276\ : bit;
+SIGNAL \SDCard:BSPIM:clk_fin\ : bit;
+SIGNAL \SDCard:BSPIM:load_rx_data\ : bit;
+SIGNAL \SDCard:BSPIM:dpcounter_one\ : bit;
+SIGNAL \SDCard:BSPIM:pol_supprt\ : bit;
+SIGNAL \SDCard:BSPIM:miso_to_dp\ : bit;
+SIGNAL \SDCard:Net_244\ : bit;
+SIGNAL \SDCard:BSPIM:mosi_after_ld\ : bit;
+SIGNAL \SDCard:BSPIM:so_send\ : bit;
+SIGNAL \SDCard:BSPIM:so_send_reg\ : bit;
+SIGNAL \SDCard:BSPIM:mosi_fin\ : bit;
+SIGNAL \SDCard:BSPIM:mosi_cpha_0\ : bit;
+SIGNAL \SDCard:BSPIM:state_2\ : bit;
+SIGNAL \SDCard:BSPIM:state_1\ : bit;
+SIGNAL \SDCard:BSPIM:state_0\ : bit;
+SIGNAL \SDCard:BSPIM:mosi_from_dp\ : bit;
+SIGNAL Net_1606 : bit;
+SIGNAL \SDCard:BSPIM:mosi_hs_reg\ : bit;
+SIGNAL \SDCard:BSPIM:mosi_cpha_1\ : bit;
+SIGNAL \SDCard:BSPIM:pre_mosi\ : bit;
+SIGNAL \SDCard:BSPIM:count_4\ : bit;
+SIGNAL \SDCard:BSPIM:count_3\ : bit;
+SIGNAL \SDCard:BSPIM:count_2\ : bit;
+SIGNAL \SDCard:BSPIM:count_1\ : bit;
+SIGNAL \SDCard:BSPIM:count_0\ : bit;
+SIGNAL \SDCard:BSPIM:mosi_pre_reg\ : bit;
+SIGNAL \SDCard:BSPIM:mosi_reg\ : bit;
+SIGNAL \SDCard:BSPIM:dpcounter_zero\ : bit;
+SIGNAL \SDCard:BSPIM:load_cond\ : bit;
+SIGNAL \SDCard:BSPIM:dpcounter_one_reg\ : bit;
+SIGNAL \SDCard:BSPIM:mosi_from_dp_reg\ : bit;
+SIGNAL \SDCard:BSPIM:tx_status_0\ : bit;
+SIGNAL \SDCard:BSPIM:tx_status_1\ : bit;
+SIGNAL \SDCard:BSPIM:dpMOSI_fifo_empty\ : bit;
+SIGNAL \SDCard:BSPIM:tx_status_2\ : bit;
+SIGNAL \SDCard:BSPIM:dpMOSI_fifo_not_full\ : bit;
+SIGNAL \SDCard:BSPIM:tx_status_3\ : bit;
+SIGNAL \SDCard:BSPIM:tx_status_4\ : bit;
+SIGNAL \SDCard:BSPIM:rx_status_4\ : bit;
+SIGNAL \SDCard:BSPIM:dpMISO_fifo_full\ : bit;
+SIGNAL \SDCard:BSPIM:rx_status_5\ : bit;
+SIGNAL \SDCard:BSPIM:dpMISO_fifo_not_empty\ : bit;
+SIGNAL \SDCard:BSPIM:rx_status_6\ : bit;
+SIGNAL \SDCard:BSPIM:tx_status_6\ : bit;
+SIGNAL \SDCard:BSPIM:tx_status_5\ : bit;
+SIGNAL \SDCard:BSPIM:rx_status_3\ : bit;
+SIGNAL \SDCard:BSPIM:rx_status_2\ : bit;
+SIGNAL \SDCard:BSPIM:rx_status_1\ : bit;
+SIGNAL \SDCard:BSPIM:rx_status_0\ : bit;
+SIGNAL \SDCard:BSPIM:control_7\ : bit;
+SIGNAL \SDCard:BSPIM:control_6\ : bit;
+SIGNAL \SDCard:BSPIM:control_5\ : bit;
+SIGNAL \SDCard:BSPIM:control_4\ : bit;
+SIGNAL \SDCard:BSPIM:control_3\ : bit;
+SIGNAL \SDCard:BSPIM:control_2\ : bit;
+SIGNAL \SDCard:BSPIM:control_1\ : bit;
+SIGNAL \SDCard:BSPIM:control_0\ : bit;
+SIGNAL \SDCard:Net_294\ : bit;
+SIGNAL \SDCard:Net_273\ : bit;
+SIGNAL \SDCard:BSPIM:ld_ident\ : bit;
+SIGNAL \SDCard:BSPIM:cnt_enable\ : bit;
+SIGNAL \SDCard:BSPIM:count_6\ : bit;
+SIGNAL \SDCard:BSPIM:count_5\ : bit;
+SIGNAL \SDCard:BSPIM:cnt_tc\ : bit;
+SIGNAL Net_913 : bit;
+SIGNAL Net_910 : bit;
+SIGNAL \SDCard:BSPIM:sR8:Dp:ce0\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:ce0\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:cl0\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:cl0\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:z0\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:z0\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:ff0\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:ff0\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:ce1\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:ce1\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:cl1\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:cl1\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:z1\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:z1\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:ff1\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:ff1\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:ov_msb\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:ov_msb\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:co_msb\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:co_msb\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:cmsb\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:cmsb\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:ce0_reg\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:ce0_reg\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:cl0_reg\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:cl0_reg\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:z0_reg\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:z0_reg\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:ff0_reg\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:ff0_reg\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:ce1_reg\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:ce1_reg\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:cl1_reg\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:cl1_reg\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:z1_reg\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:z1_reg\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:ff1_reg\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:ff1_reg\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:ov_msb_reg\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:ov_msb_reg\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:co_msb_reg\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:co_msb_reg\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:cmsb_reg\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:cmsb_reg\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:so_reg\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:so_reg\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:f0_bus_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:f0_bus_stat_reg\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:f0_blk_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:f0_blk_stat_reg\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:f1_bus_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:f1_bus_stat_reg\:SIGNAL IS 2;
+SIGNAL \SDCard:BSPIM:sR8:Dp:f1_blk_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \SDCard:BSPIM:sR8:Dp:f1_blk_stat_reg\:SIGNAL IS 2;
+SIGNAL Net_686 : bit;
+SIGNAL \SDCard:Net_289\ : bit;
+SIGNAL tmpOE__SD_MISO_net_0 : bit;
+SIGNAL tmpIO_0__SD_MISO_net_0 : bit;
+TERMINAL tmpSIOVREF__SD_MISO_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__SD_MISO_net_0 : bit;
+SIGNAL \USBFS:Net_1010\ : bit;
+SIGNAL \USBFS:tmpOE__Dm_net_0\ : bit;
+SIGNAL \USBFS:tmpFB_0__Dm_net_0\ : bit;
+TERMINAL \USBFS:Net_597\ : bit;
+SIGNAL \USBFS:tmpIO_0__Dm_net_0\ : bit;
+TERMINAL \USBFS:tmpSIOVREF__Dm_net_0\ : bit;
+SIGNAL \USBFS:tmpINTERRUPT_0__Dm_net_0\ : bit;
+SIGNAL \USBFS:tmpOE__Dp_net_0\ : bit;
+SIGNAL \USBFS:tmpFB_0__Dp_net_0\ : bit;
+TERMINAL \USBFS:Net_1000\ : bit;
+SIGNAL \USBFS:tmpIO_0__Dp_net_0\ : bit;
+TERMINAL \USBFS:tmpSIOVREF__Dp_net_0\ : bit;
+SIGNAL Net_1684 : bit;
+SIGNAL \USBFS:Net_1889\ : bit;
+SIGNAL \USBFS:Net_1876\ : bit;
+SIGNAL \USBFS:ep_int_8\ : bit;
+SIGNAL \USBFS:ep_int_7\ : bit;
+SIGNAL \USBFS:ep_int_6\ : bit;
+SIGNAL \USBFS:ep_int_5\ : bit;
+SIGNAL \USBFS:ep_int_4\ : bit;
+SIGNAL \USBFS:ep_int_3\ : bit;
+SIGNAL \USBFS:ep_int_2\ : bit;
+SIGNAL \USBFS:ep_int_1\ : bit;
+SIGNAL \USBFS:ep_int_0\ : bit;
+SIGNAL \USBFS:Net_95\ : bit;
+SIGNAL \USBFS:dma_request_7\ : bit;
+SIGNAL \USBFS:dma_request_6\ : bit;
+SIGNAL \USBFS:dma_request_5\ : bit;
+SIGNAL \USBFS:dma_request_4\ : bit;
+SIGNAL \USBFS:dma_request_3\ : bit;
+SIGNAL \USBFS:dma_request_2\ : bit;
+SIGNAL \USBFS:dma_request_1\ : bit;
+SIGNAL \USBFS:dma_request_0\ : bit;
+SIGNAL \USBFS:dma_terminate\ : bit;
+SIGNAL \USBFS:dma_complete_0\ : bit;
+SIGNAL \USBFS:Net_1922\ : bit;
+SIGNAL \USBFS:dma_complete_1\ : bit;
+SIGNAL \USBFS:Net_1921\ : bit;
+SIGNAL \USBFS:dma_complete_2\ : bit;
+SIGNAL \USBFS:Net_1920\ : bit;
+SIGNAL \USBFS:dma_complete_3\ : bit;
+SIGNAL \USBFS:Net_1919\ : bit;
+SIGNAL \USBFS:dma_complete_4\ : bit;
+SIGNAL \USBFS:Net_1918\ : bit;
+SIGNAL \USBFS:dma_complete_5\ : bit;
+SIGNAL \USBFS:Net_1917\ : bit;
+SIGNAL \USBFS:dma_complete_6\ : bit;
+SIGNAL \USBFS:Net_1916\ : bit;
+SIGNAL \USBFS:dma_complete_7\ : bit;
+SIGNAL \USBFS:Net_1915\ : bit;
+SIGNAL \SCSI_Filtered:status_7\ : bit;
+SIGNAL \SCSI_Filtered:status_6\ : bit;
+SIGNAL \SCSI_Filtered:status_5\ : bit;
+SIGNAL \SCSI_Filtered:status_4\ : bit;
+SIGNAL \SCSI_Filtered:status_3\ : bit;
+SIGNAL \SCSI_Filtered:status_2\ : bit;
+SIGNAL \SCSI_Filtered:status_1\ : bit;
+SIGNAL filteredIn_1 : bit;
+SIGNAL \SCSI_Filtered:status_0\ : bit;
+SIGNAL filteredIn_0 : bit;
+SIGNAL Net_585 : bit;
+SIGNAL \GlitchFilter_1:op_clk\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[0]:or_term\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[0]:samples_2\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[0]:samples_1\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[0]:samples_0\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[0]:and_term\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[0]:last_state\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[1]:or_term\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[1]:samples_2\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[1]:samples_1\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[1]:samples_0\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[1]:and_term\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[1]:last_state\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[2]:or_term\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[2]:samples_2\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[2]:samples_1\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[2]:samples_0\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[2]:and_term\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[2]:last_state\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[3]:or_term\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[3]:samples_2\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[3]:samples_1\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[3]:samples_0\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[3]:and_term\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[3]:last_state\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[4]:or_term\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[4]:samples_2\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[4]:samples_1\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[4]:samples_0\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[4]:and_term\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[4]:last_state\ : bit;
+SIGNAL \SCSI_Parity_Error:status_0\ : bit;
+SIGNAL Net_1500 : bit;
+SIGNAL \SCSI_Parity_Error:status_1\ : bit;
+SIGNAL \SCSI_Parity_Error:status_2\ : bit;
+SIGNAL \SCSI_Parity_Error:status_3\ : bit;
+SIGNAL \SCSI_Parity_Error:status_4\ : bit;
+SIGNAL \SCSI_Parity_Error:status_5\ : bit;
+SIGNAL \SCSI_Parity_Error:status_6\ : bit;
+SIGNAL \SCSI_Parity_Error:status_7\ : bit;
+SIGNAL Net_10 : bit;
+SIGNAL \Debug_Timer:Net_260\ : bit;
+SIGNAL \Debug_Timer:Net_266\ : bit;
+SIGNAL Net_12 : bit;
+SIGNAL \Debug_Timer:Net_51\ : bit;
+SIGNAL \Debug_Timer:Net_261\ : bit;
+SIGNAL \Debug_Timer:Net_57\ : bit;
+SIGNAL Net_1686 : bit;
+SIGNAL Net_855 : bit;
+SIGNAL \Debug_Timer:Net_102\ : bit;
+SIGNAL Net_928 : bit;
+SIGNAL Net_1655 : bit;
+SIGNAL Net_918 : bit;
+SIGNAL Net_919 : bit;
+SIGNAL Net_903 : bit;
+SIGNAL Net_1668 : bit;
+SIGNAL \SCSI_Out_Ctl:clk\ : bit;
+SIGNAL \SCSI_Out_Ctl:rst\ : bit;
+SIGNAL Net_1708 : bit;
+SIGNAL \SCSI_Out_Ctl:control_out_0\ : bit;
+SIGNAL Net_1757 : bit;
+SIGNAL \SCSI_Out_Ctl:control_out_1\ : bit;
+SIGNAL Net_1758 : bit;
+SIGNAL \SCSI_Out_Ctl:control_out_2\ : bit;
+SIGNAL Net_1759 : bit;
+SIGNAL \SCSI_Out_Ctl:control_out_3\ : bit;
+SIGNAL Net_1760 : bit;
+SIGNAL \SCSI_Out_Ctl:control_out_4\ : bit;
+SIGNAL Net_1761 : bit;
+SIGNAL \SCSI_Out_Ctl:control_out_5\ : bit;
+SIGNAL Net_1762 : bit;
+SIGNAL \SCSI_Out_Ctl:control_out_6\ : bit;
+SIGNAL Net_1763 : bit;
+SIGNAL \SCSI_Out_Ctl:control_out_7\ : bit;
+SIGNAL \SCSI_Out_Ctl:control_7\ : bit;
+SIGNAL \SCSI_Out_Ctl:control_6\ : bit;
+SIGNAL \SCSI_Out_Ctl:control_5\ : bit;
+SIGNAL \SCSI_Out_Ctl:control_4\ : bit;
+SIGNAL \SCSI_Out_Ctl:control_3\ : bit;
+SIGNAL \SCSI_Out_Ctl:control_2\ : bit;
+SIGNAL \SCSI_Out_Ctl:control_1\ : bit;
+SIGNAL \SCSI_Out_Ctl:control_0\ : bit;
+SIGNAL \SCSI_Out_Bits:clk\ : bit;
+SIGNAL \SCSI_Out_Bits:rst\ : bit;
+SIGNAL Net_1707_7 : bit;
+SIGNAL \SCSI_Out_Bits:control_out_7\ : bit;
+SIGNAL Net_1707_6 : bit;
+SIGNAL \SCSI_Out_Bits:control_out_6\ : bit;
+SIGNAL Net_1707_5 : bit;
+SIGNAL \SCSI_Out_Bits:control_out_5\ : bit;
+SIGNAL Net_1707_4 : bit;
+SIGNAL \SCSI_Out_Bits:control_out_4\ : bit;
+SIGNAL Net_1707_3 : bit;
+SIGNAL \SCSI_Out_Bits:control_out_3\ : bit;
+SIGNAL Net_1707_2 : bit;
+SIGNAL \SCSI_Out_Bits:control_out_2\ : bit;
+SIGNAL Net_1707_1 : bit;
+SIGNAL \SCSI_Out_Bits:control_out_1\ : bit;
+SIGNAL Net_1707_0 : bit;
+SIGNAL \SCSI_Out_Bits:control_out_0\ : bit;
+SIGNAL \SCSI_Out_Bits:control_7\ : bit;
+SIGNAL \SCSI_Out_Bits:control_6\ : bit;
+SIGNAL \SCSI_Out_Bits:control_5\ : bit;
+SIGNAL \SCSI_Out_Bits:control_4\ : bit;
+SIGNAL \SCSI_Out_Bits:control_3\ : bit;
+SIGNAL \SCSI_Out_Bits:control_2\ : bit;
+SIGNAL \SCSI_Out_Bits:control_1\ : bit;
+SIGNAL \SCSI_Out_Bits:control_0\ : bit;
+SIGNAL \SCSI_Out_Mux:tmp__SCSI_Out_Mux_reg_7\ : bit;
+SIGNAL Net_1706_7 : bit;
+SIGNAL \SCSI_Out_Mux:tmp__SCSI_Out_Mux_reg_6\ : bit;
+SIGNAL Net_1706_6 : bit;
+SIGNAL \SCSI_Out_Mux:tmp__SCSI_Out_Mux_reg_5\ : bit;
+SIGNAL Net_1706_5 : bit;
+SIGNAL \SCSI_Out_Mux:tmp__SCSI_Out_Mux_reg_4\ : bit;
+SIGNAL Net_1706_4 : bit;
+SIGNAL \SCSI_Out_Mux:tmp__SCSI_Out_Mux_reg_3\ : bit;
+SIGNAL Net_1706_3 : bit;
+SIGNAL \SCSI_Out_Mux:tmp__SCSI_Out_Mux_reg_2\ : bit;
+SIGNAL Net_1706_2 : bit;
+SIGNAL \SCSI_Out_Mux:tmp__SCSI_Out_Mux_reg_1\ : bit;
+SIGNAL Net_1706_1 : bit;
+SIGNAL \SCSI_Out_Mux:tmp__SCSI_Out_Mux_reg_0\ : bit;
+SIGNAL Net_1706_0 : bit;
+SIGNAL Net_791_7 : bit;
+SIGNAL Net_791_6 : bit;
+SIGNAL Net_791_5 : bit;
+SIGNAL Net_791_4 : bit;
+SIGNAL Net_791_3 : bit;
+SIGNAL Net_791_2 : bit;
+SIGNAL Net_791_1 : bit;
+SIGNAL Net_791_0 : bit;
+SIGNAL \scsiTarget:op_clk\ : bit;
+SIGNAL Net_1691 : bit;
+SIGNAL \scsiTarget:REQReg\ : bit;
+SIGNAL \scsiTarget:data_7\ : bit;
+SIGNAL \scsiTarget:data_6\ : bit;
+SIGNAL \scsiTarget:data_5\ : bit;
+SIGNAL \scsiTarget:data_4\ : bit;
+SIGNAL \scsiTarget:data_3\ : bit;
+SIGNAL \scsiTarget:data_2\ : bit;
+SIGNAL \scsiTarget:data_1\ : bit;
+SIGNAL \scsiTarget:data_0\ : bit;
+SIGNAL \scsiTarget:pi_7\ : bit;
+SIGNAL \scsiTarget:dbxInReg_7\ : bit;
+SIGNAL \scsiTarget:pi_6\ : bit;
+SIGNAL \scsiTarget:dbxInReg_6\ : bit;
+SIGNAL \scsiTarget:pi_5\ : bit;
+SIGNAL \scsiTarget:dbxInReg_5\ : bit;
+SIGNAL \scsiTarget:pi_4\ : bit;
+SIGNAL \scsiTarget:dbxInReg_4\ : bit;
+SIGNAL \scsiTarget:pi_3\ : bit;
+SIGNAL \scsiTarget:dbxInReg_3\ : bit;
+SIGNAL \scsiTarget:pi_2\ : bit;
+SIGNAL \scsiTarget:dbxInReg_2\ : bit;
+SIGNAL \scsiTarget:pi_1\ : bit;
+SIGNAL \scsiTarget:dbxInReg_1\ : bit;
+SIGNAL \scsiTarget:pi_0\ : bit;
+SIGNAL \scsiTarget:dbxInReg_0\ : bit;
+SIGNAL \scsiTarget:parityErrReg\ : bit;
+SIGNAL \scsiTarget:txComplete\ : bit;
+SIGNAL \scsiTarget:f0_blk_stat\ : bit;
+SIGNAL \scsiTarget:state_2\ : bit;
+SIGNAL \scsiTarget:state_1\ : bit;
+SIGNAL \scsiTarget:state_0\ : bit;
+SIGNAL \scsiTarget:f1_blk_stat\ : bit;
+SIGNAL \scsiTarget:f1_bus_stat\ : bit;
+SIGNAL \scsiTarget:f0_bus_stat\ : bit;
+SIGNAL Net_1106 : bit;
+SIGNAL \scsiTarget:deskewComplete\ : bit;
+SIGNAL \scsiTarget:po_7\ : bit;
+SIGNAL \scsiTarget:po_6\ : bit;
+SIGNAL \scsiTarget:po_5\ : bit;
+SIGNAL \scsiTarget:po_4\ : bit;
+SIGNAL \scsiTarget:po_3\ : bit;
+SIGNAL \scsiTarget:po_2\ : bit;
+SIGNAL \scsiTarget:po_1\ : bit;
+SIGNAL \scsiTarget:po_0\ : bit;
+SIGNAL \scsiTarget:fifoStore\ : bit;
+SIGNAL \scsiTarget:genParity_2\ : bit;
+SIGNAL \scsiTarget:genParity_1\ : bit;
+SIGNAL \scsiTarget:genParity_0\ : bit;
+SIGNAL Net_952_7 : bit;
+SIGNAL Net_952_6 : bit;
+SIGNAL Net_952_5 : bit;
+SIGNAL Net_952_4 : bit;
+SIGNAL Net_952_3 : bit;
+SIGNAL Net_952_2 : bit;
+SIGNAL Net_952_1 : bit;
+SIGNAL Net_952_0 : bit;
+SIGNAL scsiIn_0 : bit;
+SIGNAL \SCSI_CTL_PHASE:clk\ : bit;
+SIGNAL \SCSI_CTL_PHASE:rst\ : bit;
+SIGNAL Net_765 : bit;
+SIGNAL \SCSI_CTL_PHASE:control_out_0\ : bit;
+SIGNAL Net_701 : bit;
+SIGNAL \SCSI_CTL_PHASE:control_out_1\ : bit;
+SIGNAL \SCSI_CTL_PHASE:control_out_2\ : bit;
+SIGNAL Net_1739 : bit;
+SIGNAL \SCSI_CTL_PHASE:control_out_3\ : bit;
+SIGNAL Net_1740 : bit;
+SIGNAL \SCSI_CTL_PHASE:control_out_4\ : bit;
+SIGNAL Net_1741 : bit;
+SIGNAL \SCSI_CTL_PHASE:control_out_5\ : bit;
+SIGNAL Net_1742 : bit;
+SIGNAL \SCSI_CTL_PHASE:control_out_6\ : bit;
+SIGNAL Net_1743 : bit;
+SIGNAL \SCSI_CTL_PHASE:control_out_7\ : bit;
+SIGNAL \SCSI_CTL_PHASE:control_7\ : bit;
+SIGNAL \SCSI_CTL_PHASE:control_6\ : bit;
+SIGNAL \SCSI_CTL_PHASE:control_5\ : bit;
+SIGNAL \SCSI_CTL_PHASE:control_4\ : bit;
+SIGNAL \SCSI_CTL_PHASE:control_3\ : bit;
+SIGNAL \SCSI_CTL_PHASE:control_2\ : bit;
+SIGNAL \SCSI_CTL_PHASE:control_1\ : bit;
+SIGNAL \SCSI_CTL_PHASE:control_0\ : bit;
+SIGNAL \OddParityGen_1:tmp\ : bit;
+SIGNAL \OddParityGen_1:tmpa\ : bit;
+SIGNAL \OddParityGen_1:tmpb\ : bit;
+ATTRIBUTE soft of \OddParityGen_1:tmpb\:SIGNAL IS '1';
+SIGNAL \OddParityGen_1:tmpc\ : bit;
+ATTRIBUTE soft of \OddParityGen_1:tmpc\:SIGNAL IS '1';
+SIGNAL Net_252 : bit;
+SIGNAL tmpOE__SCSI_Out_net_9 : bit;
+SIGNAL tmpOE__SCSI_Out_net_8 : bit;
+SIGNAL tmpOE__SCSI_Out_net_7 : bit;
+SIGNAL tmpOE__SCSI_Out_net_6 : bit;
+SIGNAL tmpOE__SCSI_Out_net_5 : bit;
+SIGNAL tmpOE__SCSI_Out_net_4 : bit;
+SIGNAL tmpOE__SCSI_Out_net_3 : bit;
+SIGNAL tmpOE__SCSI_Out_net_2 : bit;
+SIGNAL tmpOE__SCSI_Out_net_1 : bit;
+SIGNAL tmpOE__SCSI_Out_net_0 : bit;
+SIGNAL tmpFB_9__SCSI_Out_net_9 : bit;
+SIGNAL tmpFB_9__SCSI_Out_net_8 : bit;
+SIGNAL tmpFB_9__SCSI_Out_net_7 : bit;
+SIGNAL tmpFB_9__SCSI_Out_net_6 : bit;
+SIGNAL tmpFB_9__SCSI_Out_net_5 : bit;
+SIGNAL tmpFB_9__SCSI_Out_net_4 : bit;
+SIGNAL tmpFB_9__SCSI_Out_net_3 : bit;
+SIGNAL tmpFB_9__SCSI_Out_net_2 : bit;
+SIGNAL tmpFB_9__SCSI_Out_net_1 : bit;
+SIGNAL tmpFB_9__SCSI_Out_net_0 : bit;
+SIGNAL tmpIO_9__SCSI_Out_net_9 : bit;
+SIGNAL tmpIO_9__SCSI_Out_net_8 : bit;
+SIGNAL tmpIO_9__SCSI_Out_net_7 : bit;
+SIGNAL tmpIO_9__SCSI_Out_net_6 : bit;
+SIGNAL tmpIO_9__SCSI_Out_net_5 : bit;
+SIGNAL tmpIO_9__SCSI_Out_net_4 : bit;
+SIGNAL tmpIO_9__SCSI_Out_net_3 : bit;
+SIGNAL tmpIO_9__SCSI_Out_net_2 : bit;
+SIGNAL tmpIO_9__SCSI_Out_net_1 : bit;
+SIGNAL tmpIO_9__SCSI_Out_net_0 : bit;
+TERMINAL tmpSIOVREF__SCSI_Out_net_0 : bit;
+TERMINAL Net_310 : bit;
+TERMINAL Net_1810 : bit;
+TERMINAL Net_1809 : bit;
+TERMINAL Net_1808 : bit;
+TERMINAL Net_1807 : bit;
+TERMINAL Net_1806 : bit;
+TERMINAL Net_1805 : bit;
+TERMINAL Net_1804 : bit;
+TERMINAL Net_1803 : bit;
+TERMINAL Net_1802 : bit;
+SIGNAL tmpINTERRUPT_0__SCSI_Out_net_0 : bit;
+SIGNAL tmpOE__SCSI_In_net_4 : bit;
+SIGNAL tmpOE__SCSI_In_net_3 : bit;
+SIGNAL tmpOE__SCSI_In_net_2 : bit;
+SIGNAL tmpOE__SCSI_In_net_1 : bit;
+SIGNAL tmpOE__SCSI_In_net_0 : bit;
+SIGNAL scsiIn_4 : bit;
+SIGNAL scsiIn_3 : bit;
+SIGNAL scsiIn_2 : bit;
+SIGNAL scsiIn_1 : bit;
+SIGNAL tmpIO_4__SCSI_In_net_4 : bit;
+SIGNAL tmpIO_4__SCSI_In_net_3 : bit;
+SIGNAL tmpIO_4__SCSI_In_net_2 : bit;
+SIGNAL tmpIO_4__SCSI_In_net_1 : bit;
+SIGNAL tmpIO_4__SCSI_In_net_0 : bit;
+TERMINAL tmpSIOVREF__SCSI_In_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__SCSI_In_net_0 : bit;
+SIGNAL tmpOE__SCSI_Out_DBx_net_7 : bit;
+SIGNAL tmpOE__SCSI_Out_DBx_net_6 : bit;
+SIGNAL tmpOE__SCSI_Out_DBx_net_5 : bit;
+SIGNAL tmpOE__SCSI_Out_DBx_net_4 : bit;
+SIGNAL tmpOE__SCSI_Out_DBx_net_3 : bit;
+SIGNAL tmpOE__SCSI_Out_DBx_net_2 : bit;
+SIGNAL tmpOE__SCSI_Out_DBx_net_1 : bit;
+SIGNAL tmpOE__SCSI_Out_DBx_net_0 : bit;
+SIGNAL tmpFB_7__SCSI_Out_DBx_net_7 : bit;
+SIGNAL tmpFB_7__SCSI_Out_DBx_net_6 : bit;
+SIGNAL tmpFB_7__SCSI_Out_DBx_net_5 : bit;
+SIGNAL tmpFB_7__SCSI_Out_DBx_net_4 : bit;
+SIGNAL tmpFB_7__SCSI_Out_DBx_net_3 : bit;
+SIGNAL tmpFB_7__SCSI_Out_DBx_net_2 : bit;
+SIGNAL tmpFB_7__SCSI_Out_DBx_net_1 : bit;
+SIGNAL tmpFB_7__SCSI_Out_DBx_net_0 : bit;
+SIGNAL tmpIO_7__SCSI_Out_DBx_net_7 : bit;
+SIGNAL tmpIO_7__SCSI_Out_DBx_net_6 : bit;
+SIGNAL tmpIO_7__SCSI_Out_DBx_net_5 : bit;
+SIGNAL tmpIO_7__SCSI_Out_DBx_net_4 : bit;
+SIGNAL tmpIO_7__SCSI_Out_DBx_net_3 : bit;
+SIGNAL tmpIO_7__SCSI_Out_DBx_net_2 : bit;
+SIGNAL tmpIO_7__SCSI_Out_DBx_net_1 : bit;
+SIGNAL tmpIO_7__SCSI_Out_DBx_net_0 : bit;
+TERMINAL tmpSIOVREF__SCSI_Out_DBx_net_0 : bit;
+TERMINAL Net_1811_7 : bit;
+TERMINAL Net_1811_6 : bit;
+TERMINAL Net_1811_5 : bit;
+TERMINAL Net_1811_4 : bit;
+TERMINAL Net_1811_3 : bit;
+TERMINAL Net_1811_2 : bit;
+TERMINAL Net_1811_1 : bit;
+TERMINAL Net_1811_0 : bit;
+SIGNAL tmpINTERRUPT_0__SCSI_Out_DBx_net_0 : bit;
+SIGNAL tmpOE__SCSI_In_DBx_net_7 : bit;
+SIGNAL tmpOE__SCSI_In_DBx_net_6 : bit;
+SIGNAL tmpOE__SCSI_In_DBx_net_5 : bit;
+SIGNAL tmpOE__SCSI_In_DBx_net_4 : bit;
+SIGNAL tmpOE__SCSI_In_DBx_net_3 : bit;
+SIGNAL tmpOE__SCSI_In_DBx_net_2 : bit;
+SIGNAL tmpOE__SCSI_In_DBx_net_1 : bit;
+SIGNAL tmpOE__SCSI_In_DBx_net_0 : bit;
+SIGNAL tmpIO_7__SCSI_In_DBx_net_7 : bit;
+SIGNAL tmpIO_7__SCSI_In_DBx_net_6 : bit;
+SIGNAL tmpIO_7__SCSI_In_DBx_net_5 : bit;
+SIGNAL tmpIO_7__SCSI_In_DBx_net_4 : bit;
+SIGNAL tmpIO_7__SCSI_In_DBx_net_3 : bit;
+SIGNAL tmpIO_7__SCSI_In_DBx_net_2 : bit;
+SIGNAL tmpIO_7__SCSI_In_DBx_net_1 : bit;
+SIGNAL tmpIO_7__SCSI_In_DBx_net_0 : bit;
+TERMINAL tmpSIOVREF__SCSI_In_DBx_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__SCSI_In_DBx_net_0 : bit;
+SIGNAL \VDAC8_1:Net_83\ : bit;
+SIGNAL \VDAC8_1:Net_81\ : bit;
+SIGNAL \VDAC8_1:Net_82\ : bit;
+TERMINAL Net_1824 : bit;
+TERMINAL \VDAC8_1:Net_77\ : bit;
+SIGNAL tmpOE__SOUND_net_0 : bit;
+SIGNAL tmpFB_0__SOUND_net_0 : bit;
+TERMINAL Net_1847 : bit;
+SIGNAL tmpIO_0__SOUND_net_0 : bit;
+TERMINAL tmpSIOVREF__SOUND_net_0 : bit;
+TERMINAL Net_1832 : bit;
+SIGNAL tmpINTERRUPT_0__SOUND_net_0 : bit;
+SIGNAL Net_1799 : bit;
+TERMINAL \PGA_1:Net_17\ : bit;
+TERMINAL Net_1851 : bit;
+SIGNAL \PGA_1:Net_37\ : bit;
+SIGNAL \PGA_1:Net_40\ : bit;
+SIGNAL \PGA_1:Net_38\ : bit;
+SIGNAL \PGA_1:Net_39\ : bit;
+SIGNAL \PGA_1:Net_41\ : bit;
+TERMINAL \PGA_1:Net_75\ : bit;
+SIGNAL cydff_2D : bit;
+SIGNAL Net_682D : bit;
+SIGNAL cydff_1D : bit;
+SIGNAL \SDCard:BSPIM:so_send_reg\\D\ : bit;
+SIGNAL \SDCard:BSPIM:state_2\\D\ : bit;
+SIGNAL \SDCard:BSPIM:state_1\\D\ : bit;
+SIGNAL \SDCard:BSPIM:state_0\\D\ : bit;
+SIGNAL Net_1606D : bit;
+SIGNAL \SDCard:BSPIM:mosi_hs_reg\\D\ : bit;
+SIGNAL \SDCard:BSPIM:mosi_pre_reg\\D\ : bit;
+SIGNAL \SDCard:BSPIM:mosi_reg\\D\ : bit;
+SIGNAL \SDCard:BSPIM:load_cond\\D\ : bit;
+SIGNAL \SDCard:BSPIM:dpcounter_one_reg\\D\ : bit;
+SIGNAL \SDCard:BSPIM:mosi_from_dp_reg\\D\ : bit;
+SIGNAL \SDCard:BSPIM:ld_ident\\D\ : bit;
+SIGNAL \SDCard:BSPIM:cnt_enable\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[0]:samples_2\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[0]:samples_1\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[0]:samples_0\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[0]:last_state\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[1]:samples_2\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[1]:samples_1\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[1]:samples_0\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[1]:last_state\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[2]:samples_2\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[2]:samples_1\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[2]:samples_0\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[2]:last_state\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[3]:samples_2\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[3]:samples_1\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[3]:samples_0\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[3]:last_state\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[4]:samples_2\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[4]:samples_1\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[4]:samples_0\\D\ : bit;
+SIGNAL \GlitchFilter_1:genblk1[4]:last_state\\D\ : bit;
+SIGNAL \scsiTarget:REQReg\\D\ : bit;
+SIGNAL \scsiTarget:data_7\\D\ : bit;
+SIGNAL \scsiTarget:data_6\\D\ : bit;
+SIGNAL \scsiTarget:data_5\\D\ : bit;
+SIGNAL \scsiTarget:data_4\\D\ : bit;
+SIGNAL \scsiTarget:data_3\\D\ : bit;
+SIGNAL \scsiTarget:data_2\\D\ : bit;
+SIGNAL \scsiTarget:data_1\\D\ : bit;
+SIGNAL \scsiTarget:data_0\\D\ : bit;
+SIGNAL \scsiTarget:dbxInReg_7\\D\ : bit;
+SIGNAL \scsiTarget:dbxInReg_6\\D\ : bit;
+SIGNAL \scsiTarget:dbxInReg_5\\D\ : bit;
+SIGNAL \scsiTarget:dbxInReg_4\\D\ : bit;
+SIGNAL \scsiTarget:dbxInReg_3\\D\ : bit;
+SIGNAL \scsiTarget:dbxInReg_2\\D\ : bit;
+SIGNAL \scsiTarget:dbxInReg_1\\D\ : bit;
+SIGNAL \scsiTarget:dbxInReg_0\\D\ : bit;
+SIGNAL \scsiTarget:parityErrReg\\D\ : bit;
+SIGNAL \scsiTarget:state_2\\D\ : bit;
+SIGNAL \scsiTarget:state_1\\D\ : bit;
+SIGNAL \scsiTarget:state_0\\D\ : bit;
+SIGNAL \scsiTarget:fifoStore\\D\ : bit;
+SIGNAL \scsiTarget:genParity_2\\D\ : bit;
+SIGNAL \scsiTarget:genParity_1\\D\ : bit;
+SIGNAL \scsiTarget:genParity_0\\D\ : bit;
+ATTRIBUTE placement_force of \SDCard:BSPIM:sR8:Dp:u0\:LABEL IS "U(2,0)";
+ATTRIBUTE placement_force of \scsiTarget:datapath\:LABEL IS "U(2,5)";
+BEGIN
+
+Net_1724 <= ((Net_1714 and Net_1728_4)
+	OR (not Net_1714 and filteredIn_4));
+
+zero <=  ('0') ;
+
+tmpOE__SD_CD_net_0 <=  ('1') ;
+
+Net_1788 <= (not filteredIn_2);
+
+Net_1786 <= (not filteredIn_3);
+
+\SDCard:BSPIM:load_rx_data\ <= ((not \SDCard:BSPIM:count_4\ and not \SDCard:BSPIM:count_3\ and not \SDCard:BSPIM:count_2\ and not \SDCard:BSPIM:count_1\ and \SDCard:BSPIM:count_0\));
+
+Net_683 <= ((not \SDCard:BSPIM:state_0\ and not Net_1606 and \SDCard:BSPIM:mosi_hs_reg\)
+	OR (not Net_1606 and \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:mosi_hs_reg\)
+	OR (not \SDCard:BSPIM:state_2\ and not Net_1606 and \SDCard:BSPIM:mosi_hs_reg\));
+
+\SDCard:BSPIM:load_cond\\D\ <= ((not \SDCard:BSPIM:state_1\ and not \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:state_2\)
+	OR (\SDCard:BSPIM:count_0\ and \SDCard:BSPIM:load_cond\)
+	OR (\SDCard:BSPIM:count_1\ and \SDCard:BSPIM:load_cond\)
+	OR (\SDCard:BSPIM:count_2\ and \SDCard:BSPIM:load_cond\)
+	OR (\SDCard:BSPIM:count_3\ and \SDCard:BSPIM:load_cond\)
+	OR (\SDCard:BSPIM:count_4\ and \SDCard:BSPIM:load_cond\));
+
+\SDCard:BSPIM:tx_status_0\ <= ((not \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:state_2\ and \SDCard:BSPIM:state_0\));
+
+\SDCard:BSPIM:tx_status_4\ <= ((not \SDCard:BSPIM:state_2\ and not \SDCard:BSPIM:state_1\ and not \SDCard:BSPIM:state_0\));
+
+\SDCard:BSPIM:rx_status_6\ <= ((not \SDCard:BSPIM:count_4\ and not \SDCard:BSPIM:count_3\ and not \SDCard:BSPIM:count_2\ and not \SDCard:BSPIM:count_1\ and \SDCard:BSPIM:count_0\ and \SDCard:BSPIM:rx_status_4\));
+
+\SDCard:BSPIM:state_2\\D\ <= ((not \SDCard:BSPIM:count_4\ and not \SDCard:BSPIM:count_3\ and not \SDCard:BSPIM:count_2\ and not \SDCard:BSPIM:count_0\ and not \SDCard:BSPIM:ld_ident\ and \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:count_1\)
+	OR (not \SDCard:BSPIM:count_4\ and not \SDCard:BSPIM:count_3\ and not \SDCard:BSPIM:count_0\ and not \SDCard:BSPIM:tx_status_1\ and \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:count_2\ and \SDCard:BSPIM:count_1\)
+	OR (not \SDCard:BSPIM:state_2\ and not \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:state_0\)
+	OR (\SDCard:BSPIM:state_2\ and \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:state_0\));
+
+\SDCard:BSPIM:state_1\\D\ <= ((not \SDCard:BSPIM:count_2\ and \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:ld_ident\)
+	OR (\SDCard:BSPIM:state_1\ and \SDCard:BSPIM:count_2\ and \SDCard:BSPIM:tx_status_1\)
+	OR (\SDCard:BSPIM:state_1\ and \SDCard:BSPIM:count_4\)
+	OR (\SDCard:BSPIM:state_1\ and \SDCard:BSPIM:count_3\)
+	OR (not \SDCard:BSPIM:count_1\ and \SDCard:BSPIM:state_1\)
+	OR (\SDCard:BSPIM:state_1\ and \SDCard:BSPIM:count_0\)
+	OR (not \SDCard:BSPIM:state_2\ and not \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:state_0\)
+	OR (not \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:state_2\)
+	OR (not \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:state_1\)
+	OR (\SDCard:BSPIM:state_2\ and \SDCard:BSPIM:state_1\));
+
+\SDCard:BSPIM:state_0\\D\ <= ((not \SDCard:BSPIM:state_2\ and not \SDCard:BSPIM:count_4\ and not \SDCard:BSPIM:count_3\ and not \SDCard:BSPIM:count_2\ and not \SDCard:BSPIM:count_0\ and not \SDCard:BSPIM:ld_ident\ and \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:count_1\)
+	OR (not \SDCard:BSPIM:state_0\ and not \SDCard:BSPIM:tx_status_1\)
+	OR (not \SDCard:BSPIM:state_2\ and not \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:state_0\)
+	OR (not \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:state_1\)
+	OR (not \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:state_2\));
+
+Net_1606D <= ((not \SDCard:BSPIM:state_0\ and Net_1606)
+	OR (not \SDCard:BSPIM:state_2\ and not \SDCard:BSPIM:state_1\ and not \SDCard:BSPIM:state_0\)
+	OR (not \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:state_2\ and \SDCard:BSPIM:state_0\)
+	OR (\SDCard:BSPIM:state_1\ and Net_1606));
+
+\SDCard:BSPIM:cnt_enable\\D\ <= ((not \SDCard:BSPIM:state_2\ and \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:cnt_enable\)
+	OR (not \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:state_2\ and \SDCard:BSPIM:state_1\)
+	OR (not \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:state_2\ and \SDCard:BSPIM:cnt_enable\)
+	OR (\SDCard:BSPIM:state_1\ and \SDCard:BSPIM:cnt_enable\));
+
+\SDCard:BSPIM:mosi_pre_reg\\D\ <= ((not \SDCard:BSPIM:count_4\ and not \SDCard:BSPIM:count_3\ and not \SDCard:BSPIM:count_2\ and not \SDCard:BSPIM:count_1\ and not \SDCard:BSPIM:count_0\ and not \SDCard:BSPIM:ld_ident\ and \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:mosi_from_dp\)
+	OR (not \SDCard:BSPIM:state_0\ and not \SDCard:BSPIM:count_4\ and not \SDCard:BSPIM:count_3\ and not \SDCard:BSPIM:count_2\ and not \SDCard:BSPIM:count_1\ and \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:count_0\ and \SDCard:BSPIM:mosi_pre_reg\)
+	OR (not \SDCard:BSPIM:state_2\ and not \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:mosi_from_dp\ and \SDCard:BSPIM:count_1\)
+	OR (not \SDCard:BSPIM:state_1\ and not \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:state_2\ and \SDCard:BSPIM:mosi_from_dp\)
+	OR (not \SDCard:BSPIM:state_2\ and not \SDCard:BSPIM:state_0\ and not \SDCard:BSPIM:count_0\ and \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:mosi_from_dp\)
+	OR (not \SDCard:BSPIM:state_2\ and not \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:mosi_from_dp\ and \SDCard:BSPIM:count_2\)
+	OR (not \SDCard:BSPIM:state_2\ and not \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:mosi_from_dp\ and \SDCard:BSPIM:count_3\)
+	OR (not \SDCard:BSPIM:state_2\ and not \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:mosi_from_dp\ and \SDCard:BSPIM:count_4\)
+	OR (not \SDCard:BSPIM:state_2\ and \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:mosi_pre_reg\ and \SDCard:BSPIM:ld_ident\)
+	OR (not \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:state_2\ and \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:mosi_pre_reg\)
+	OR (\SDCard:BSPIM:state_2\ and \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:mosi_from_dp\)
+	OR (not \SDCard:BSPIM:state_2\ and \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:count_0\ and \SDCard:BSPIM:mosi_pre_reg\)
+	OR (not \SDCard:BSPIM:state_2\ and \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:count_2\ and \SDCard:BSPIM:mosi_pre_reg\)
+	OR (not \SDCard:BSPIM:state_2\ and \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:count_3\ and \SDCard:BSPIM:mosi_pre_reg\)
+	OR (not \SDCard:BSPIM:state_2\ and \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:count_4\ and \SDCard:BSPIM:mosi_pre_reg\)
+	OR (not \SDCard:BSPIM:state_2\ and not \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:mosi_pre_reg\));
+
+Net_682D <= ((Net_682 and \SDCard:BSPIM:state_2\ and \SDCard:BSPIM:state_1\)
+	OR (not \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:state_1\)
+	OR (not \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:state_2\));
+
+\SDCard:BSPIM:mosi_hs_reg\\D\ <= ((not \SDCard:BSPIM:state_2\ and \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:mosi_from_dp_reg\)
+	OR (\SDCard:BSPIM:state_2\ and \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:mosi_from_dp\)
+	OR (not \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:mosi_hs_reg\)
+	OR (not \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:mosi_hs_reg\));
+
+\SDCard:BSPIM:ld_ident\\D\ <= ((not \SDCard:BSPIM:state_1\ and not \SDCard:BSPIM:state_0\ and \SDCard:BSPIM:state_2\)
+	OR (not \SDCard:BSPIM:count_0\ and \SDCard:BSPIM:ld_ident\)
+	OR (\SDCard:BSPIM:count_1\ and \SDCard:BSPIM:ld_ident\)
+	OR (\SDCard:BSPIM:count_2\ and \SDCard:BSPIM:ld_ident\)
+	OR (\SDCard:BSPIM:count_3\ and \SDCard:BSPIM:ld_ident\)
+	OR (\SDCard:BSPIM:count_4\ and \SDCard:BSPIM:ld_ident\)
+	OR (\SDCard:BSPIM:state_0\ and \SDCard:BSPIM:ld_ident\)
+	OR (not \SDCard:BSPIM:state_1\ and \SDCard:BSPIM:ld_ident\)
+	OR (\SDCard:BSPIM:state_2\ and \SDCard:BSPIM:ld_ident\));
+
+\GlitchFilter_1:genblk1[0]:last_state\\D\ <= ((Net_1728_0 and \GlitchFilter_1:genblk1[0]:samples_2\ and \GlitchFilter_1:genblk1[0]:samples_1\ and \GlitchFilter_1:genblk1[0]:samples_0\)
+	OR (filteredIn_0 and \GlitchFilter_1:genblk1[0]:samples_0\)
+	OR (filteredIn_0 and \GlitchFilter_1:genblk1[0]:samples_1\)
+	OR (filteredIn_0 and \GlitchFilter_1:genblk1[0]:samples_2\)
+	OR (Net_1728_0 and filteredIn_0));
+
+\GlitchFilter_1:genblk1[1]:last_state\\D\ <= ((Net_1728_1 and \GlitchFilter_1:genblk1[1]:samples_2\ and \GlitchFilter_1:genblk1[1]:samples_1\ and \GlitchFilter_1:genblk1[1]:samples_0\)
+	OR (filteredIn_1 and \GlitchFilter_1:genblk1[1]:samples_0\)
+	OR (filteredIn_1 and \GlitchFilter_1:genblk1[1]:samples_1\)
+	OR (filteredIn_1 and \GlitchFilter_1:genblk1[1]:samples_2\)
+	OR (Net_1728_1 and filteredIn_1));
+
+\GlitchFilter_1:genblk1[2]:last_state\\D\ <= ((Net_1728_2 and \GlitchFilter_1:genblk1[2]:samples_2\ and \GlitchFilter_1:genblk1[2]:samples_1\ and \GlitchFilter_1:genblk1[2]:samples_0\)
+	OR (filteredIn_2 and \GlitchFilter_1:genblk1[2]:samples_0\)
+	OR (filteredIn_2 and \GlitchFilter_1:genblk1[2]:samples_1\)
+	OR (filteredIn_2 and \GlitchFilter_1:genblk1[2]:samples_2\)
+	OR (filteredIn_2 and Net_1728_2));
+
+\GlitchFilter_1:genblk1[3]:last_state\\D\ <= ((Net_1728_3 and \GlitchFilter_1:genblk1[3]:samples_2\ and \GlitchFilter_1:genblk1[3]:samples_1\ and \GlitchFilter_1:genblk1[3]:samples_0\)
+	OR (filteredIn_3 and \GlitchFilter_1:genblk1[3]:samples_0\)
+	OR (filteredIn_3 and \GlitchFilter_1:genblk1[3]:samples_1\)
+	OR (filteredIn_3 and \GlitchFilter_1:genblk1[3]:samples_2\)
+	OR (filteredIn_3 and Net_1728_3));
+
+\GlitchFilter_1:genblk1[4]:last_state\\D\ <= ((Net_1728_4 and \GlitchFilter_1:genblk1[4]:samples_2\ and \GlitchFilter_1:genblk1[4]:samples_1\ and \GlitchFilter_1:genblk1[4]:samples_0\)
+	OR (filteredIn_4 and \GlitchFilter_1:genblk1[4]:samples_0\)
+	OR (filteredIn_4 and \GlitchFilter_1:genblk1[4]:samples_1\)
+	OR (filteredIn_4 and \GlitchFilter_1:genblk1[4]:samples_2\)
+	OR (filteredIn_4 and Net_1728_4));
+
+Net_791_7 <= ((not Net_1708 and Net_1706_7)
+	OR (Net_1708 and Net_1707_7));
+
+Net_791_6 <= ((not Net_1708 and Net_1706_6)
+	OR (Net_1708 and Net_1707_6));
+
+Net_791_5 <= ((not Net_1708 and Net_1706_5)
+	OR (Net_1708 and Net_1707_5));
+
+Net_791_4 <= ((not Net_1708 and Net_1706_4)
+	OR (Net_1708 and Net_1707_4));
+
+Net_791_3 <= ((not Net_1708 and Net_1706_3)
+	OR (Net_1708 and Net_1707_3));
+
+Net_791_2 <= ((not Net_1708 and Net_1706_2)
+	OR (Net_1708 and Net_1707_2));
+
+Net_791_1 <= ((not Net_1708 and Net_1706_1)
+	OR (Net_1708 and Net_1707_1));
+
+Net_791_0 <= ((not Net_1708 and Net_1706_0)
+	OR (Net_1708 and Net_1707_0));
+
+\scsiTarget:txComplete\ <= ((not \scsiTarget:state_2\ and not \scsiTarget:state_1\ and not \scsiTarget:state_0\ and \scsiTarget:f0_blk_stat\));
+
+\scsiTarget:state_2\\D\ <= ((not \scsiTarget:state_1\ and not Net_1106 and filteredIn_3 and \scsiTarget:state_0\)
+	OR (not Net_1724 and filteredIn_3 and \scsiTarget:state_2\)
+	OR (not \scsiTarget:state_2\ and filteredIn_3 and \scsiTarget:state_1\ and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_0\ and filteredIn_3 and \scsiTarget:state_2\)
+	OR (not \scsiTarget:state_1\ and filteredIn_3 and \scsiTarget:state_2\));
+
+\scsiTarget:state_1\\D\ <= ((not \scsiTarget:state_2\ and not \scsiTarget:state_1\ and filteredIn_3 and \scsiTarget:state_0\ and Net_1106)
+	OR (not \scsiTarget:state_1\ and not \scsiTarget:f1_blk_stat\ and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_0\ and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:deskewComplete\)
+	OR (not Net_1724 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\)
+	OR (not \scsiTarget:state_0\ and filteredIn_3 and \scsiTarget:state_1\));
+
+\scsiTarget:state_0\\D\ <= ((not \scsiTarget:state_2\ and not \scsiTarget:state_1\ and not Net_1106 and filteredIn_3 and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_1\ and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_0\ and \scsiTarget:f1_blk_stat\)
+	OR (not \scsiTarget:f0_blk_stat\ and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\ and \scsiTarget:state_0\)
+	OR (not \scsiTarget:f0_blk_stat\ and not \scsiTarget:state_2\ and not \scsiTarget:state_0\ and filteredIn_3)
+	OR (not Net_1724 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\)
+	OR (not \scsiTarget:state_2\ and not \scsiTarget:state_0\ and filteredIn_3 and \scsiTarget:state_1\));
+
+\scsiTarget:data_7\\D\ <= ((not \scsiTarget:state_1\ and Net_1706_7 and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_2\ and not \scsiTarget:state_0\ and \scsiTarget:state_1\ and \scsiTarget:po_7\)
+	OR (not \scsiTarget:state_0\ and Net_1706_7 and \scsiTarget:state_2\)
+	OR (not \scsiTarget:state_2\ and Net_1706_7 and \scsiTarget:state_0\));
+
+\scsiTarget:data_6\\D\ <= ((not \scsiTarget:state_1\ and Net_1706_6 and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_2\ and not \scsiTarget:state_0\ and \scsiTarget:state_1\ and \scsiTarget:po_6\)
+	OR (not \scsiTarget:state_0\ and Net_1706_6 and \scsiTarget:state_2\)
+	OR (not \scsiTarget:state_2\ and Net_1706_6 and \scsiTarget:state_0\));
+
+\scsiTarget:data_5\\D\ <= ((not \scsiTarget:state_1\ and Net_1706_5 and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_2\ and not \scsiTarget:state_0\ and \scsiTarget:state_1\ and \scsiTarget:po_5\)
+	OR (not \scsiTarget:state_0\ and Net_1706_5 and \scsiTarget:state_2\)
+	OR (not \scsiTarget:state_2\ and Net_1706_5 and \scsiTarget:state_0\));
+
+\scsiTarget:data_4\\D\ <= ((not \scsiTarget:state_1\ and Net_1706_4 and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_2\ and not \scsiTarget:state_0\ and \scsiTarget:state_1\ and \scsiTarget:po_4\)
+	OR (not \scsiTarget:state_0\ and Net_1706_4 and \scsiTarget:state_2\)
+	OR (not \scsiTarget:state_2\ and Net_1706_4 and \scsiTarget:state_0\));
+
+\scsiTarget:data_3\\D\ <= ((not \scsiTarget:state_1\ and Net_1706_3 and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_2\ and not \scsiTarget:state_0\ and \scsiTarget:state_1\ and \scsiTarget:po_3\)
+	OR (not \scsiTarget:state_0\ and Net_1706_3 and \scsiTarget:state_2\)
+	OR (not \scsiTarget:state_2\ and Net_1706_3 and \scsiTarget:state_0\));
+
+\scsiTarget:data_2\\D\ <= ((not \scsiTarget:state_1\ and Net_1706_2 and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_2\ and not \scsiTarget:state_0\ and \scsiTarget:state_1\ and \scsiTarget:po_2\)
+	OR (not \scsiTarget:state_0\ and Net_1706_2 and \scsiTarget:state_2\)
+	OR (not \scsiTarget:state_2\ and Net_1706_2 and \scsiTarget:state_0\));
+
+\scsiTarget:data_1\\D\ <= ((not \scsiTarget:state_1\ and Net_1706_1 and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_2\ and not \scsiTarget:state_0\ and \scsiTarget:state_1\ and \scsiTarget:po_1\)
+	OR (not \scsiTarget:state_0\ and Net_1706_1 and \scsiTarget:state_2\)
+	OR (not \scsiTarget:state_2\ and Net_1706_1 and \scsiTarget:state_0\));
+
+\scsiTarget:data_0\\D\ <= ((not \scsiTarget:state_1\ and Net_1706_0 and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_2\ and not \scsiTarget:state_0\ and \scsiTarget:state_1\ and \scsiTarget:po_0\)
+	OR (not \scsiTarget:state_0\ and Net_1706_0 and \scsiTarget:state_2\)
+	OR (not \scsiTarget:state_2\ and Net_1706_0 and \scsiTarget:state_0\));
+
+\scsiTarget:REQReg\\D\ <= ((not \scsiTarget:state_0\ and Net_1724 and Net_1691 and \scsiTarget:state_1\)
+	OR (not \scsiTarget:state_1\ and Net_1691 and \scsiTarget:state_0\)
+	OR (not filteredIn_3 and not \scsiTarget:state_0\ and Net_1691 and \scsiTarget:state_1\)
+	OR (not \scsiTarget:state_1\ and not \scsiTarget:state_0\ and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:deskewComplete\)
+	OR (not \scsiTarget:state_1\ and not \scsiTarget:f1_blk_stat\ and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_2\ and Net_1691 and \scsiTarget:state_1\)
+	OR (not \scsiTarget:state_1\ and Net_1691 and \scsiTarget:state_2\));
+
+\scsiTarget:fifoStore\\D\ <= ((Net_1724 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\ and \scsiTarget:state_0\)
+	OR (\scsiTarget:state_1\ and \scsiTarget:fifoStore\)
+	OR (\scsiTarget:state_2\ and \scsiTarget:fifoStore\));
+
+\scsiTarget:parityErrReg\\D\ <= ((not \scsiTarget:state_0\ and Net_1500 and \scsiTarget:state_2\)
+	OR (not \scsiTarget:state_1\ and Net_1500 and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_2\ and Net_1500 and \scsiTarget:state_1\)
+	OR (not Net_1106 and not \scsiTarget:genParity_1\ and not \scsiTarget:genParity_0\ and \scsiTarget:state_2\ and \scsiTarget:state_1\ and \scsiTarget:state_0\ and \scsiTarget:genParity_2\)
+	OR (not Net_1106 and not \scsiTarget:genParity_2\ and not \scsiTarget:genParity_0\ and \scsiTarget:state_2\ and \scsiTarget:state_1\ and \scsiTarget:state_0\ and \scsiTarget:genParity_1\)
+	OR (not Net_1106 and not \scsiTarget:genParity_2\ and not \scsiTarget:genParity_1\ and \scsiTarget:state_2\ and \scsiTarget:state_1\ and \scsiTarget:state_0\ and \scsiTarget:genParity_0\)
+	OR (not Net_1106 and \scsiTarget:state_2\ and \scsiTarget:state_1\ and \scsiTarget:state_0\ and \scsiTarget:genParity_2\ and \scsiTarget:genParity_1\ and \scsiTarget:genParity_0\));
+
+\scsiTarget:dbxInReg_7\\D\ <= ((not Net_1724 and not \scsiTarget:state_0\ and not Net_952_7 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\)
+	OR (\scsiTarget:pi_7\ and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_1\ and \scsiTarget:pi_7\)
+	OR (not \scsiTarget:state_2\ and \scsiTarget:pi_7\)
+	OR (not filteredIn_3 and \scsiTarget:pi_7\)
+	OR (Net_1724 and \scsiTarget:pi_7\));
+
+\scsiTarget:dbxInReg_6\\D\ <= ((not Net_1724 and not \scsiTarget:state_0\ and not Net_952_6 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\)
+	OR (\scsiTarget:pi_6\ and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_1\ and \scsiTarget:pi_6\)
+	OR (not \scsiTarget:state_2\ and \scsiTarget:pi_6\)
+	OR (not filteredIn_3 and \scsiTarget:pi_6\)
+	OR (Net_1724 and \scsiTarget:pi_6\));
+
+\scsiTarget:dbxInReg_5\\D\ <= ((not Net_1724 and not \scsiTarget:state_0\ and not Net_952_5 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\)
+	OR (\scsiTarget:pi_5\ and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_1\ and \scsiTarget:pi_5\)
+	OR (not \scsiTarget:state_2\ and \scsiTarget:pi_5\)
+	OR (not filteredIn_3 and \scsiTarget:pi_5\)
+	OR (Net_1724 and \scsiTarget:pi_5\));
+
+\scsiTarget:dbxInReg_4\\D\ <= ((not Net_1724 and not \scsiTarget:state_0\ and not Net_952_4 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\)
+	OR (\scsiTarget:pi_4\ and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_1\ and \scsiTarget:pi_4\)
+	OR (not \scsiTarget:state_2\ and \scsiTarget:pi_4\)
+	OR (not filteredIn_3 and \scsiTarget:pi_4\)
+	OR (Net_1724 and \scsiTarget:pi_4\));
+
+\scsiTarget:dbxInReg_3\\D\ <= ((not Net_1724 and not \scsiTarget:state_0\ and not Net_952_3 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\)
+	OR (\scsiTarget:pi_3\ and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_1\ and \scsiTarget:pi_3\)
+	OR (not \scsiTarget:state_2\ and \scsiTarget:pi_3\)
+	OR (not filteredIn_3 and \scsiTarget:pi_3\)
+	OR (Net_1724 and \scsiTarget:pi_3\));
+
+\scsiTarget:dbxInReg_2\\D\ <= ((not Net_1724 and not \scsiTarget:state_0\ and not Net_952_2 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\)
+	OR (\scsiTarget:pi_2\ and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_1\ and \scsiTarget:pi_2\)
+	OR (not \scsiTarget:state_2\ and \scsiTarget:pi_2\)
+	OR (not filteredIn_3 and \scsiTarget:pi_2\)
+	OR (Net_1724 and \scsiTarget:pi_2\));
+
+\scsiTarget:dbxInReg_1\\D\ <= ((not Net_1724 and not \scsiTarget:state_0\ and not Net_952_1 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\)
+	OR (\scsiTarget:pi_1\ and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_1\ and \scsiTarget:pi_1\)
+	OR (not \scsiTarget:state_2\ and \scsiTarget:pi_1\)
+	OR (not filteredIn_3 and \scsiTarget:pi_1\)
+	OR (Net_1724 and \scsiTarget:pi_1\));
+
+\scsiTarget:dbxInReg_0\\D\ <= ((not Net_1724 and not \scsiTarget:state_0\ and not Net_952_0 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\)
+	OR (\scsiTarget:pi_0\ and \scsiTarget:state_0\)
+	OR (not \scsiTarget:state_1\ and \scsiTarget:pi_0\)
+	OR (not \scsiTarget:state_2\ and \scsiTarget:pi_0\)
+	OR (not filteredIn_3 and \scsiTarget:pi_0\)
+	OR (Net_1724 and \scsiTarget:pi_0\));
+
+\scsiTarget:genParity_0\\D\ <= ((not Net_1724 and not \scsiTarget:state_0\ and not Net_952_6 and not scsiIn_0 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\ and Net_952_7)
+	OR (not Net_1724 and not \scsiTarget:state_0\ and not Net_952_7 and not scsiIn_0 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\ and Net_952_6)
+	OR (not Net_1724 and not \scsiTarget:state_0\ and not Net_952_7 and not Net_952_6 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\ and scsiIn_0)
+	OR (not Net_1724 and not \scsiTarget:state_0\ and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\ and Net_952_7 and Net_952_6 and scsiIn_0)
+	OR (\scsiTarget:state_0\ and \scsiTarget:genParity_0\)
+	OR (not \scsiTarget:state_1\ and \scsiTarget:genParity_0\)
+	OR (not \scsiTarget:state_2\ and \scsiTarget:genParity_0\)
+	OR (not filteredIn_3 and \scsiTarget:genParity_0\)
+	OR (Net_1724 and \scsiTarget:genParity_0\));
+
+\scsiTarget:genParity_1\\D\ <= ((not Net_1724 and not \scsiTarget:state_0\ and not Net_952_5 and not Net_952_4 and not Net_952_3 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\)
+	OR (not Net_1724 and not \scsiTarget:state_0\ and not Net_952_3 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\ and Net_952_5 and Net_952_4)
+	OR (not Net_1724 and not \scsiTarget:state_0\ and not Net_952_4 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\ and Net_952_5 and Net_952_3)
+	OR (not Net_1724 and not \scsiTarget:state_0\ and not Net_952_5 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\ and Net_952_4 and Net_952_3)
+	OR (\scsiTarget:state_0\ and \scsiTarget:genParity_1\)
+	OR (not \scsiTarget:state_1\ and \scsiTarget:genParity_1\)
+	OR (not \scsiTarget:state_2\ and \scsiTarget:genParity_1\)
+	OR (not filteredIn_3 and \scsiTarget:genParity_1\)
+	OR (Net_1724 and \scsiTarget:genParity_1\));
+
+\scsiTarget:genParity_2\\D\ <= ((not Net_1724 and not \scsiTarget:state_0\ and not Net_952_2 and not Net_952_1 and not Net_952_0 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\)
+	OR (not Net_1724 and not \scsiTarget:state_0\ and not Net_952_0 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\ and Net_952_2 and Net_952_1)
+	OR (not Net_1724 and not \scsiTarget:state_0\ and not Net_952_1 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\ and Net_952_2 and Net_952_0)
+	OR (not Net_1724 and not \scsiTarget:state_0\ and not Net_952_2 and filteredIn_3 and \scsiTarget:state_2\ and \scsiTarget:state_1\ and Net_952_1 and Net_952_0)
+	OR (\scsiTarget:state_0\ and \scsiTarget:genParity_2\)
+	OR (not \scsiTarget:state_1\ and \scsiTarget:genParity_2\)
+	OR (not \scsiTarget:state_2\ and \scsiTarget:genParity_2\)
+	OR (not filteredIn_3 and \scsiTarget:genParity_2\)
+	OR (Net_1724 and \scsiTarget:genParity_2\));
+
+\OddParityGen_1:tmpb\ <= ((not Net_1708 and not Net_1706_3 and Net_1706_4)
+	OR (not Net_1708 and not Net_1706_4 and Net_1706_3)
+	OR (not Net_1707_3 and Net_1708 and Net_1707_4)
+	OR (not Net_1707_4 and Net_1708 and Net_1707_3));
+
+\OddParityGen_1:tmpc\ <= ((not Net_1708 and not Net_1706_6 and not Net_1706_5 and Net_1706_7)
+	OR (not Net_1708 and not Net_1706_7 and not Net_1706_5 and Net_1706_6)
+	OR (not Net_1708 and not Net_1706_7 and not Net_1706_6 and Net_1706_5)
+	OR (not Net_1708 and Net_1706_7 and Net_1706_6 and Net_1706_5)
+	OR (not Net_1707_6 and not Net_1707_5 and Net_1708 and Net_1707_7)
+	OR (not Net_1707_7 and not Net_1707_5 and Net_1708 and Net_1707_6)
+	OR (not Net_1707_7 and not Net_1707_6 and Net_1708 and Net_1707_5)
+	OR (Net_1708 and Net_1707_7 and Net_1707_6 and Net_1707_5));
+
+Net_252 <= ((not Net_1708 and not Net_1706_2 and not Net_1706_1 and not Net_1706_0 and not \OddParityGen_1:tmpb\ and not \OddParityGen_1:tmpc\ and Net_1106)
+	OR (not Net_1708 and not Net_1706_0 and not \OddParityGen_1:tmpb\ and not \OddParityGen_1:tmpc\ and Net_1706_2 and Net_1706_1 and Net_1106)
+	OR (not Net_1708 and not Net_1706_1 and not \OddParityGen_1:tmpb\ and not \OddParityGen_1:tmpc\ and Net_1706_2 and Net_1706_0 and Net_1106)
+	OR (not Net_1708 and not Net_1706_2 and not \OddParityGen_1:tmpb\ and not \OddParityGen_1:tmpc\ and Net_1706_1 and Net_1706_0 and Net_1106)
+	OR (not Net_1707_2 and not Net_1707_1 and not Net_1707_0 and not \OddParityGen_1:tmpb\ and not \OddParityGen_1:tmpc\ and Net_1708 and Net_1106)
+	OR (not Net_1707_0 and not \OddParityGen_1:tmpb\ and not \OddParityGen_1:tmpc\ and Net_1708 and Net_1707_2 and Net_1707_1 and Net_1106)
+	OR (not Net_1707_1 and not \OddParityGen_1:tmpb\ and not \OddParityGen_1:tmpc\ and Net_1708 and Net_1707_2 and Net_1707_0 and Net_1106)
+	OR (not Net_1707_2 and not \OddParityGen_1:tmpb\ and not \OddParityGen_1:tmpc\ and Net_1708 and Net_1707_1 and Net_1707_0 and Net_1106)
+	OR (not Net_1708 and not Net_1706_1 and not Net_1706_0 and not \OddParityGen_1:tmpc\ and Net_1706_2 and Net_1106 and \OddParityGen_1:tmpb\)
+	OR (not Net_1708 and not Net_1706_2 and not Net_1706_0 and not \OddParityGen_1:tmpc\ and Net_1706_1 and Net_1106 and \OddParityGen_1:tmpb\)
+	OR (not Net_1708 and not Net_1706_2 and not Net_1706_1 and not \OddParityGen_1:tmpc\ and Net_1706_0 and Net_1106 and \OddParityGen_1:tmpb\)
+	OR (not Net_1708 and not \OddParityGen_1:tmpc\ and Net_1706_2 and Net_1706_1 and Net_1706_0 and Net_1106 and \OddParityGen_1:tmpb\)
+	OR (not Net_1707_1 and not Net_1707_0 and not \OddParityGen_1:tmpc\ and Net_1708 and Net_1707_2 and Net_1106 and \OddParityGen_1:tmpb\)
+	OR (not Net_1707_2 and not Net_1707_0 and not \OddParityGen_1:tmpc\ and Net_1708 and Net_1707_1 and Net_1106 and \OddParityGen_1:tmpb\)
+	OR (not Net_1707_2 and not Net_1707_1 and not \OddParityGen_1:tmpc\ and Net_1708 and Net_1707_0 and Net_1106 and \OddParityGen_1:tmpb\)
+	OR (not \OddParityGen_1:tmpc\ and Net_1708 and Net_1707_2 and Net_1707_1 and Net_1707_0 and Net_1106 and \OddParityGen_1:tmpb\)
+	OR (not Net_1708 and not Net_1706_1 and not Net_1706_0 and not \OddParityGen_1:tmpb\ and Net_1706_2 and Net_1106 and \OddParityGen_1:tmpc\)
+	OR (not Net_1708 and not Net_1706_2 and not Net_1706_0 and not \OddParityGen_1:tmpb\ and Net_1706_1 and Net_1106 and \OddParityGen_1:tmpc\)
+	OR (not Net_1708 and not Net_1706_2 and not Net_1706_1 and not \OddParityGen_1:tmpb\ and Net_1706_0 and Net_1106 and \OddParityGen_1:tmpc\)
+	OR (not Net_1708 and not \OddParityGen_1:tmpb\ and Net_1706_2 and Net_1706_1 and Net_1706_0 and Net_1106 and \OddParityGen_1:tmpc\)
+	OR (not Net_1707_1 and not Net_1707_0 and not \OddParityGen_1:tmpb\ and Net_1708 and Net_1707_2 and Net_1106 and \OddParityGen_1:tmpc\)
+	OR (not Net_1707_2 and not Net_1707_0 and not \OddParityGen_1:tmpb\ and Net_1708 and Net_1707_1 and Net_1106 and \OddParityGen_1:tmpc\)
+	OR (not Net_1707_2 and not Net_1707_1 and not \OddParityGen_1:tmpb\ and Net_1708 and Net_1707_0 and Net_1106 and \OddParityGen_1:tmpc\)
+	OR (not \OddParityGen_1:tmpb\ and Net_1708 and Net_1707_2 and Net_1707_1 and Net_1707_0 and Net_1106 and \OddParityGen_1:tmpc\)
+	OR (not Net_1708 and not Net_1706_2 and not Net_1706_1 and not Net_1706_0 and Net_1106 and \OddParityGen_1:tmpb\ and \OddParityGen_1:tmpc\)
+	OR (not Net_1708 and not Net_1706_0 and Net_1706_2 and Net_1706_1 and Net_1106 and \OddParityGen_1:tmpb\ and \OddParityGen_1:tmpc\)
+	OR (not Net_1708 and not Net_1706_1 and Net_1706_2 and Net_1706_0 and Net_1106 and \OddParityGen_1:tmpb\ and \OddParityGen_1:tmpc\)
+	OR (not Net_1708 and not Net_1706_2 and Net_1706_1 and Net_1706_0 and Net_1106 and \OddParityGen_1:tmpb\ and \OddParityGen_1:tmpc\)
+	OR (not Net_1707_2 and not Net_1707_1 and not Net_1707_0 and Net_1708 and Net_1106 and \OddParityGen_1:tmpb\ and \OddParityGen_1:tmpc\)
+	OR (not Net_1707_0 and Net_1708 and Net_1707_2 and Net_1707_1 and Net_1106 and \OddParityGen_1:tmpb\ and \OddParityGen_1:tmpc\)
+	OR (not Net_1707_1 and Net_1708 and Net_1707_2 and Net_1707_0 and Net_1106 and \OddParityGen_1:tmpb\ and \OddParityGen_1:tmpc\)
+	OR (not Net_1707_2 and Net_1708 and Net_1707_1 and Net_1707_0 and Net_1106 and \OddParityGen_1:tmpb\ and \OddParityGen_1:tmpc\));
+
+\SCSI_Glitch_Ctl:Sync:ctrl_reg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000000",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000000",
+		cy_ctrl_mode_0=>"00000000",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>zero,
+		control=>(\SCSI_Glitch_Ctl:control_7\, \SCSI_Glitch_Ctl:control_6\, \SCSI_Glitch_Ctl:control_5\, \SCSI_Glitch_Ctl:control_4\,
+			\SCSI_Glitch_Ctl:control_3\, \SCSI_Glitch_Ctl:control_2\, \SCSI_Glitch_Ctl:control_1\, Net_1714));
+SD_Data_Clk:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"a02b8792-da54-470b-840a-872b9924b64d",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"25000000",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_710,
+		dig_domain_out=>open);
+SD_CD:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"b5324e10-5947-4eb7-9e5c-75dae671b6dc",
+		drive_mode=>"001",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"3.3",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>2,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__SD_CD_net_0),
+		y=>(zero),
+		fb=>Net_677,
+		analog=>(open),
+		io=>(tmpIO_0__SD_CD_net_0),
+		siovref=>(tmpSIOVREF__SD_CD_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__SD_CD_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__SD_CD_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__SD_CD_net_0);
+SCSI_SEL_ISR:cy_isr_v1_0
+	GENERIC MAP(int_type=>"00",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_1699);
+Clock_4:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"80b10f93-8120-4c88-94c8-74ed13d7c14e",
+		source_clock_id=>"75C2148C-3656-4d8a-846D-0CAE99AB6FF7",
+		divisor=>0,
+		period=>"0",
+		is_direct=>'1',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_1700,
+		dig_domain_out=>open);
+SD_CS:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"ba1e380f-c607-4906-96ae-bbe0f65227f0",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"1",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"3.3",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"B",
+		por_state=>2,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"01",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"1",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__SD_CD_net_0),
+		y=>(zero),
+		fb=>(tmpFB_0__SD_CS_net_0),
+		analog=>(open),
+		io=>Net_1553,
+		siovref=>(tmpSIOVREF__SD_CS_net_0),
+		annotation=>Net_681,
+		in_clock=>zero,
+		in_clock_en=>tmpOE__SD_CD_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__SD_CD_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__SD_CS_net_0);
+SD_SCK:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"32f0aa9d-67c0-4e16-af15-f38ab16ecd75",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"3.3",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>2,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__SD_CD_net_0),
+		y=>Net_682,
+		fb=>(tmpFB_0__SD_SCK_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__SD_SCK_net_0),
+		siovref=>(tmpSIOVREF__SD_SCK_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__SD_CD_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__SD_CD_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__SD_SCK_net_0);
+SD_MOSI:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"b5255b72-3857-4b85-b455-d625a7fbd978",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"3.3",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>2,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__SD_CD_net_0),
+		y=>Net_683,
+		fb=>(tmpFB_0__SD_MOSI_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__SD_MOSI_net_0),
+		siovref=>(tmpSIOVREF__SD_MOSI_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__SD_CD_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__SD_CD_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__SD_MOSI_net_0);
+Clock_3:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"b892b28b-68db-4991-b061-4d9d3c6a3b01",
+		source_clock_id=>"75C2148C-3656-4d8a-846D-0CAE99AB6FF7",
+		divisor=>0,
+		period=>"0",
+		is_direct=>'1',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_1698,
+		dig_domain_out=>open);
+SCSI_Noise:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"0953ba78-d08c-41cc-a5ba-a28ac6cf9ee6",
+		drive_mode=>"001001001001001",
+		ibuf_enabled=>"11111",
+		init_dr_st=>"00000",
+		input_sync=>"11111",
+		input_clk_en=>'0',
+		input_sync_mode=>"00000",
+		intr_mode=>"0000000000",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>",,,,",
+		layout_mode=>"NONCONTIGUOUS",
+		output_conn=>"00000",
+		output_sync=>"00000",
+		output_clk_en=>'0',
+		output_mode=>"00000",
+		output_reset=>'0',
+		output_clock_mode=>"00000",
+		oe_sync=>"00000",
+		oe_conn=>"00000",
+		oe_reset=>'0',
+		pin_aliases=>"ATN,BSY,SEL,RST,ACK",
+		pin_mode=>"IIIII",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"11111",
+		sio_ibuf=>"00000000",
+		sio_info=>"0000000000",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"00000",
+		spanning=>'1',
+		sw_only=>'0',
+		vtrip=>"0101010101",
+		width=>5,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"00000",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"00000",
+		ovt_slew_control=>"0000000000",
+		ovt_hyst_trim=>"00000",
+		input_buffer_sel=>"0000000000")
+	PORT MAP(oe=>(tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0,
+			tmpOE__SD_CD_net_0),
+		y=>(zero, zero, zero, zero,
+			zero),
+		fb=>(Net_1728_4, Net_1728_3, Net_1728_2, Net_1728_1,
+			Net_1728_0),
+		analog=>(open, open, open, open,
+			open),
+		io=>(tmpIO_4__SCSI_Noise_net_4, tmpIO_4__SCSI_Noise_net_3, tmpIO_4__SCSI_Noise_net_2, tmpIO_4__SCSI_Noise_net_1,
+			tmpIO_4__SCSI_Noise_net_0),
+		siovref=>(tmpSIOVREF__SCSI_Noise_net_0),
+		annotation=>(open, open, open, open,
+			open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__SD_CD_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__SD_CD_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__SCSI_Noise_net_0);
+LED1:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"52b56294-36b1-4f21-a98a-a7ce3de7f759",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"1",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"1",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__SD_CD_net_0),
+		y=>(zero),
+		fb=>(tmpFB_0__LED1_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__LED1_net_0),
+		siovref=>(tmpSIOVREF__LED1_net_0),
+		annotation=>Net_699,
+		in_clock=>zero,
+		in_clock_en=>tmpOE__SD_CD_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__SD_CD_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__LED1_net_0);
+\SDCard:BSPIM:ClkEn\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>Net_710,
+		enable=>tmpOE__SD_CD_net_0,
+		clock_out=>\SDCard:BSPIM:clk_fin\);
+\SDCard:BSPIM:BitCounter\:cy_psoc3_count7
+	GENERIC MAP(cy_period=>"0001111",
+		cy_init_value=>"0000000",
+		cy_route_ld=>'0',
+		cy_route_en=>'1',
+		cy_alt_mode=>'0')
+	PORT MAP(clock=>\SDCard:BSPIM:clk_fin\,
+		reset=>zero,
+		load=>zero,
+		enable=>\SDCard:BSPIM:cnt_enable\,
+		count=>(\SDCard:BSPIM:count_6\, \SDCard:BSPIM:count_5\, \SDCard:BSPIM:count_4\, \SDCard:BSPIM:count_3\,
+			\SDCard:BSPIM:count_2\, \SDCard:BSPIM:count_1\, \SDCard:BSPIM:count_0\),
+		tc=>\SDCard:BSPIM:cnt_tc\);
+\SDCard:BSPIM:TxStsReg\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"0001001",
+		cy_int_mask=>"0000000")
+	PORT MAP(reset=>zero,
+		clock=>\SDCard:BSPIM:clk_fin\,
+		status=>(zero, zero, \SDCard:BSPIM:tx_status_4\, \SDCard:BSPIM:load_rx_data\,
+			\SDCard:BSPIM:tx_status_2\, \SDCard:BSPIM:tx_status_1\, \SDCard:BSPIM:tx_status_0\),
+		interrupt=>Net_913);
+\SDCard:BSPIM:RxStsReg\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"1000000",
+		cy_int_mask=>"0000000")
+	PORT MAP(reset=>zero,
+		clock=>\SDCard:BSPIM:clk_fin\,
+		status=>(\SDCard:BSPIM:rx_status_6\, \SDCard:BSPIM:rx_status_5\, \SDCard:BSPIM:rx_status_4\, zero,
+			zero, zero, zero),
+		interrupt=>Net_910);
+\SDCard:BSPIM:sR8:Dp:u0\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000000000000000000001100000000000001010000000001000100010000000000011100000000010001000000000000000101000000000000010100000011111111000000001111111111111111000000000010001000001000111100000000000000000100",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\SDCard:BSPIM:clk_fin\,
+		cs_addr=>(\SDCard:BSPIM:state_2\, \SDCard:BSPIM:state_1\, \SDCard:BSPIM:state_0\),
+		route_si=>Net_686,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>\SDCard:BSPIM:load_rx_data\,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>open,
+		cl0=>open,
+		z0=>open,
+		ff0=>open,
+		ce1=>open,
+		cl1=>open,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>\SDCard:BSPIM:mosi_from_dp\,
+		f0_bus_stat=>\SDCard:BSPIM:tx_status_2\,
+		f0_blk_stat=>\SDCard:BSPIM:tx_status_1\,
+		f1_bus_stat=>\SDCard:BSPIM:rx_status_5\,
+		f1_blk_stat=>\SDCard:BSPIM:rx_status_4\,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>zero,
+		co=>open,
+		sir=>zero,
+		sor=>open,
+		sil=>zero,
+		sol=>open,
+		msbi=>zero,
+		msbo=>open,
+		cei=>(zero, zero),
+		ceo=>open,
+		cli=>(zero, zero),
+		clo=>open,
+		zi=>(zero, zero),
+		zo=>open,
+		fi=>(zero, zero),
+		fo=>open,
+		capi=>(zero, zero),
+		capo=>open,
+		cfbi=>zero,
+		cfbo=>open,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+SD_MISO:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"1bd12db2-da87-4f00-90d1-0a734e846c58",
+		drive_mode=>"001",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"0",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"3.3",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>2,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__SD_CD_net_0),
+		y=>(zero),
+		fb=>Net_686,
+		analog=>(open),
+		io=>(tmpIO_0__SD_MISO_net_0),
+		siovref=>(tmpSIOVREF__SD_MISO_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__SD_CD_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__SD_CD_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__SD_MISO_net_0);
+\USBFS:dp_int\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>\USBFS:Net_1010\);
+\USBFS:Dm\:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"791071b3-a348-49c4-b578-64e66d701d0f/8b77a6c4-10a0-4390-971c-672353e2a49c",
+		drive_mode=>"000",
+		ibuf_enabled=>"0",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"NONCONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"A",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'1',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__SD_CD_net_0),
+		y=>(zero),
+		fb=>(\USBFS:tmpFB_0__Dm_net_0\),
+		analog=>\USBFS:Net_597\,
+		io=>(\USBFS:tmpIO_0__Dm_net_0\),
+		siovref=>(\USBFS:tmpSIOVREF__Dm_net_0\),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__SD_CD_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__SD_CD_net_0,
+		out_reset=>zero,
+		interrupt=>\USBFS:tmpINTERRUPT_0__Dm_net_0\);
+\USBFS:Dp\:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"791071b3-a348-49c4-b578-64e66d701d0f/618a72fc-5ddd-4df5-958f-a3d55102db42",
+		drive_mode=>"000",
+		ibuf_enabled=>"0",
+		init_dr_st=>"1",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"10",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__SD_CD_net_0),
+		y=>(zero),
+		fb=>(\USBFS:tmpFB_0__Dp_net_0\),
+		analog=>\USBFS:Net_1000\,
+		io=>(\USBFS:tmpIO_0__Dp_net_0\),
+		siovref=>(\USBFS:tmpSIOVREF__Dp_net_0\),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__SD_CD_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__SD_CD_net_0,
+		out_reset=>zero,
+		interrupt=>\USBFS:Net_1010\);
+\USBFS:USB\:cy_psoc3_usb_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(dp=>\USBFS:Net_1000\,
+		dm=>\USBFS:Net_597\,
+		sof_int=>Net_1684,
+		arb_int=>\USBFS:Net_1889\,
+		usb_int=>\USBFS:Net_1876\,
+		ept_int=>(\USBFS:ep_int_8\, \USBFS:ep_int_7\, \USBFS:ep_int_6\, \USBFS:ep_int_5\,
+			\USBFS:ep_int_4\, \USBFS:ep_int_3\, \USBFS:ep_int_2\, \USBFS:ep_int_1\,
+			\USBFS:ep_int_0\),
+		ord_int=>\USBFS:Net_95\,
+		dma_req=>(\USBFS:dma_request_7\, \USBFS:dma_request_6\, \USBFS:dma_request_5\, \USBFS:dma_request_4\,
+			\USBFS:dma_request_3\, \USBFS:dma_request_2\, \USBFS:dma_request_1\, \USBFS:dma_request_0\),
+		dma_termin=>\USBFS:dma_terminate\);
+\USBFS:ep_4\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>\USBFS:ep_int_4\);
+\USBFS:ep_3\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>\USBFS:ep_int_3\);
+\USBFS:ep_2\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>\USBFS:ep_int_2\);
+\USBFS:ep_1\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>\USBFS:ep_int_1\);
+\USBFS:ep_0\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>\USBFS:ep_int_0\);
+\USBFS:bus_reset\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>\USBFS:Net_1876\);
+\USBFS:arb_int\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>\USBFS:Net_1889\);
+\USBFS:sof_int\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_1684);
+\SCSI_Filtered:sts:sts_reg\:cy_psoc3_status
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"00000000")
+	PORT MAP(reset=>zero,
+		clock=>Net_585,
+		status=>(zero, zero, zero, filteredIn_4,
+			filteredIn_3, filteredIn_2, filteredIn_1, filteredIn_0));
+\GlitchFilter_1:ClkSync\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>Net_585,
+		enable=>tmpOE__SD_CD_net_0,
+		clock_out=>\GlitchFilter_1:op_clk\);
+\SCSI_Parity_Error:sts:sts_reg\:cy_psoc3_status
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"00000001")
+	PORT MAP(reset=>zero,
+		clock=>Net_585,
+		status=>(zero, zero, zero, zero,
+			zero, zero, zero, Net_1500));
+\Debug_Timer:TimerHW\:cy_psoc3_timer_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(clock=>Net_10,
+		kill=>zero,
+		enable=>tmpOE__SD_CD_net_0,
+		capture=>zero,
+		timer_reset=>zero,
+		tc=>Net_855,
+		compare=>\Debug_Timer:Net_261\,
+		interrupt=>\Debug_Timer:Net_57\);
+timer_clock:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"c0fb34bd-1044-4931-9788-16b01ce89812",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"1000000000",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_10,
+		dig_domain_out=>open);
+Debug_Timer_Interrupt:cy_isr_v1_0
+	GENERIC MAP(int_type=>"00",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_855);
+SCSI_RX_DMA_COMPLETE:cy_isr_v1_0
+	GENERIC MAP(int_type=>"00",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_928);
+SCSI_RX_DMA:cy_dma_v1_0
+	GENERIC MAP(drq_type=>"01",
+		num_tds=>0)
+	PORT MAP(drq=>Net_1655,
+		trq=>zero,
+		nrq=>Net_928);
+SD_RX_DMA:cy_dma_v1_0
+	GENERIC MAP(drq_type=>"01",
+		num_tds=>0)
+	PORT MAP(drq=>Net_910,
+		trq=>zero,
+		nrq=>Net_918);
+SD_TX_DMA:cy_dma_v1_0
+	GENERIC MAP(drq_type=>"00",
+		num_tds=>0)
+	PORT MAP(drq=>Net_913,
+		trq=>zero,
+		nrq=>Net_919);
+SD_RX_DMA_COMPLETE:cy_isr_v1_0
+	GENERIC MAP(int_type=>"00",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_918);
+SD_TX_DMA_COMPLETE:cy_isr_v1_0
+	GENERIC MAP(int_type=>"00",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_919);
+SCSI_TX_DMA_COMPLETE:cy_isr_v1_0
+	GENERIC MAP(int_type=>"00",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_903);
+SCSI_TX_DMA:cy_dma_v1_0
+	GENERIC MAP(drq_type=>"01",
+		num_tds=>0)
+	PORT MAP(drq=>Net_1668,
+		trq=>zero,
+		nrq=>Net_903);
+\SCSI_Out_Ctl:Sync:ctrl_reg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000000",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000000",
+		cy_ctrl_mode_0=>"00000000",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>zero,
+		control=>(\SCSI_Out_Ctl:control_7\, \SCSI_Out_Ctl:control_6\, \SCSI_Out_Ctl:control_5\, \SCSI_Out_Ctl:control_4\,
+			\SCSI_Out_Ctl:control_3\, \SCSI_Out_Ctl:control_2\, \SCSI_Out_Ctl:control_1\, Net_1708));
+\SCSI_Out_Bits:Sync:ctrl_reg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000000",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000000",
+		cy_ctrl_mode_0=>"00000000",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>zero,
+		control=>(Net_1707_7, Net_1707_6, Net_1707_5, Net_1707_4,
+			Net_1707_3, Net_1707_2, Net_1707_1, Net_1707_0));
+SCSI_CLK:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"db57a7b6-947e-4db4-9c9e-49d467b978e2",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"50000000",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_585,
+		dig_domain_out=>open);
+\scsiTarget:ClkSync\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>Net_585,
+		enable=>tmpOE__SD_CD_net_0,
+		clock_out=>\scsiTarget:op_clk\);
+\scsiTarget:StatusReg\:cy_psoc3_status
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"00000000")
+	PORT MAP(reset=>zero,
+		clock=>\scsiTarget:op_clk\,
+		status=>(zero, zero, zero, \scsiTarget:txComplete\,
+			\scsiTarget:f1_blk_stat\, \scsiTarget:f0_blk_stat\, Net_1655, Net_1668));
+\scsiTarget:datapath\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000000001000000000001100100000000000000000000000000010000000010000000100000000000000000000000000000000000000000000000000100011111111000000001111111111111111000000000000000000101100000000000000000000000000",
+		d0_init=>"00000001",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\scsiTarget:op_clk\,
+		cs_addr=>(\scsiTarget:state_2\, \scsiTarget:state_1\, \scsiTarget:state_0\),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>\scsiTarget:fifoStore\,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>open,
+		cl0=>open,
+		z0=>\scsiTarget:deskewComplete\,
+		ff0=>open,
+		ce1=>open,
+		cl1=>open,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>Net_1668,
+		f0_blk_stat=>\scsiTarget:f0_blk_stat\,
+		f1_bus_stat=>Net_1655,
+		f1_blk_stat=>\scsiTarget:f1_blk_stat\,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>zero,
+		co=>open,
+		sir=>zero,
+		sor=>open,
+		sil=>zero,
+		sol=>open,
+		msbi=>zero,
+		msbo=>open,
+		cei=>(zero, zero),
+		ceo=>open,
+		cli=>(zero, zero),
+		clo=>open,
+		zi=>(zero, zero),
+		zo=>open,
+		fi=>(zero, zero),
+		fo=>open,
+		capi=>(zero, zero),
+		capo=>open,
+		cfbi=>zero,
+		cfbo=>open,
+		pi=>(\scsiTarget:pi_7\, \scsiTarget:pi_6\, \scsiTarget:pi_5\, \scsiTarget:pi_4\,
+			\scsiTarget:pi_3\, \scsiTarget:pi_2\, \scsiTarget:pi_1\, \scsiTarget:pi_0\),
+		po=>(\scsiTarget:po_7\, \scsiTarget:po_6\, \scsiTarget:po_5\, \scsiTarget:po_4\,
+			\scsiTarget:po_3\, \scsiTarget:po_2\, \scsiTarget:po_1\, \scsiTarget:po_0\));
+\SCSI_CTL_PHASE:Sync:ctrl_reg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000000",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000000",
+		cy_ctrl_mode_0=>"00000000",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>zero,
+		control=>(\SCSI_CTL_PHASE:control_7\, \SCSI_CTL_PHASE:control_6\, \SCSI_CTL_PHASE:control_5\, \SCSI_CTL_PHASE:control_4\,
+			\SCSI_CTL_PHASE:control_3\, Net_1106, Net_701, Net_765));
+SCSI_RST_ISR:cy_isr_v1_0
+	GENERIC MAP(int_type=>"00",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>cydff_1);
+SCSI_Out:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"11f071e8-9c92-47e0-872a-3f48765a75b8",
+		drive_mode=>"110110110110110110110110110110",
+		ibuf_enabled=>"1111111111",
+		init_dr_st=>"0000000000",
+		input_sync=>"1111111111",
+		input_clk_en=>'0',
+		input_sync_mode=>"0000000000",
+		intr_mode=>"00000000000000000000",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"4,4,4,4,4,4,4,4,4,4",
+		layout_mode=>"NONCONTIGUOUS",
+		output_conn=>"1000010111",
+		output_sync=>"0000000000",
+		output_clk_en=>'0',
+		output_mode=>"0000000000",
+		output_reset=>'0',
+		output_clock_mode=>"0000000000",
+		oe_sync=>"0000000000",
+		oe_conn=>"0000000000",
+		oe_reset=>'0',
+		pin_aliases=>"DBP_raw,ATN,BSY,ACK,RST,MSG_raw,SEL,CD_raw,REQ,IO_raw",
+		pin_mode=>"OOOOOOOOOO",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1111111111",
+		sio_ibuf=>"00000000",
+		sio_info=>"00000000000000000000",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0000000000",
+		spanning=>'1',
+		sw_only=>'0',
+		vtrip=>"10101010101010101010",
+		width=>10,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"1111111111",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0000000000",
+		ovt_slew_control=>"00000000000000000000",
+		ovt_hyst_trim=>"0000000000",
+		input_buffer_sel=>"00000000000000000000")
+	PORT MAP(oe=>(tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0,
+			tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0,
+			tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0),
+		y=>(Net_1106, Net_1691, Net_701, zero,
+			Net_765, zero, zero, zero,
+			zero, Net_252),
+		fb=>(tmpFB_9__SCSI_Out_net_9, tmpFB_9__SCSI_Out_net_8, tmpFB_9__SCSI_Out_net_7, tmpFB_9__SCSI_Out_net_6,
+			tmpFB_9__SCSI_Out_net_5, tmpFB_9__SCSI_Out_net_4, tmpFB_9__SCSI_Out_net_3, tmpFB_9__SCSI_Out_net_2,
+			tmpFB_9__SCSI_Out_net_1, tmpFB_9__SCSI_Out_net_0),
+		analog=>(open, open, open, open,
+			open, open, open, open,
+			open, open),
+		io=>(tmpIO_9__SCSI_Out_net_9, tmpIO_9__SCSI_Out_net_8, tmpIO_9__SCSI_Out_net_7, tmpIO_9__SCSI_Out_net_6,
+			tmpIO_9__SCSI_Out_net_5, tmpIO_9__SCSI_Out_net_4, tmpIO_9__SCSI_Out_net_3, tmpIO_9__SCSI_Out_net_2,
+			tmpIO_9__SCSI_Out_net_1, tmpIO_9__SCSI_Out_net_0),
+		siovref=>(tmpSIOVREF__SCSI_Out_net_0),
+		annotation=>(Net_310, Net_1810, Net_1809, Net_1808,
+			Net_1807, Net_1806, Net_1805, Net_1804,
+			Net_1803, Net_1802),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__SD_CD_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__SD_CD_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__SCSI_Out_net_0);
+SCSI_In:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"bc0102aa-f4d9-4793-b77a-8c3463edcafa",
+		drive_mode=>"001001001001001",
+		ibuf_enabled=>"11111",
+		init_dr_st=>"00000",
+		input_sync=>"11111",
+		input_clk_en=>'0',
+		input_sync_mode=>"00000",
+		intr_mode=>"0000000000",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>",,,,",
+		layout_mode=>"NONCONTIGUOUS",
+		output_conn=>"00000",
+		output_sync=>"00000",
+		output_clk_en=>'0',
+		output_mode=>"00000",
+		output_reset=>'0',
+		output_clock_mode=>"00000",
+		oe_sync=>"00000",
+		oe_conn=>"00000",
+		oe_reset=>'0',
+		pin_aliases=>"DBP,MSG,CD,REQ,IO",
+		pin_mode=>"IIIII",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"11111",
+		sio_ibuf=>"00000000",
+		sio_info=>"0000000000",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"00000",
+		spanning=>'1',
+		sw_only=>'0',
+		vtrip=>"0101010110",
+		width=>5,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"00000",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"00000",
+		ovt_slew_control=>"0000000000",
+		ovt_hyst_trim=>"00000",
+		input_buffer_sel=>"0000000000")
+	PORT MAP(oe=>(tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0,
+			tmpOE__SD_CD_net_0),
+		y=>(zero, zero, zero, zero,
+			zero),
+		fb=>(scsiIn_4, scsiIn_3, scsiIn_2, scsiIn_1,
+			scsiIn_0),
+		analog=>(open, open, open, open,
+			open),
+		io=>(tmpIO_4__SCSI_In_net_4, tmpIO_4__SCSI_In_net_3, tmpIO_4__SCSI_In_net_2, tmpIO_4__SCSI_In_net_1,
+			tmpIO_4__SCSI_In_net_0),
+		siovref=>(tmpSIOVREF__SCSI_In_net_0),
+		annotation=>(open, open, open, open,
+			open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__SD_CD_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__SD_CD_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__SCSI_In_net_0);
+SCSI_Out_DBx:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"52f31aa9-2f0a-497d-9a1f-1424095e13e6",
+		drive_mode=>"110110110110110110110110",
+		ibuf_enabled=>"11111111",
+		init_dr_st=>"00000000",
+		input_sync=>"11111111",
+		input_clk_en=>'0',
+		input_sync_mode=>"00000000",
+		intr_mode=>"0000000000000000",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"4,4,4,4,4,4,4,4",
+		layout_mode=>"NONCONTIGUOUS",
+		output_conn=>"11111111",
+		output_sync=>"00000000",
+		output_clk_en=>'0',
+		output_mode=>"00000000",
+		output_reset=>'0',
+		output_clock_mode=>"00000000",
+		oe_sync=>"00000000",
+		oe_conn=>"00000000",
+		oe_reset=>'0',
+		pin_aliases=>"DB0,DB1,DB2,DB3,DB4,DB5,DB6,DB7",
+		pin_mode=>"OOOOOOOO",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"11111111",
+		sio_ibuf=>"00000000",
+		sio_info=>"0000000000000000",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"00000000",
+		spanning=>'1',
+		sw_only=>'0',
+		vtrip=>"1010101010101010",
+		width=>8,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"11111111",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"00000000",
+		ovt_slew_control=>"0000000000000000",
+		ovt_hyst_trim=>"00000000",
+		input_buffer_sel=>"0000000000000000")
+	PORT MAP(oe=>(tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0,
+			tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0),
+		y=>(Net_791_7, Net_791_6, Net_791_5, Net_791_4,
+			Net_791_3, Net_791_2, Net_791_1, Net_791_0),
+		fb=>(tmpFB_7__SCSI_Out_DBx_net_7, tmpFB_7__SCSI_Out_DBx_net_6, tmpFB_7__SCSI_Out_DBx_net_5, tmpFB_7__SCSI_Out_DBx_net_4,
+			tmpFB_7__SCSI_Out_DBx_net_3, tmpFB_7__SCSI_Out_DBx_net_2, tmpFB_7__SCSI_Out_DBx_net_1, tmpFB_7__SCSI_Out_DBx_net_0),
+		analog=>(open, open, open, open,
+			open, open, open, open),
+		io=>(tmpIO_7__SCSI_Out_DBx_net_7, tmpIO_7__SCSI_Out_DBx_net_6, tmpIO_7__SCSI_Out_DBx_net_5, tmpIO_7__SCSI_Out_DBx_net_4,
+			tmpIO_7__SCSI_Out_DBx_net_3, tmpIO_7__SCSI_Out_DBx_net_2, tmpIO_7__SCSI_Out_DBx_net_1, tmpIO_7__SCSI_Out_DBx_net_0),
+		siovref=>(tmpSIOVREF__SCSI_Out_DBx_net_0),
+		annotation=>(Net_1811_7, Net_1811_6, Net_1811_5, Net_1811_4,
+			Net_1811_3, Net_1811_2, Net_1811_1, Net_1811_0),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__SD_CD_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__SD_CD_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__SCSI_Out_DBx_net_0);
+SCSI_In_DBx:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"4c15b41e-e284-4978-99e7-5aaee19bd0ce",
+		drive_mode=>"001001001001001001001001",
+		ibuf_enabled=>"11111111",
+		init_dr_st=>"00000000",
+		input_sync=>"11111111",
+		input_clk_en=>'0',
+		input_sync_mode=>"00000000",
+		intr_mode=>"0000000000000000",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>",,,,,,,",
+		layout_mode=>"NONCONTIGUOUS",
+		output_conn=>"00000000",
+		output_sync=>"00000000",
+		output_clk_en=>'0',
+		output_mode=>"00000000",
+		output_reset=>'0',
+		output_clock_mode=>"00000000",
+		oe_sync=>"00000000",
+		oe_conn=>"00000000",
+		oe_reset=>'0',
+		pin_aliases=>"DB0,DB1,DB2,DB3,DB4,DB5,DB6,DB7",
+		pin_mode=>"IIIIIIII",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"11111111",
+		sio_ibuf=>"00000000",
+		sio_info=>"0000000000000000",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"00000000",
+		spanning=>'1',
+		sw_only=>'0',
+		vtrip=>"0101010101010101",
+		width=>8,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"00000000",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"00000000",
+		ovt_slew_control=>"0000000000000000",
+		ovt_hyst_trim=>"00000000",
+		input_buffer_sel=>"0000000000000000")
+	PORT MAP(oe=>(tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0,
+			tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0, tmpOE__SD_CD_net_0),
+		y=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		fb=>(Net_952_7, Net_952_6, Net_952_5, Net_952_4,
+			Net_952_3, Net_952_2, Net_952_1, Net_952_0),
+		analog=>(open, open, open, open,
+			open, open, open, open),
+		io=>(tmpIO_7__SCSI_In_DBx_net_7, tmpIO_7__SCSI_In_DBx_net_6, tmpIO_7__SCSI_In_DBx_net_5, tmpIO_7__SCSI_In_DBx_net_4,
+			tmpIO_7__SCSI_In_DBx_net_3, tmpIO_7__SCSI_In_DBx_net_2, tmpIO_7__SCSI_In_DBx_net_1, tmpIO_7__SCSI_In_DBx_net_0),
+		siovref=>(tmpSIOVREF__SCSI_In_DBx_net_0),
+		annotation=>(open, open, open, open,
+			open, open, open, open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__SD_CD_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__SD_CD_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__SCSI_In_DBx_net_0);
+\VDAC8_1:viDAC8\:cy_psoc3_vidac8_v1_0
+	GENERIC MAP(cy_registers=>"",
+		reg_data=>'0',
+		is_all_if_any=>'0')
+	PORT MAP(reset=>zero,
+		idir=>zero,
+		ioff=>zero,
+		data=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		strobe=>zero,
+		strobe_udb=>zero,
+		vout=>Net_1824,
+		iout=>\VDAC8_1:Net_77\);
+\VDAC8_1:cy_analog_noconnect_1\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\VDAC8_1:Net_77\);
+SOUND:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"3b04c7a0-4ee9-4635-8b02-d4e48eba2376",
+		drive_mode=>"000",
+		ibuf_enabled=>"0",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"A",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"1",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__SD_CD_net_0),
+		y=>(zero),
+		fb=>(tmpFB_0__SOUND_net_0),
+		analog=>Net_1847,
+		io=>(tmpIO_0__SOUND_net_0),
+		siovref=>(tmpSIOVREF__SOUND_net_0),
+		annotation=>Net_1832,
+		in_clock=>zero,
+		in_clock_en=>tmpOE__SD_CD_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__SD_CD_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__SOUND_net_0);
+SOUND_CLK:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"4470eeaa-4889-4272-b8cd-e2a33cb75fa0",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"125000000000",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_1799,
+		dig_domain_out=>open);
+SOUND_ISR:cy_isr_v1_0
+	GENERIC MAP(int_type=>"00",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_1799);
+\PGA_1:SC\:cy_psoc3_scblock_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(vref=>\PGA_1:Net_17\,
+		vin=>Net_1851,
+		aclk=>zero,
+		bst_clk=>zero,
+		clk_udb=>zero,
+		dyn_cntl=>zero,
+		modout_sync=>\PGA_1:Net_41\,
+		vout=>Net_1847);
+\PGA_1:cy_analog_virtualmux_1_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\PGA_1:Net_17\,
+		signal2=>\PGA_1:Net_75\);
+\PGA_1:cy_analog_noconnect_2\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\PGA_1:Net_75\);
+\LPF_1:cy_psoc3_lpf_1\:cy_psoc3_lpf_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(vin=>Net_1824,
+		vout=>Net_1851);
+cydff_2:cy_dff
+	PORT MAP(d=>Net_1788,
+		clk=>Net_1700,
+		q=>Net_1699);
+Net_682:cy_dff
+	PORT MAP(d=>Net_682D,
+		clk=>\SDCard:BSPIM:clk_fin\,
+		q=>Net_682);
+cydff_1:cy_dff
+	PORT MAP(d=>Net_1786,
+		clk=>Net_1698,
+		q=>cydff_1);
+\SDCard:BSPIM:so_send_reg\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\SDCard:BSPIM:clk_fin\,
+		q=>\SDCard:BSPIM:so_send_reg\);
+\SDCard:BSPIM:state_2\:cy_dff
+	PORT MAP(d=>\SDCard:BSPIM:state_2\\D\,
+		clk=>\SDCard:BSPIM:clk_fin\,
+		q=>\SDCard:BSPIM:state_2\);
+\SDCard:BSPIM:state_1\:cy_dff
+	PORT MAP(d=>\SDCard:BSPIM:state_1\\D\,
+		clk=>\SDCard:BSPIM:clk_fin\,
+		q=>\SDCard:BSPIM:state_1\);
+\SDCard:BSPIM:state_0\:cy_dff
+	PORT MAP(d=>\SDCard:BSPIM:state_0\\D\,
+		clk=>\SDCard:BSPIM:clk_fin\,
+		q=>\SDCard:BSPIM:state_0\);
+Net_1606:cy_dff
+	PORT MAP(d=>Net_1606D,
+		clk=>\SDCard:BSPIM:clk_fin\,
+		q=>Net_1606);
+\SDCard:BSPIM:mosi_hs_reg\:cy_dff
+	PORT MAP(d=>\SDCard:BSPIM:mosi_hs_reg\\D\,
+		clk=>\SDCard:BSPIM:clk_fin\,
+		q=>\SDCard:BSPIM:mosi_hs_reg\);
+\SDCard:BSPIM:mosi_pre_reg\:cy_dff
+	PORT MAP(d=>\SDCard:BSPIM:mosi_pre_reg\\D\,
+		clk=>\SDCard:BSPIM:clk_fin\,
+		q=>\SDCard:BSPIM:mosi_pre_reg\);
+\SDCard:BSPIM:mosi_reg\:cy_dff
+	PORT MAP(d=>\SDCard:BSPIM:mosi_pre_reg\,
+		clk=>\SDCard:BSPIM:clk_fin\,
+		q=>\SDCard:BSPIM:mosi_reg\);
+\SDCard:BSPIM:load_cond\:cy_dff
+	PORT MAP(d=>\SDCard:BSPIM:load_cond\\D\,
+		clk=>\SDCard:BSPIM:clk_fin\,
+		q=>\SDCard:BSPIM:load_cond\);
+\SDCard:BSPIM:dpcounter_one_reg\:cy_dff
+	PORT MAP(d=>\SDCard:BSPIM:load_rx_data\,
+		clk=>\SDCard:BSPIM:clk_fin\,
+		q=>\SDCard:BSPIM:dpcounter_one_reg\);
+\SDCard:BSPIM:mosi_from_dp_reg\:cy_dff
+	PORT MAP(d=>\SDCard:BSPIM:mosi_from_dp\,
+		clk=>\SDCard:BSPIM:clk_fin\,
+		q=>\SDCard:BSPIM:mosi_from_dp_reg\);
+\SDCard:BSPIM:ld_ident\:cy_dff
+	PORT MAP(d=>\SDCard:BSPIM:ld_ident\\D\,
+		clk=>\SDCard:BSPIM:clk_fin\,
+		q=>\SDCard:BSPIM:ld_ident\);
+\SDCard:BSPIM:cnt_enable\:cy_dff
+	PORT MAP(d=>\SDCard:BSPIM:cnt_enable\\D\,
+		clk=>\SDCard:BSPIM:clk_fin\,
+		q=>\SDCard:BSPIM:cnt_enable\);
+\GlitchFilter_1:genblk1[0]:samples_2\:cy_dff
+	PORT MAP(d=>\GlitchFilter_1:genblk1[0]:samples_1\,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>\GlitchFilter_1:genblk1[0]:samples_2\);
+\GlitchFilter_1:genblk1[0]:samples_1\:cy_dff
+	PORT MAP(d=>\GlitchFilter_1:genblk1[0]:samples_0\,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>\GlitchFilter_1:genblk1[0]:samples_1\);
+\GlitchFilter_1:genblk1[0]:samples_0\:cy_dff
+	PORT MAP(d=>Net_1728_0,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>\GlitchFilter_1:genblk1[0]:samples_0\);
+\GlitchFilter_1:genblk1[0]:last_state\:cy_dff
+	PORT MAP(d=>\GlitchFilter_1:genblk1[0]:last_state\\D\,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>filteredIn_0);
+\GlitchFilter_1:genblk1[1]:samples_2\:cy_dff
+	PORT MAP(d=>\GlitchFilter_1:genblk1[1]:samples_1\,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>\GlitchFilter_1:genblk1[1]:samples_2\);
+\GlitchFilter_1:genblk1[1]:samples_1\:cy_dff
+	PORT MAP(d=>\GlitchFilter_1:genblk1[1]:samples_0\,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>\GlitchFilter_1:genblk1[1]:samples_1\);
+\GlitchFilter_1:genblk1[1]:samples_0\:cy_dff
+	PORT MAP(d=>Net_1728_1,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>\GlitchFilter_1:genblk1[1]:samples_0\);
+\GlitchFilter_1:genblk1[1]:last_state\:cy_dff
+	PORT MAP(d=>\GlitchFilter_1:genblk1[1]:last_state\\D\,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>filteredIn_1);
+\GlitchFilter_1:genblk1[2]:samples_2\:cy_dff
+	PORT MAP(d=>\GlitchFilter_1:genblk1[2]:samples_1\,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>\GlitchFilter_1:genblk1[2]:samples_2\);
+\GlitchFilter_1:genblk1[2]:samples_1\:cy_dff
+	PORT MAP(d=>\GlitchFilter_1:genblk1[2]:samples_0\,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>\GlitchFilter_1:genblk1[2]:samples_1\);
+\GlitchFilter_1:genblk1[2]:samples_0\:cy_dff
+	PORT MAP(d=>Net_1728_2,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>\GlitchFilter_1:genblk1[2]:samples_0\);
+\GlitchFilter_1:genblk1[2]:last_state\:cy_dff
+	PORT MAP(d=>\GlitchFilter_1:genblk1[2]:last_state\\D\,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>filteredIn_2);
+\GlitchFilter_1:genblk1[3]:samples_2\:cy_dff
+	PORT MAP(d=>\GlitchFilter_1:genblk1[3]:samples_1\,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>\GlitchFilter_1:genblk1[3]:samples_2\);
+\GlitchFilter_1:genblk1[3]:samples_1\:cy_dff
+	PORT MAP(d=>\GlitchFilter_1:genblk1[3]:samples_0\,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>\GlitchFilter_1:genblk1[3]:samples_1\);
+\GlitchFilter_1:genblk1[3]:samples_0\:cy_dff
+	PORT MAP(d=>Net_1728_3,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>\GlitchFilter_1:genblk1[3]:samples_0\);
+\GlitchFilter_1:genblk1[3]:last_state\:cy_dff
+	PORT MAP(d=>\GlitchFilter_1:genblk1[3]:last_state\\D\,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>filteredIn_3);
+\GlitchFilter_1:genblk1[4]:samples_2\:cy_dff
+	PORT MAP(d=>\GlitchFilter_1:genblk1[4]:samples_1\,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>\GlitchFilter_1:genblk1[4]:samples_2\);
+\GlitchFilter_1:genblk1[4]:samples_1\:cy_dff
+	PORT MAP(d=>\GlitchFilter_1:genblk1[4]:samples_0\,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>\GlitchFilter_1:genblk1[4]:samples_1\);
+\GlitchFilter_1:genblk1[4]:samples_0\:cy_dff
+	PORT MAP(d=>Net_1728_4,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>\GlitchFilter_1:genblk1[4]:samples_0\);
+\GlitchFilter_1:genblk1[4]:last_state\:cy_dff
+	PORT MAP(d=>\GlitchFilter_1:genblk1[4]:last_state\\D\,
+		clk=>\GlitchFilter_1:op_clk\,
+		q=>filteredIn_4);
+\scsiTarget:REQReg\:cy_dff
+	PORT MAP(d=>\scsiTarget:REQReg\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>Net_1691);
+\scsiTarget:data_7\:cy_dff
+	PORT MAP(d=>\scsiTarget:data_7\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>Net_1706_7);
+\scsiTarget:data_6\:cy_dff
+	PORT MAP(d=>\scsiTarget:data_6\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>Net_1706_6);
+\scsiTarget:data_5\:cy_dff
+	PORT MAP(d=>\scsiTarget:data_5\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>Net_1706_5);
+\scsiTarget:data_4\:cy_dff
+	PORT MAP(d=>\scsiTarget:data_4\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>Net_1706_4);
+\scsiTarget:data_3\:cy_dff
+	PORT MAP(d=>\scsiTarget:data_3\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>Net_1706_3);
+\scsiTarget:data_2\:cy_dff
+	PORT MAP(d=>\scsiTarget:data_2\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>Net_1706_2);
+\scsiTarget:data_1\:cy_dff
+	PORT MAP(d=>\scsiTarget:data_1\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>Net_1706_1);
+\scsiTarget:data_0\:cy_dff
+	PORT MAP(d=>\scsiTarget:data_0\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>Net_1706_0);
+\scsiTarget:dbxInReg_7\:cy_dff
+	PORT MAP(d=>\scsiTarget:dbxInReg_7\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>\scsiTarget:pi_7\);
+\scsiTarget:dbxInReg_6\:cy_dff
+	PORT MAP(d=>\scsiTarget:dbxInReg_6\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>\scsiTarget:pi_6\);
+\scsiTarget:dbxInReg_5\:cy_dff
+	PORT MAP(d=>\scsiTarget:dbxInReg_5\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>\scsiTarget:pi_5\);
+\scsiTarget:dbxInReg_4\:cy_dff
+	PORT MAP(d=>\scsiTarget:dbxInReg_4\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>\scsiTarget:pi_4\);
+\scsiTarget:dbxInReg_3\:cy_dff
+	PORT MAP(d=>\scsiTarget:dbxInReg_3\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>\scsiTarget:pi_3\);
+\scsiTarget:dbxInReg_2\:cy_dff
+	PORT MAP(d=>\scsiTarget:dbxInReg_2\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>\scsiTarget:pi_2\);
+\scsiTarget:dbxInReg_1\:cy_dff
+	PORT MAP(d=>\scsiTarget:dbxInReg_1\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>\scsiTarget:pi_1\);
+\scsiTarget:dbxInReg_0\:cy_dff
+	PORT MAP(d=>\scsiTarget:dbxInReg_0\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>\scsiTarget:pi_0\);
+\scsiTarget:parityErrReg\:cy_dff
+	PORT MAP(d=>\scsiTarget:parityErrReg\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>Net_1500);
+\scsiTarget:state_2\:cy_dff
+	PORT MAP(d=>\scsiTarget:state_2\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>\scsiTarget:state_2\);
+\scsiTarget:state_1\:cy_dff
+	PORT MAP(d=>\scsiTarget:state_1\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>\scsiTarget:state_1\);
+\scsiTarget:state_0\:cy_dff
+	PORT MAP(d=>\scsiTarget:state_0\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>\scsiTarget:state_0\);
+\scsiTarget:fifoStore\:cy_dff
+	PORT MAP(d=>\scsiTarget:fifoStore\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>\scsiTarget:fifoStore\);
+\scsiTarget:genParity_2\:cy_dff
+	PORT MAP(d=>\scsiTarget:genParity_2\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>\scsiTarget:genParity_2\);
+\scsiTarget:genParity_1\:cy_dff
+	PORT MAP(d=>\scsiTarget:genParity_1\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>\scsiTarget:genParity_1\);
+\scsiTarget:genParity_0\:cy_dff
+	PORT MAP(d=>\scsiTarget:genParity_0\\D\,
+		clk=>\scsiTarget:op_clk\,
+		q=>\scsiTarget:genParity_0\);
+
+END R_T_L;

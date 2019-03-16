@@ -1,0 +1,11 @@
+C:\Users\r\Documents\Data Sheets\apple\SCSI2SD\SCSI2SDKit.cydsn\SCSI2SDKit.cyprj|aa2c7038-d804-4c3e-9cf6-4548ce33ae62
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|ea6fc7b1-14c5-4746-85cb-5e1fe2175e1c
+C:\Users\r\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|e2beeeee-c091-46a2-8231-6c79a286bc9a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|e795bd05-ca12-404a-9f2f-3cca112c6b8d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|54614a88-49fb-4dcd-8b3a-bae37baf1310
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|ca3b1572-0c67-42e6-a665-4bb1e211aada
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|0a4b5e2d-9669-4666-9883-5799ac17a856
+C:\Users\r\Documents\Data Sheets\apple\SCSI2SD\SCSI2SDKit_Copy_01.cydsn\SCSI2SDKit_Copy_01.cyprj|e2f61efe-c3d5-493e-8bef-960930d3be64
+C:\Users\r\Documents\Data Sheets\apple\SCSI2SD\SCSI2SD.cydsn\SCSI2SD.cyprj|91a79eea-8427-4a11-a8f3-51abeba90569
+C:\Users\r\Documents\Data Sheets\apple\SCSI2SD\SCSI2SDKit_Copy_02.cydsn\SCSI2SDKit_Copy_02.cyprj|1b198ff5-bd04-4596-9f6d-9a2a6bc33ebf
+C:\Users\r\Documents\Data Sheets\apple\SCSI2SD\SCSI2SDKit_Copy_03.cydsn\SCSI2SDKit_Copy_03.cyprj|a91b6b1c-5c52-4a47-8f13-45dc66436b35

@@ -1,0 +1,199 @@
+dont_use_io iocell 1 0
+dont_use_io iocell 1 1
+set_location "\SDCard:BSPIM:sR8:Dp:u0\" datapathcell 2 0 2 
+set_location "\SDCard:BSPIM:tx_status_0\" macrocell 2 1 1 3
+set_location "\SDCard:BSPIM:TxStsReg\" statusicell 2 1 4 
+set_location "\SDCard:BSPIM:state_1\" macrocell 2 1 1 0
+set_location "__ONE__" macrocell 1 0 0 3
+set_location "filteredIn_0" macrocell 0 3 1 2
+set_location "\scsiTarget:state_1\" macrocell 3 4 1 0
+set_location "\SDCard:BSPIM:mosi_pre_reg_split_1\" macrocell 2 0 0 0
+set_location "\SDCard:BSPIM:ld_ident\" macrocell 2 1 0 2
+set_location "\GlitchFilter_1:genblk1[3]:samples_1\" macrocell 3 1 1 0
+set_location "\GlitchFilter_1:genblk1[2]:samples_1\" macrocell 3 0 0 2
+set_location "\GlitchFilter_1:genblk1[0]:samples_1\" macrocell 0 3 1 3
+set_location "\GlitchFilter_1:genblk1[4]:samples_1\" macrocell 3 0 0 3
+set_location "\GlitchFilter_1:genblk1[1]:samples_1\" macrocell 0 3 0 2
+set_location "\SDCard:BSPIM:rx_status_6\" macrocell 2 2 1 0
+set_location "filteredIn_4" macrocell 3 3 0 0
+set_location "\SDCard:BSPIM:mosi_pre_reg\" macrocell 2 0 0 1
+set_location "\scsiTarget:state_2\" macrocell 3 5 0 0
+set_location "\scsiTarget:state_0\" macrocell 2 4 1 0
+set_location "\OddParityGen_1:tmpb\" macrocell 2 3 0 1
+set_location "Net_1699" macrocell 3 1 0 1
+set_location "\scsiTarget:pi_5\" macrocell 3 1 1 2
+set_location "\GlitchFilter_1:genblk1[4]:samples_0\" macrocell 3 3 0 2
+set_location "\SDCard:BSPIM:load_cond\" macrocell 2 2 1 3
+set_location "\SDCard:BSPIM:state_0\" macrocell 2 1 0 1
+set_location "Net_1606" macrocell 2 3 1 0
+set_location "Net_252" macrocell 0 4 0 0
+set_location "Net_1691" macrocell 2 4 0 0
+set_location "\scsiTarget:pi_4\" macrocell 3 4 1 1
+set_location "\SDCard:BSPIM:RxStsReg\" statusicell 2 2 4 
+set_location "Net_1706_0" macrocell 2 5 0 0
+set_location "Net_252_split" macrocell 1 5 1 0
+set_location "\SDCard:BSPIM:cnt_enable\" macrocell 2 1 1 1
+set_location "Net_1500" macrocell 3 4 0 0
+set_location "Net_683" macrocell 2 3 1 1
+set_location "Net_791_7" macrocell 1 3 0 2
+set_location "Net_791_3" macrocell 2 3 0 2
+set_location "Net_1706_2" macrocell 2 5 1 1
+set_location "\scsiTarget:pi_7\" macrocell 3 1 1 3
+set_location "\GlitchFilter_1:genblk1[4]:samples_2\" macrocell 3 3 0 1
+set_location "\GlitchFilter_1:genblk1[0]:samples_2\" macrocell 0 3 1 0
+set_location "\GlitchFilter_1:genblk1[2]:samples_2\" macrocell 3 0 0 1
+set_location "\GlitchFilter_1:genblk1[3]:samples_2\" macrocell 3 3 1 2
+set_location "\GlitchFilter_1:genblk1[1]:samples_2\" macrocell 0 3 0 3
+set_location "\OddParityGen_1:tmpc\" macrocell 1 4 1 0
+set_location "\SDCard:BSPIM:tx_status_4\" macrocell 2 1 1 2
+set_location "Net_791_0" macrocell 2 3 1 2
+set_location "\GlitchFilter_1:genblk1[0]:samples_0\" macrocell 2 2 0 3
+set_location "\GlitchFilter_1:genblk1[2]:samples_0\" macrocell 3 4 1 3
+set_location "\GlitchFilter_1:genblk1[3]:samples_0\" macrocell 3 3 1 1
+set_location "\GlitchFilter_1:genblk1[1]:samples_0\" macrocell 0 3 0 1
+set_location "\SDCard:BSPIM:state_2\" macrocell 2 1 0 0
+set_location "\SDCard:BSPIM:mosi_pre_reg_split\" macrocell 2 0 1 0
+set_location "\SDCard:BSPIM:mosi_from_dp_reg\" macrocell 3 2 0 1
+set_location "\scsiTarget:pi_2\" macrocell 2 2 0 0
+set_location "Net_791_6" macrocell 1 3 0 1
+set_location "\scsiTarget:datapath\" datapathcell 2 5 2 
+set_location "filteredIn_1" macrocell 0 3 0 0
+set_location "\SDCard:BSPIM:BitCounter\" count7cell 2 0 7 
+set_location "Net_252_split_2" macrocell 0 5 1 0
+set_location "\scsiTarget:pi_3\" macrocell 2 4 1 3
+set_location "Net_682" macrocell 3 2 0 2
+set_location "cydff_1" macrocell 3 5 1 2
+set_location "filteredIn_2" macrocell 3 0 0 0
+set_location "\scsiTarget:txComplete\" macrocell 2 4 0 2
+set_location "Net_252_split_1" macrocell 0 5 0 0
+set_location "\scsiTarget:pi_6\" macrocell 2 2 0 2
+set_location "\scsiTarget:genParity_0\" macrocell 1 3 1 0
+set_location "Net_1706_5" macrocell 3 3 0 3
+set_location "Net_791_5" macrocell 0 4 0 2
+set_location "Net_791_4" macrocell 2 3 0 0
+set_location "Net_791_1" macrocell 0 4 0 1
+set_location "\SDCard:BSPIM:load_rx_data\" macrocell 2 2 1 2
+set_location "\scsiTarget:fifoStore\" macrocell 3 5 0 1
+set_location "\SDCard:BSPIM:mosi_hs_reg\" macrocell 3 2 0 0
+set_location "Net_1706_6" macrocell 1 3 0 3
+set_location "Net_1724" macrocell 3 3 1 0
+set_location "Net_1706_3" macrocell 2 5 1 0
+set_location "\scsiTarget:pi_0\" macrocell 2 2 0 1
+set_location "Net_1706_1" macrocell 1 5 0 1
+set_location "\scsiTarget:genParity_2\" macrocell 1 4 0 0
+set_location "Net_1706_7" macrocell 1 5 0 0
+set_location "filteredIn_3" macrocell 3 3 1 3
+set_location "Net_1706_4" macrocell 2 5 0 1
+set_location "\scsiTarget:genParity_1\" macrocell 3 2 1 0
+set_location "Net_252_split_3" macrocell 0 4 1 0
+set_location "Net_791_2" macrocell 3 5 1 0
+set_location "\scsiTarget:pi_1\" macrocell 2 4 0 1
+set_io "SCSI_In(3)" iocell 0 0
+set_location "SCSI_Noise(4)_SYNC" synccell 3 3 5 0
+set_location "\scsiTarget:StatusReg\" statuscell 1 5 3 
+set_io "SCSI_Out_DBx(1)" iocell 1 2
+set_location "\USBFS:bus_reset\" interrupt -1 -1 23
+set_io "SCSI_Out(0)" iocell 1 3
+# Note: port 15 is the logical name for port 8
+set_io "SCSI_Out(6)" iocell 15 4
+set_io "SCSI_Out(3)" iocell 3 7
+set_io "SCSI_Out(8)" iocell 1 7
+# Note: port 15 is the logical name for port 8
+set_io "SCSI_Out(4)" iocell 15 0
+set_io "SCSI_Out(9)" iocell 3 4
+set_io "SCSI_Out(7)" iocell 1 6
+set_location "SD_TX_DMA" drqcell -1 -1 3
+set_location "SD_RX_DMA" drqcell -1 -1 2
+set_io "SCSI_In_DBx(0)" iocell 2 3
+set_io "SCSI_Noise(1)" iocell 0 6
+set_io "SD_CS(0)" iocell 3 0
+set_io "SD_CD(0)" iocell 2 2
+# Note: port 12 is the logical name for port 7
+set_io "SCSI_Out_DBx(3)" iocell 12 2
+set_location "SOUND_ISR" interrupt -1 -1 7
+set_location "\USBFS:sof_int\" interrupt -1 -1 21
+# Note: port 12 is the logical name for port 7
+set_io "SCSI_Out_DBx(4)" iocell 12 3
+set_location "\SCSI_CTL_PHASE:Sync:ctrl_reg\" controlcell 2 3 6 
+set_location "\Debug_Timer:TimerHW\" timercell -1 -1 0
+set_location "ClockBlock" clockblockcell -1 -1 0
+set_location "SCSI_TX_DMA" drqcell -1 -1 1
+set_location "SCSI_TX_DMA_COMPLETE" interrupt -1 -1 4
+set_location "SCSI_RX_DMA_COMPLETE" interrupt -1 -1 2
+set_location "SD_RX_DMA_COMPLETE" interrupt -1 -1 5
+set_location "SD_TX_DMA_COMPLETE" interrupt -1 -1 6
+set_io "SCSI_In_DBx(2)" iocell 2 4
+# Note: port 12 is the logical name for port 7
+set_io "SCSI_In_DBx(7)" iocell 12 6
+set_location "\SCSI_Filtered:sts:sts_reg\" statuscell 1 3 3 
+set_io "SCSI_Noise(2)" iocell 0 2
+set_io "SCSI_In_DBx(1)" iocell 2 0
+set_location "\SCSI_Out_Ctl:Sync:ctrl_reg\" controlcell 1 5 6 
+set_io "SD_SCK(0)" iocell 3 1
+set_location "\VDAC8_1:viDAC8\" vidaccell -1 -1 0
+set_location "SCSI_RX_DMA" drqcell -1 -1 0
+set_io "SCSI_Noise(3)" iocell 0 4
+set_location "\USBFS:USB\" usbcell -1 -1 0
+# Note: port 12 is the logical name for port 7
+set_io "SCSI_In(0)" iocell 12 5
+set_location "SCSI_In(0)_SYNC" synccell 0 5 5 0
+set_io "SCSI_Noise(4)" iocell 0 5
+set_io "SCSI_In(1)" iocell 0 3
+set_io "SCSI_In_DBx(3)" iocell 2 5
+set_location "SCSI_SEL_ISR" interrupt -1 -1 3
+set_location "SCSI_RST_ISR" interrupt -1 -1 1
+set_location "\LPF_1:cy_psoc3_lpf_1\" lpfcell -1 -1 0
+set_location "\USBFS:arb_int\" interrupt -1 -1 22
+set_io "SCSI_Out_DBx(7)" iocell 1 4
+# Note: port 15 is the logical name for port 8
+set_io "\USBFS:Dp(0)\" iocell 15 6
+set_io "SCSI_Out_DBx(6)" iocell 1 5
+set_location "\SCSI_Parity_Error:sts:sts_reg\" statuscell 3 4 3 
+# Note: port 12 is the logical name for port 7
+set_io "SCSI_In_DBx(6)" iocell 12 7
+# Note: port 12 is the logical name for port 7
+set_io "SCSI_Out_DBx(5)" iocell 12 4
+# Note: port 12 is the logical name for port 7
+set_io "SCSI_Out_DBx(0)" iocell 12 0
+set_location "SCSI_In_DBx(1)_SYNC" synccell 0 4 5 0
+set_location "SCSI_In_DBx(4)_SYNC" synccell 2 4 5 0
+set_location "SCSI_In_DBx(6)_SYNC" synccell 0 3 5 0
+set_location "SCSI_Noise(1)_SYNC" synccell 0 4 5 1
+set_location "SCSI_In_DBx(0)_SYNC" synccell 0 3 5 1
+set_location "SCSI_Noise(3)_SYNC" synccell 3 3 5 1
+set_location "SCSI_In_DBx(3)_SYNC" synccell 2 4 5 1
+set_location "SCSI_Noise(2)_SYNC" synccell 3 1 5 0
+set_location "SCSI_Noise(0)_SYNC" synccell 3 3 5 2
+set_location "\USBFS:Dp\" logicalport -1 -1 8
+set_location "\SCSI_Out_Bits:Sync:ctrl_reg\" controlcell 1 4 6 
+set_io "SCSI_In_DBx(4)" iocell 2 6
+set_io "SCSI_In_DBx(5)" iocell 2 7
+set_location "SCSI_In_DBx(2)_SYNC" synccell 0 3 5 2
+set_location "SCSI_In_DBx(5)_SYNC" synccell 3 1 5 1
+set_location "SCSI_In_DBx(7)_SYNC" synccell 3 2 5 0
+set_location "\USBFS:ep_1\" interrupt -1 -1 8
+set_location "\USBFS:ep_2\" interrupt -1 -1 9
+set_location "\USBFS:ep_0\" interrupt -1 -1 24
+set_location "\USBFS:ep_3\" interrupt -1 -1 10
+set_location "\USBFS:ep_4\" interrupt -1 -1 11
+# Note: port 12 is the logical name for port 7
+set_io "SCSI_Out_DBx(2)" iocell 12 1
+set_location "\USBFS:dp_int\" interrupt -1 -1 12
+set_io "SD_MISO(0)" iocell 3 3
+set_location "\PGA_1:SC\" sccell -1 -1 0
+set_io "LED1(0)" iocell 2 1
+# Note: port 15 is the logical name for port 8
+set_io "\USBFS:Dm(0)\" iocell 15 7
+# Note: port 15 is the logical name for port 8
+set_io "SOUND(0)" iocell 15 2
+set_location "Debug_Timer_Interrupt" interrupt -1 -1 0
+# Note: port 15 is the logical name for port 8
+set_io "SCSI_Out(5)" iocell 15 1
+# Note: port 15 is the logical name for port 8
+set_io "SCSI_In(4)" iocell 15 5
+set_io "SD_MOSI(0)" iocell 3 2
+set_io "SCSI_Noise(0)" iocell 0 7
+set_location "\SCSI_Glitch_Ctl:Sync:ctrl_reg\" controlcell 3 3 6 
+set_io "SCSI_In(2)" iocell 0 1
+set_io "SCSI_Out(2)" iocell 3 6
+set_io "SCSI_Out(1)" iocell 3 5
