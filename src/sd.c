@@ -1,4 +1,5 @@
 //	Copyright (C) 2013 Michael McMaster <michael@codesrc.com>
+//	Modified 2018 (or timestamp yymmdd) Robert Matyschok <rm@eltradec.eu), modifications commented with "RM" prefix
 //
 //	This file is part of SCSI2SD.
 //
