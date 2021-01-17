@@ -1048,7 +1048,7 @@ END GROUP
                 0x00000800                ee_size = (CY_APPL_LOADABLE && ! (CY_EE_IN_BTLDR))?(CY_EE_SIZE / CY_APPL_MAX):CY_EE_SIZE
                 [!provide]                PROVIDE (CY_ECC_OFFSET, ecc_offset)
 
-.text           0x00004300     0xc486
+.text           0x00004300     0xc49e
  CREATE_OBJECT_SYMBOLS
                 0x00004300                PROVIDE (__cy_interrupt_vector, RomVectors)
  *(.romvectors)
@@ -1455,719 +1455,720 @@ END GROUP
  .text.AnalogSetDefault
                 0x0000bda8       0x80 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.cyfitter_cfg
-                0x0000be28      0x1ec .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x0000be28      0x200 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
                 0x0000be28                cyfitter_cfg
  .text.IntDefaultHandler
-                0x0000c014       0x14 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                0x0000c014                IntDefaultHandler
- .text.Start_c  0x0000c028       0x98 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                0x0000c028                Start_c
+                0x0000c028       0x14 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x0000c028                IntDefaultHandler
+ .text.Start_c  0x0000c03c       0x98 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x0000c03c                Start_c
  .text.initialize_psoc
-                0x0000c0c0       0x94 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                0x0000c0c0                initialize_psoc
+                0x0000c0d4       0x94 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x0000c0d4                initialize_psoc
  .text.SD_Data_Clk_SetDividerRegister
-                0x0000c154      0x164 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_Data_Clk.o)
-                0x0000c154                SD_Data_Clk_SetDividerRegister
+                0x0000c168      0x164 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_Data_Clk.o)
+                0x0000c168                SD_Data_Clk_SetDividerRegister
  .text.SD_Data_Clk_GetDividerRegister
-                0x0000c2b8       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_Data_Clk.o)
-                0x0000c2b8                SD_Data_Clk_GetDividerRegister
+                0x0000c2cc       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_Data_Clk.o)
+                0x0000c2cc                SD_Data_Clk_GetDividerRegister
  .text.SD_Data_Clk_GetSourceRegister
-                0x0000c2d0       0x1c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_Data_Clk.o)
-                0x0000c2d0                SD_Data_Clk_GetSourceRegister
+                0x0000c2e4       0x1c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_Data_Clk.o)
+                0x0000c2e4                SD_Data_Clk_GetSourceRegister
  .text.SD_CS_Write
-                0x0000c2ec       0x38 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_CS.o)
-                0x0000c2ec                SD_CS_Write
+                0x0000c300       0x38 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_CS.o)
+                0x0000c300                SD_CS_Write
  .text.SD_CS_SetDriveMode
-                0x0000c324       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_CS.o)
-                0x0000c324                SD_CS_SetDriveMode
+                0x0000c338       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_CS.o)
+                0x0000c338                SD_CS_SetDriveMode
  .text.SD_SCK_SetDriveMode
-                0x0000c360       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_SCK.o)
-                0x0000c360                SD_SCK_SetDriveMode
+                0x0000c374       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_SCK.o)
+                0x0000c374                SD_SCK_SetDriveMode
  .text.SD_MOSI_SetDriveMode
-                0x0000c39c       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_MOSI.o)
-                0x0000c39c                SD_MOSI_SetDriveMode
+                0x0000c3b0       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_MOSI.o)
+                0x0000c3b0                SD_MOSI_SetDriveMode
  .text.SCSI_RST_ISR_StartEx
-                0x0000c3d8       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RST_ISR.o)
-                0x0000c3d8                SCSI_RST_ISR_StartEx
+                0x0000c3ec       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RST_ISR.o)
+                0x0000c3ec                SCSI_RST_ISR_StartEx
  .text.SCSI_RST_ISR_SetVector
-                0x0000c3fc       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RST_ISR.o)
-                0x0000c3fc                SCSI_RST_ISR_SetVector
+                0x0000c410       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RST_ISR.o)
+                0x0000c410                SCSI_RST_ISR_SetVector
  .text.SCSI_RST_ISR_SetPriority
-                0x0000c420       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RST_ISR.o)
-                0x0000c420                SCSI_RST_ISR_SetPriority
+                0x0000c434       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RST_ISR.o)
+                0x0000c434                SCSI_RST_ISR_SetPriority
  .text.SCSI_RST_ISR_Enable
-                0x0000c444       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RST_ISR.o)
-                0x0000c444                SCSI_RST_ISR_Enable
+                0x0000c458       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RST_ISR.o)
+                0x0000c458                SCSI_RST_ISR_Enable
  .text.SCSI_RST_ISR_Disable
-                0x0000c45c       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RST_ISR.o)
-                0x0000c45c                SCSI_RST_ISR_Disable
+                0x0000c470       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RST_ISR.o)
+                0x0000c470                SCSI_RST_ISR_Disable
  .text.LED1_Write
-                0x0000c474       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(LED1.o)
-                0x0000c474                LED1_Write
+                0x0000c488       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(LED1.o)
+                0x0000c488                LED1_Write
  .text.LED1_SetDriveMode
-                0x0000c4b0       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(LED1.o)
-                0x0000c4b0                LED1_SetDriveMode
+                0x0000c4c4       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(LED1.o)
+                0x0000c4c4                LED1_SetDriveMode
  .text.SDCard_Init
-                0x0000c4ec       0x34 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
-                0x0000c4ec                SDCard_Init
+                0x0000c500       0x34 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
+                0x0000c500                SDCard_Init
  .text.SDCard_Enable
-                0x0000c520       0x64 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
-                0x0000c520                SDCard_Enable
+                0x0000c534       0x64 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
+                0x0000c534                SDCard_Enable
  .text.SDCard_Start
-                0x0000c584       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
-                0x0000c584                SDCard_Start
+                0x0000c598       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
+                0x0000c598                SDCard_Start
  .text.SDCard_Stop
-                0x0000c5a8       0x50 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
-                0x0000c5a8                SDCard_Stop
+                0x0000c5bc       0x50 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
+                0x0000c5bc                SDCard_Stop
  .text.SDCard_EnableTxInt
-                0x0000c5f8        0xc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
-                0x0000c5f8                SDCard_EnableTxInt
+                0x0000c60c        0xc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
+                0x0000c60c                SDCard_EnableTxInt
  .text.SDCard_EnableRxInt
-                0x0000c604        0xc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
-                0x0000c604                SDCard_EnableRxInt
+                0x0000c618        0xc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
+                0x0000c618                SDCard_EnableRxInt
  .text.SDCard_DisableTxInt
-                0x0000c610        0xc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
-                0x0000c610                SDCard_DisableTxInt
+                0x0000c624        0xc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
+                0x0000c624                SDCard_DisableTxInt
  .text.SDCard_DisableRxInt
-                0x0000c61c        0xc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
-                0x0000c61c                SDCard_DisableRxInt
+                0x0000c630        0xc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
+                0x0000c630                SDCard_DisableRxInt
  .text.SDCard_ReadTxStatus
-                0x0000c628       0x1c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
-                0x0000c628                SDCard_ReadTxStatus
+                0x0000c63c       0x1c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
+                0x0000c63c                SDCard_ReadTxStatus
  .text.SDCard_ReadRxStatus
-                0x0000c644       0x1c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
-                0x0000c644                SDCard_ReadRxStatus
+                0x0000c658       0x1c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
+                0x0000c658                SDCard_ReadRxStatus
  .text.SDCard_WriteTxData
-                0x0000c660       0x34 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
-                0x0000c660                SDCard_WriteTxData
+                0x0000c674       0x34 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
+                0x0000c674                SDCard_WriteTxData
  .text.SDCard_ReadRxData
-                0x0000c694       0x1c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
-                0x0000c694                SDCard_ReadRxData
+                0x0000c6a8       0x1c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
+                0x0000c6a8                SDCard_ReadRxData
  .text.SDCard_ClearFIFO
-                0x0000c6b0       0x60 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
-                0x0000c6b0                SDCard_ClearFIFO
+                0x0000c6c4       0x60 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
+                0x0000c6c4                SDCard_ClearFIFO
  .text.SD_MISO_SetDriveMode
-                0x0000c710       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_MISO.o)
-                0x0000c710                SD_MISO_SetDriveMode
+                0x0000c724       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_MISO.o)
+                0x0000c724                SD_MISO_SetDriveMode
  .text.USBFS_Start
-                0x0000c74c       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
-                0x0000c74c                USBFS_Start
+                0x0000c760       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
+                0x0000c760                USBFS_Start
  .text.USBFS_Init
-                0x0000c788      0x1b8 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
-                0x0000c788                USBFS_Init
+                0x0000c79c      0x1b8 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
+                0x0000c79c                USBFS_Init
  .text.USBFS_InitComponent
-                0x0000c940      0x12c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
-                0x0000c940                USBFS_InitComponent
+                0x0000c954      0x12c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
+                0x0000c954                USBFS_InitComponent
  .text.USBFS_ReInitComponent
-                0x0000ca6c       0x88 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
-                0x0000ca6c                USBFS_ReInitComponent
+                0x0000ca80       0x88 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
+                0x0000ca80                USBFS_ReInitComponent
  .text.USBFS_GetConfiguration
-                0x0000caf4       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
-                0x0000caf4                USBFS_GetConfiguration
+                0x0000cb08       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
+                0x0000cb08                USBFS_GetConfiguration
  .text.USBFS_IsConfigurationChanged
-                0x0000cb0c       0x30 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
-                0x0000cb0c                USBFS_IsConfigurationChanged
+                0x0000cb20       0x30 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
+                0x0000cb20                USBFS_IsConfigurationChanged
  .text.USBFS_GetEPState
-                0x0000cb3c       0x2c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
-                0x0000cb3c                USBFS_GetEPState
+                0x0000cb50       0x2c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
+                0x0000cb50                USBFS_GetEPState
  .text.USBFS_GetEPCount
-                0x0000cb68       0x60 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
-                0x0000cb68                USBFS_GetEPCount
+                0x0000cb7c       0x60 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
+                0x0000cb7c                USBFS_GetEPCount
  .text.USBFS_LoadInEP
-                0x0000cbc8      0x108 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
-                0x0000cbc8                USBFS_LoadInEP
+                0x0000cbdc      0x108 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
+                0x0000cbdc                USBFS_LoadInEP
  .text.USBFS_ReadOutEP
-                0x0000ccd0       0x8c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
-                0x0000ccd0                USBFS_ReadOutEP
+                0x0000cce4       0x8c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
+                0x0000cce4                USBFS_ReadOutEP
  .text.USBFS_EnableOutEP
-                0x0000cd5c       0x5c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
-                0x0000cd5c                USBFS_EnableOutEP
+                0x0000cd70       0x5c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
+                0x0000cd70                USBFS_EnableOutEP
  .text.USBFS_GetEPAckState
-                0x0000cdb8       0x40 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
-                0x0000cdb8                USBFS_GetEPAckState
+                0x0000cdcc       0x40 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
+                0x0000cdcc                USBFS_GetEPAckState
  .text.USBFS_EP_0_ISR
-                0x0000cdf8       0xf8 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
-                0x0000cdf8                USBFS_EP_0_ISR
+                0x0000ce0c       0xf8 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
+                0x0000ce0c                USBFS_EP_0_ISR
  .text.USBFS_HandleSetup
-                0x0000cef0       0x88 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
-                0x0000cef0                USBFS_HandleSetup
+                0x0000cf04       0x88 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
+                0x0000cf04                USBFS_HandleSetup
  .text.USBFS_HandleIN
-                0x0000cf78       0x4c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
-                0x0000cf78                USBFS_HandleIN
+                0x0000cf8c       0x4c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
+                0x0000cf8c                USBFS_HandleIN
  .text.USBFS_HandleOUT
-                0x0000cfc4       0x58 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
-                0x0000cfc4                USBFS_HandleOUT
+                0x0000cfd8       0x58 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
+                0x0000cfd8                USBFS_HandleOUT
  .text.USBFS_LoadEP0
-                0x0000d01c       0xd0 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
-                0x0000d01c                USBFS_LoadEP0
+                0x0000d030       0xd0 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
+                0x0000d030                USBFS_LoadEP0
  .text.USBFS_InitControlRead
-                0x0000d0ec       0x70 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
-                0x0000d0ec                USBFS_InitControlRead
+                0x0000d100       0x70 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
+                0x0000d100                USBFS_InitControlRead
  .text.USBFS_InitZeroLengthControlTransfer
-                0x0000d15c       0x40 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
-                0x0000d15c                USBFS_InitZeroLengthControlTransfer
+                0x0000d170       0x40 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
+                0x0000d170                USBFS_InitZeroLengthControlTransfer
  .text.USBFS_ControlReadDataStage
-                0x0000d19c        0xc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
-                0x0000d19c                USBFS_ControlReadDataStage
+                0x0000d1b0        0xc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
+                0x0000d1b0                USBFS_ControlReadDataStage
  .text.USBFS_ControlReadStatusStage
-                0x0000d1a8       0x40 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
-                0x0000d1a8                USBFS_ControlReadStatusStage
+                0x0000d1bc       0x40 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
+                0x0000d1bc                USBFS_ControlReadStatusStage
  .text.USBFS_InitControlWrite
-                0x0000d1e8       0x64 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
-                0x0000d1e8                USBFS_InitControlWrite
+                0x0000d1fc       0x64 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
+                0x0000d1fc                USBFS_InitControlWrite
  .text.USBFS_ControlWriteDataStage
-                0x0000d24c       0xb4 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
-                0x0000d24c                USBFS_ControlWriteDataStage
+                0x0000d260       0xb4 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
+                0x0000d260                USBFS_ControlWriteDataStage
  .text.USBFS_ControlWriteStatusStage
-                0x0000d300       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
-                0x0000d300                USBFS_ControlWriteStatusStage
+                0x0000d314       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
+                0x0000d314                USBFS_ControlWriteStatusStage
  .text.USBFS_InitNoDataControlTransfer
-                0x0000d324       0x38 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
-                0x0000d324                USBFS_InitNoDataControlTransfer
+                0x0000d338       0x38 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
+                0x0000d338                USBFS_InitNoDataControlTransfer
  .text.USBFS_NoDataControlStatusStage
-                0x0000d35c       0x4c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
-                0x0000d35c                USBFS_NoDataControlStatusStage
+                0x0000d370       0x4c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
+                0x0000d370                USBFS_NoDataControlStatusStage
  .text.USBFS_UpdateStatusBlock
-                0x0000d3a8       0x40 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
-                0x0000d3a8                USBFS_UpdateStatusBlock
+                0x0000d3bc       0x40 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
+                0x0000d3bc                USBFS_UpdateStatusBlock
  .text.USBFS_InitializeStatusBlock
-                0x0000d3e8       0x34 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
-                0x0000d3e8                USBFS_InitializeStatusBlock
+                0x0000d3fc       0x34 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
+                0x0000d3fc                USBFS_InitializeStatusBlock
  .text.USBFS_EP_1_ISR
-                0x0000d41c       0x48 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_episr.o)
-                0x0000d41c                USBFS_EP_1_ISR
+                0x0000d430       0x48 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_episr.o)
+                0x0000d430                USBFS_EP_1_ISR
  .text.USBFS_EP_2_ISR
-                0x0000d464       0x4c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_episr.o)
-                0x0000d464                USBFS_EP_2_ISR
+                0x0000d478       0x4c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_episr.o)
+                0x0000d478                USBFS_EP_2_ISR
  .text.USBFS_EP_3_ISR
-                0x0000d4b0       0x54 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_episr.o)
-                0x0000d4b0                USBFS_EP_3_ISR
+                0x0000d4c4       0x54 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_episr.o)
+                0x0000d4c4                USBFS_EP_3_ISR
  .text.USBFS_EP_4_ISR
-                0x0000d504       0x54 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_episr.o)
-                0x0000d504                USBFS_EP_4_ISR
+                0x0000d518       0x54 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_episr.o)
+                0x0000d518                USBFS_EP_4_ISR
  .text.USBFS_SOF_ISR
-                0x0000d558        0xc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_episr.o)
-                0x0000d558                USBFS_SOF_ISR
+                0x0000d56c        0xc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_episr.o)
+                0x0000d56c                USBFS_SOF_ISR
  .text.USBFS_BUS_RESET_ISR
-                0x0000d564        0xc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_episr.o)
-                0x0000d564                USBFS_BUS_RESET_ISR
+                0x0000d578        0xc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_episr.o)
+                0x0000d578                USBFS_BUS_RESET_ISR
  .text.USBFS_DispatchHIDClassRqst
-                0x0000d570      0x1e4 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_hid.o)
-                0x0000d570                USBFS_DispatchHIDClassRqst
+                0x0000d584      0x1e4 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_hid.o)
+                0x0000d584                USBFS_DispatchHIDClassRqst
  .text.USBFS_FindHidClassDecriptor
-                0x0000d754       0x7c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_hid.o)
-                0x0000d754                USBFS_FindHidClassDecriptor
+                0x0000d768       0x7c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_hid.o)
+                0x0000d768                USBFS_FindHidClassDecriptor
  .text.USBFS_FindReportDescriptor
-                0x0000d7d0       0x90 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_hid.o)
-                0x0000d7d0                USBFS_FindReportDescriptor
+                0x0000d7e4       0x90 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_hid.o)
+                0x0000d7e4                USBFS_FindReportDescriptor
  .text.USBFS_FindReport
-                0x0000d860       0xcc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_hid.o)
-                0x0000d860                USBFS_FindReport
+                0x0000d874       0xcc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_hid.o)
+                0x0000d874                USBFS_FindReport
  .text.USBFS_DP_ISR
-                0x0000d92c        0xc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_pm.o)
-                0x0000d92c                USBFS_DP_ISR
+                0x0000d940        0xc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_pm.o)
+                0x0000d940                USBFS_DP_ISR
  .text.USBFS_HandleStandardRqst
-                0x0000d938      0x48c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
-                0x0000d938                USBFS_HandleStandardRqst
+                0x0000d94c      0x48c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
+                0x0000d94c                USBFS_HandleStandardRqst
  .text.USBFS_ConfigReg
-                0x0000ddc4      0x138 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
-                0x0000ddc4                USBFS_ConfigReg
+                0x0000ddd8      0x138 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
+                0x0000ddd8                USBFS_ConfigReg
  .text.USBFS_Config
-                0x0000defc      0x320 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
-                0x0000defc                USBFS_Config
+                0x0000df10      0x320 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
+                0x0000df10                USBFS_Config
  .text.USBFS_ConfigAltChanged
-                0x0000e21c      0x25c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
-                0x0000e21c                USBFS_ConfigAltChanged
+                0x0000e230      0x25c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
+                0x0000e230                USBFS_ConfigAltChanged
  .text.USBFS_GetConfigTablePtr
-                0x0000e478       0x50 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
-                0x0000e478                USBFS_GetConfigTablePtr
+                0x0000e48c       0x50 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
+                0x0000e48c                USBFS_GetConfigTablePtr
  .text.USBFS_GetDeviceTablePtr
-                0x0000e4c8       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
-                0x0000e4c8                USBFS_GetDeviceTablePtr
+                0x0000e4dc       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
+                0x0000e4dc                USBFS_GetDeviceTablePtr
  .text.USBFS_GetInterfaceClassTablePtr
-                0x0000e4ec       0x4c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
-                0x0000e4ec                USBFS_GetInterfaceClassTablePtr
+                0x0000e500       0x4c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
+                0x0000e500                USBFS_GetInterfaceClassTablePtr
  .text.USBFS_SetEndpointHalt
-                0x0000e538       0xe8 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
-                0x0000e538                USBFS_SetEndpointHalt
+                0x0000e54c       0xe8 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
+                0x0000e54c                USBFS_SetEndpointHalt
  .text.USBFS_ClearEndpointHalt
-                0x0000e620      0x158 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
-                0x0000e620                USBFS_ClearEndpointHalt
+                0x0000e634      0x158 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
+                0x0000e634                USBFS_ClearEndpointHalt
  .text.USBFS_ValidateAlternateSetting
-                0x0000e778       0x70 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
-                0x0000e778                USBFS_ValidateAlternateSetting
+                0x0000e78c       0x70 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
+                0x0000e78c                USBFS_ValidateAlternateSetting
  .text.USBFS_HandleVendorRqst
-                0x0000e7e8       0x34 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_vnd.o)
-                0x0000e7e8                USBFS_HandleVendorRqst
+                0x0000e7fc       0x34 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_vnd.o)
+                0x0000e7fc                USBFS_HandleVendorRqst
  .text.Bootloadable_1_Load
-                0x0000e81c       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Bootloadable_1.o)
-                0x0000e81c                Bootloadable_1_Load
+                0x0000e830       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Bootloadable_1.o)
+                0x0000e830                Bootloadable_1_Load
  .text.USBFS_Dp_ClearInterrupt
-                0x0000e834       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_Dp.o)
-                0x0000e834                USBFS_Dp_ClearInterrupt
+                0x0000e848       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_Dp.o)
+                0x0000e848                USBFS_Dp_ClearInterrupt
  .text.CyDmacConfigure
-                0x0000e854       0x5c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
-                0x0000e854                CyDmacConfigure
+                0x0000e868       0x5c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
+                0x0000e868                CyDmacConfigure
  .text.CyDmaChEnable
-                0x0000e8b0       0x8c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
-                0x0000e8b0                CyDmaChEnable
+                0x0000e8c4       0x8c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
+                0x0000e8c4                CyDmaChEnable
  .text.CyDmaChDisable
-                0x0000e93c       0x60 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
-                0x0000e93c                CyDmaChDisable
+                0x0000e950       0x60 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
+                0x0000e950                CyDmaChDisable
  .text.CyDmaClearPendingDrq
-                0x0000e99c       0x60 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
-                0x0000e99c                CyDmaClearPendingDrq
+                0x0000e9b0       0x60 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
+                0x0000e9b0                CyDmaClearPendingDrq
  .text.CyDmaChPriority
-                0x0000e9fc       0x64 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
-                0x0000e9fc                CyDmaChPriority
+                0x0000ea10       0x64 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
+                0x0000ea10                CyDmaChPriority
  .text.CyDmaChSetExtendedAddress
-                0x0000ea60       0x78 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
-                0x0000ea60                CyDmaChSetExtendedAddress
+                0x0000ea74       0x78 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
+                0x0000ea74                CyDmaChSetExtendedAddress
  .text.CyDmaChSetInitialTd
-                0x0000ead8       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
-                0x0000ead8                CyDmaChSetInitialTd
+                0x0000eaec       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
+                0x0000eaec                CyDmaChSetInitialTd
  .text.CyDmaChSetRequest
-                0x0000eb14       0x58 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
-                0x0000eb14                CyDmaChSetRequest
+                0x0000eb28       0x58 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
+                0x0000eb28                CyDmaChSetRequest
  .text.CyDmaChGetRequest
-                0x0000eb6c       0x38 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
-                0x0000eb6c                CyDmaChGetRequest
+                0x0000eb80       0x38 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
+                0x0000eb80                CyDmaChGetRequest
  .text.CyDmaChSetConfiguration
-                0x0000eba4       0xa0 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
-                0x0000eba4                CyDmaChSetConfiguration
+                0x0000ebb8       0xa0 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
+                0x0000ebb8                CyDmaChSetConfiguration
  .text.CyDmaTdAllocate
-                0x0000ec44       0x5c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
-                0x0000ec44                CyDmaTdAllocate
+                0x0000ec58       0x5c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
+                0x0000ec58                CyDmaTdAllocate
  .text.CyDmaTdSetConfiguration
-                0x0000eca0       0x80 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
-                0x0000eca0                CyDmaTdSetConfiguration
+                0x0000ecb4       0x80 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
+                0x0000ecb4                CyDmaTdSetConfiguration
  .text.CyDmaTdSetAddress
-                0x0000ed20       0x5c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
-                0x0000ed20                CyDmaTdSetAddress
+                0x0000ed34       0x5c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
+                0x0000ed34                CyDmaTdSetAddress
  .text.CySetTempInt
-                0x0000ed7c       0x7c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyFlash.o)
+                0x0000ed90       0x7c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyFlash.o)
  .text.CyFlashGetSpcAlgorithm
-                0x0000edf8       0x70 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyFlash.o)
-                0x0000edf8                CyFlashGetSpcAlgorithm
+                0x0000ee0c       0x70 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyFlash.o)
+                0x0000ee0c                CyFlashGetSpcAlgorithm
  .text.CySetTemp
-                0x0000ee68       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyFlash.o)
-                0x0000ee68                CySetTemp
+                0x0000ee7c       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyFlash.o)
+                0x0000ee7c                CySetTemp
  .text.CyWriteRowData
-                0x0000ee8c       0x38 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyFlash.o)
-                0x0000ee8c                CyWriteRowData
+                0x0000eea0       0x38 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyFlash.o)
+                0x0000eea0                CyWriteRowData
  .text.CyWriteRowFull
-                0x0000eec4      0x154 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyFlash.o)
-                0x0000eec4                CyWriteRowFull
- .text.CyHalt   0x0000f018       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyLib.o)
-                0x0000f018                CyHalt
+                0x0000eed8      0x154 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyFlash.o)
+                0x0000eed8                CyWriteRowFull
+ .text.CyHalt   0x0000f02c       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyLib.o)
+                0x0000f02c                CyHalt
  .text.CySoftwareReset
-                0x0000f030       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyLib.o)
-                0x0000f030                CySoftwareReset
- .text.CyDelay  0x0000f050       0x44 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyLib.o)
-                0x0000f050                CyDelay
+                0x0000f044       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyLib.o)
+                0x0000f044                CySoftwareReset
+ .text.CyDelay  0x0000f064       0x44 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyLib.o)
+                0x0000f064                CyDelay
  .text.CyDelayUs
-                0x0000f094       0x28 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyLib.o)
-                0x0000f094                CyDelayUs
+                0x0000f0a8       0x28 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyLib.o)
+                0x0000f0a8                CyDelayUs
  .text.CyIntSetSysVector
-                0x0000f0bc       0x4c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyLib.o)
-                0x0000f0bc                CyIntSetSysVector
+                0x0000f0d0       0x4c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyLib.o)
+                0x0000f0d0                CyIntSetSysVector
  .text.CyIntSetVector
-                0x0000f108       0x50 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyLib.o)
-                0x0000f108                CyIntSetVector
+                0x0000f11c       0x50 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyLib.o)
+                0x0000f11c                CyIntSetVector
  .text.CyIntSetPriority
-                0x0000f158       0x48 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyLib.o)
-                0x0000f158                CyIntSetPriority
+                0x0000f16c       0x48 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyLib.o)
+                0x0000f16c                CyIntSetPriority
  .text.CySpcStart
-                0x0000f1a0       0x48 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CySpc.o)
-                0x0000f1a0                CySpcStart
+                0x0000f1b4       0x48 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CySpc.o)
+                0x0000f1b4                CySpcStart
  .text.CySpcReadData
-                0x0000f1e8       0x54 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CySpc.o)
-                0x0000f1e8                CySpcReadData
+                0x0000f1fc       0x54 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CySpc.o)
+                0x0000f1fc                CySpcReadData
  .text.CySpcLoadRowFull
-                0x0000f23c      0x104 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CySpc.o)
-                0x0000f23c                CySpcLoadRowFull
+                0x0000f250      0x104 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CySpc.o)
+                0x0000f250                CySpcLoadRowFull
  .text.CySpcWriteRow
-                0x0000f340       0x98 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CySpc.o)
-                0x0000f340                CySpcWriteRow
+                0x0000f354       0x98 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CySpc.o)
+                0x0000f354                CySpcWriteRow
  .text.CySpcGetTemp
-                0x0000f3d8       0x64 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CySpc.o)
-                0x0000f3d8                CySpcGetTemp
+                0x0000f3ec       0x64 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CySpc.o)
+                0x0000f3ec                CySpcGetTemp
  .text.CySpcLock
-                0x0000f43c       0x68 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CySpc.o)
-                0x0000f43c                CySpcLock
+                0x0000f450       0x68 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CySpc.o)
+                0x0000f450                CySpcLock
  .text.CySpcUnlock
-                0x0000f4a4       0x50 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CySpc.o)
-                0x0000f4a4                CySpcUnlock
+                0x0000f4b8       0x50 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CySpc.o)
+                0x0000f4b8                CySpcUnlock
  .text.CySpcGetAlgorithm
-                0x0000f4f4       0x44 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CySpc.o)
-                0x0000f4f4                CySpcGetAlgorithm
+                0x0000f508       0x44 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CySpc.o)
+                0x0000f508                CySpcGetAlgorithm
  .text.SD_TX_DMA_DmaInitialize
-                0x0000f538       0x64 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_TX_DMA_dma.o)
-                0x0000f538                SD_TX_DMA_DmaInitialize
+                0x0000f54c       0x64 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_TX_DMA_dma.o)
+                0x0000f54c                SD_TX_DMA_DmaInitialize
  .text.SD_RX_DMA_COMPLETE_StartEx
-                0x0000f59c       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_RX_DMA_COMPLETE.o)
-                0x0000f59c                SD_RX_DMA_COMPLETE_StartEx
+                0x0000f5b0       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_RX_DMA_COMPLETE.o)
+                0x0000f5b0                SD_RX_DMA_COMPLETE_StartEx
  .text.SD_RX_DMA_COMPLETE_SetVector
-                0x0000f5c0       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_RX_DMA_COMPLETE.o)
-                0x0000f5c0                SD_RX_DMA_COMPLETE_SetVector
+                0x0000f5d4       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_RX_DMA_COMPLETE.o)
+                0x0000f5d4                SD_RX_DMA_COMPLETE_SetVector
  .text.SD_RX_DMA_COMPLETE_SetPriority
-                0x0000f5e4       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_RX_DMA_COMPLETE.o)
-                0x0000f5e4                SD_RX_DMA_COMPLETE_SetPriority
+                0x0000f5f8       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_RX_DMA_COMPLETE.o)
+                0x0000f5f8                SD_RX_DMA_COMPLETE_SetPriority
  .text.SD_RX_DMA_COMPLETE_Enable
-                0x0000f608       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_RX_DMA_COMPLETE.o)
-                0x0000f608                SD_RX_DMA_COMPLETE_Enable
+                0x0000f61c       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_RX_DMA_COMPLETE.o)
+                0x0000f61c                SD_RX_DMA_COMPLETE_Enable
  .text.SD_RX_DMA_COMPLETE_Disable
-                0x0000f620       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_RX_DMA_COMPLETE.o)
-                0x0000f620                SD_RX_DMA_COMPLETE_Disable
+                0x0000f634       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_RX_DMA_COMPLETE.o)
+                0x0000f634                SD_RX_DMA_COMPLETE_Disable
  .text.SD_RX_DMA_DmaInitialize
-                0x0000f638       0x64 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_RX_DMA_dma.o)
-                0x0000f638                SD_RX_DMA_DmaInitialize
+                0x0000f64c       0x64 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_RX_DMA_dma.o)
+                0x0000f64c                SD_RX_DMA_DmaInitialize
  .text.SCSI_CTL_PHASE_Write
-                0x0000f69c       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_CTL_PHASE.o)
-                0x0000f69c                SCSI_CTL_PHASE_Write
+                0x0000f6b0       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_CTL_PHASE.o)
+                0x0000f6b0                SCSI_CTL_PHASE_Write
  .text.SCSI_CTL_PHASE_Read
-                0x0000f6bc       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_CTL_PHASE.o)
-                0x0000f6bc                SCSI_CTL_PHASE_Read
+                0x0000f6d0       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_CTL_PHASE.o)
+                0x0000f6d0                SCSI_CTL_PHASE_Read
  .text.SD_TX_DMA_COMPLETE_StartEx
-                0x0000f6d4       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_TX_DMA_COMPLETE.o)
-                0x0000f6d4                SD_TX_DMA_COMPLETE_StartEx
+                0x0000f6e8       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_TX_DMA_COMPLETE.o)
+                0x0000f6e8                SD_TX_DMA_COMPLETE_StartEx
  .text.SD_TX_DMA_COMPLETE_SetVector
-                0x0000f6f8       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_TX_DMA_COMPLETE.o)
-                0x0000f6f8                SD_TX_DMA_COMPLETE_SetVector
+                0x0000f70c       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_TX_DMA_COMPLETE.o)
+                0x0000f70c                SD_TX_DMA_COMPLETE_SetVector
  .text.SD_TX_DMA_COMPLETE_SetPriority
-                0x0000f71c       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_TX_DMA_COMPLETE.o)
-                0x0000f71c                SD_TX_DMA_COMPLETE_SetPriority
+                0x0000f730       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_TX_DMA_COMPLETE.o)
+                0x0000f730                SD_TX_DMA_COMPLETE_SetPriority
  .text.SD_TX_DMA_COMPLETE_Enable
-                0x0000f740       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_TX_DMA_COMPLETE.o)
-                0x0000f740                SD_TX_DMA_COMPLETE_Enable
+                0x0000f754       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_TX_DMA_COMPLETE.o)
+                0x0000f754                SD_TX_DMA_COMPLETE_Enable
  .text.SD_TX_DMA_COMPLETE_Disable
-                0x0000f758       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_TX_DMA_COMPLETE.o)
-                0x0000f758                SD_TX_DMA_COMPLETE_Disable
+                0x0000f76c       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_TX_DMA_COMPLETE.o)
+                0x0000f76c                SD_TX_DMA_COMPLETE_Disable
  .text.SCSI_TX_DMA_DmaInitialize
-                0x0000f770       0x64 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_TX_DMA_dma.o)
-                0x0000f770                SCSI_TX_DMA_DmaInitialize
+                0x0000f784       0x64 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_TX_DMA_dma.o)
+                0x0000f784                SCSI_TX_DMA_DmaInitialize
  .text.SCSI_RX_DMA_DmaInitialize
-                0x0000f7d4       0x64 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RX_DMA_dma.o)
-                0x0000f7d4                SCSI_RX_DMA_DmaInitialize
+                0x0000f7e8       0x64 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RX_DMA_dma.o)
+                0x0000f7e8                SCSI_RX_DMA_DmaInitialize
  .text.SCSI_TX_DMA_COMPLETE_StartEx
-                0x0000f838       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_TX_DMA_COMPLETE.o)
-                0x0000f838                SCSI_TX_DMA_COMPLETE_StartEx
+                0x0000f84c       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_TX_DMA_COMPLETE.o)
+                0x0000f84c                SCSI_TX_DMA_COMPLETE_StartEx
  .text.SCSI_TX_DMA_COMPLETE_SetVector
-                0x0000f85c       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_TX_DMA_COMPLETE.o)
-                0x0000f85c                SCSI_TX_DMA_COMPLETE_SetVector
+                0x0000f870       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_TX_DMA_COMPLETE.o)
+                0x0000f870                SCSI_TX_DMA_COMPLETE_SetVector
  .text.SCSI_TX_DMA_COMPLETE_SetPriority
-                0x0000f880       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_TX_DMA_COMPLETE.o)
-                0x0000f880                SCSI_TX_DMA_COMPLETE_SetPriority
+                0x0000f894       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_TX_DMA_COMPLETE.o)
+                0x0000f894                SCSI_TX_DMA_COMPLETE_SetPriority
  .text.SCSI_TX_DMA_COMPLETE_Enable
-                0x0000f8a4       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_TX_DMA_COMPLETE.o)
-                0x0000f8a4                SCSI_TX_DMA_COMPLETE_Enable
+                0x0000f8b8       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_TX_DMA_COMPLETE.o)
+                0x0000f8b8                SCSI_TX_DMA_COMPLETE_Enable
  .text.SCSI_TX_DMA_COMPLETE_Disable
-                0x0000f8bc       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_TX_DMA_COMPLETE.o)
-                0x0000f8bc                SCSI_TX_DMA_COMPLETE_Disable
+                0x0000f8d0       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_TX_DMA_COMPLETE.o)
+                0x0000f8d0                SCSI_TX_DMA_COMPLETE_Disable
  .text.SCSI_RX_DMA_COMPLETE_StartEx
-                0x0000f8d4       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RX_DMA_COMPLETE.o)
-                0x0000f8d4                SCSI_RX_DMA_COMPLETE_StartEx
+                0x0000f8e8       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RX_DMA_COMPLETE.o)
+                0x0000f8e8                SCSI_RX_DMA_COMPLETE_StartEx
  .text.SCSI_RX_DMA_COMPLETE_SetVector
-                0x0000f8f8       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RX_DMA_COMPLETE.o)
-                0x0000f8f8                SCSI_RX_DMA_COMPLETE_SetVector
+                0x0000f90c       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RX_DMA_COMPLETE.o)
+                0x0000f90c                SCSI_RX_DMA_COMPLETE_SetVector
  .text.SCSI_RX_DMA_COMPLETE_SetPriority
-                0x0000f91c       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RX_DMA_COMPLETE.o)
-                0x0000f91c                SCSI_RX_DMA_COMPLETE_SetPriority
+                0x0000f930       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RX_DMA_COMPLETE.o)
+                0x0000f930                SCSI_RX_DMA_COMPLETE_SetPriority
  .text.SCSI_RX_DMA_COMPLETE_Enable
-                0x0000f940       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RX_DMA_COMPLETE.o)
-                0x0000f940                SCSI_RX_DMA_COMPLETE_Enable
+                0x0000f954       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RX_DMA_COMPLETE.o)
+                0x0000f954                SCSI_RX_DMA_COMPLETE_Enable
  .text.SCSI_RX_DMA_COMPLETE_Disable
-                0x0000f958       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RX_DMA_COMPLETE.o)
-                0x0000f958                SCSI_RX_DMA_COMPLETE_Disable
+                0x0000f96c       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RX_DMA_COMPLETE.o)
+                0x0000f96c                SCSI_RX_DMA_COMPLETE_Disable
  .text.SCSI_Out_Bits_Write
-                0x0000f970       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Out_Bits.o)
-                0x0000f970                SCSI_Out_Bits_Write
+                0x0000f984       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Out_Bits.o)
+                0x0000f984                SCSI_Out_Bits_Write
  .text.SCSI_Out_Ctl_Write
-                0x0000f990       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Out_Ctl.o)
-                0x0000f990                SCSI_Out_Ctl_Write
+                0x0000f9a4       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Out_Ctl.o)
+                0x0000f9a4                SCSI_Out_Ctl_Write
  .text.Debug_Timer_Init
-                0x0000f9b0       0xa0 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer.o)
-                0x0000f9b0                Debug_Timer_Init
+                0x0000f9c4       0xa0 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer.o)
+                0x0000f9c4                Debug_Timer_Init
  .text.Debug_Timer_Enable
-                0x0000fa50       0x48 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer.o)
-                0x0000fa50                Debug_Timer_Enable
+                0x0000fa64       0x48 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer.o)
+                0x0000fa64                Debug_Timer_Enable
  .text.Debug_Timer_Start
-                0x0000fa98       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer.o)
-                0x0000fa98                Debug_Timer_Start
+                0x0000faac       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer.o)
+                0x0000faac                Debug_Timer_Start
  .text.Debug_Timer_SetInterruptMode
-                0x0000fabc       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer.o)
-                0x0000fabc                Debug_Timer_SetInterruptMode
+                0x0000fad0       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer.o)
+                0x0000fad0                Debug_Timer_SetInterruptMode
  .text.Debug_Timer_ReadStatusRegister
-                0x0000fadc       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer.o)
-                0x0000fadc                Debug_Timer_ReadStatusRegister
+                0x0000faf0       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer.o)
+                0x0000faf0                Debug_Timer_ReadStatusRegister
  .text.Debug_Timer_WritePeriod
-                0x0000faf4       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer.o)
-                0x0000faf4                Debug_Timer_WritePeriod
+                0x0000fb08       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer.o)
+                0x0000fb08                Debug_Timer_WritePeriod
  .text.Debug_Timer_WriteCounter
-                0x0000fb18       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer.o)
-                0x0000fb18                Debug_Timer_WriteCounter
+                0x0000fb2c       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer.o)
+                0x0000fb2c                Debug_Timer_WriteCounter
  .text.Debug_Timer_Interrupt_StartEx
-                0x0000fb38       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer_Interrupt.o)
-                0x0000fb38                Debug_Timer_Interrupt_StartEx
+                0x0000fb4c       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer_Interrupt.o)
+                0x0000fb4c                Debug_Timer_Interrupt_StartEx
  .text.Debug_Timer_Interrupt_SetVector
-                0x0000fb5c       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer_Interrupt.o)
-                0x0000fb5c                Debug_Timer_Interrupt_SetVector
+                0x0000fb70       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer_Interrupt.o)
+                0x0000fb70                Debug_Timer_Interrupt_SetVector
  .text.Debug_Timer_Interrupt_SetPriority
-                0x0000fb80       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer_Interrupt.o)
-                0x0000fb80                Debug_Timer_Interrupt_SetPriority
+                0x0000fb94       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer_Interrupt.o)
+                0x0000fb94                Debug_Timer_Interrupt_SetPriority
  .text.Debug_Timer_Interrupt_Enable
-                0x0000fba4       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer_Interrupt.o)
-                0x0000fba4                Debug_Timer_Interrupt_Enable
+                0x0000fbb8       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer_Interrupt.o)
+                0x0000fbb8                Debug_Timer_Interrupt_Enable
  .text.Debug_Timer_Interrupt_Disable
-                0x0000fbbc       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer_Interrupt.o)
-                0x0000fbbc                Debug_Timer_Interrupt_Disable
+                0x0000fbd0       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer_Interrupt.o)
+                0x0000fbd0                Debug_Timer_Interrupt_Disable
  .text.Debug_Timer_Interrupt_ClearPending
-                0x0000fbd4       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer_Interrupt.o)
-                0x0000fbd4                Debug_Timer_Interrupt_ClearPending
+                0x0000fbe8       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer_Interrupt.o)
+                0x0000fbe8                Debug_Timer_Interrupt_ClearPending
  .text.SCSI_Parity_Error_Read
-                0x0000fbec       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Parity_Error.o)
-                0x0000fbec                SCSI_Parity_Error_Read
+                0x0000fc00       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Parity_Error.o)
+                0x0000fc00                SCSI_Parity_Error_Read
  .text.SCSI_CLK_SetDividerRegister
-                0x0000fc04      0x164 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_CLK.o)
-                0x0000fc04                SCSI_CLK_SetDividerRegister
+                0x0000fc18      0x164 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_CLK.o)
+                0x0000fc18                SCSI_CLK_SetDividerRegister
  .text.SCSI_CLK_GetDividerRegister
-                0x0000fd68       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_CLK.o)
-                0x0000fd68                SCSI_CLK_GetDividerRegister
+                0x0000fd7c       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_CLK.o)
+                0x0000fd7c                SCSI_CLK_GetDividerRegister
  .text.SCSI_CLK_GetSourceRegister
-                0x0000fd80       0x1c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_CLK.o)
-                0x0000fd80                SCSI_CLK_GetSourceRegister
+                0x0000fd94       0x1c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_CLK.o)
+                0x0000fd94                SCSI_CLK_GetSourceRegister
  .text.SCSI_Filtered_Read
-                0x0000fd9c       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Filtered.o)
-                0x0000fd9c                SCSI_Filtered_Read
+                0x0000fdb0       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Filtered.o)
+                0x0000fdb0                SCSI_Filtered_Read
  .text.SCSI_SEL_ISR_StartEx
-                0x0000fdb4       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_SEL_ISR.o)
-                0x0000fdb4                SCSI_SEL_ISR_StartEx
+                0x0000fdc8       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_SEL_ISR.o)
+                0x0000fdc8                SCSI_SEL_ISR_StartEx
  .text.SCSI_SEL_ISR_SetVector
-                0x0000fdd8       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_SEL_ISR.o)
-                0x0000fdd8                SCSI_SEL_ISR_SetVector
+                0x0000fdec       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_SEL_ISR.o)
+                0x0000fdec                SCSI_SEL_ISR_SetVector
  .text.SCSI_SEL_ISR_SetPriority
-                0x0000fdfc       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_SEL_ISR.o)
-                0x0000fdfc                SCSI_SEL_ISR_SetPriority
+                0x0000fe10       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_SEL_ISR.o)
+                0x0000fe10                SCSI_SEL_ISR_SetPriority
  .text.SCSI_SEL_ISR_Enable
-                0x0000fe20       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_SEL_ISR.o)
-                0x0000fe20                SCSI_SEL_ISR_Enable
+                0x0000fe34       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_SEL_ISR.o)
+                0x0000fe34                SCSI_SEL_ISR_Enable
  .text.SCSI_SEL_ISR_Disable
-                0x0000fe38       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_SEL_ISR.o)
-                0x0000fe38                SCSI_SEL_ISR_Disable
+                0x0000fe4c       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_SEL_ISR.o)
+                0x0000fe4c                SCSI_SEL_ISR_Disable
  .text.SCSI_Glitch_Ctl_Write
-                0x0000fe50       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Glitch_Ctl.o)
-                0x0000fe50                SCSI_Glitch_Ctl_Write
+                0x0000fe64       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Glitch_Ctl.o)
+                0x0000fe64                SCSI_Glitch_Ctl_Write
  .text.VDAC8_1_Init
-                0x0000fe70       0x28 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(VDAC8_1.o)
-                0x0000fe70                VDAC8_1_Init
+                0x0000fe84       0x28 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(VDAC8_1.o)
+                0x0000fe84                VDAC8_1_Init
  .text.VDAC8_1_Enable
-                0x0000fe98       0x34 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(VDAC8_1.o)
-                0x0000fe98                VDAC8_1_Enable
+                0x0000feac       0x34 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(VDAC8_1.o)
+                0x0000feac                VDAC8_1_Enable
  .text.VDAC8_1_Start
-                0x0000fecc       0x28 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(VDAC8_1.o)
-                0x0000fecc                VDAC8_1_Start
+                0x0000fee0       0x28 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(VDAC8_1.o)
+                0x0000fee0                VDAC8_1_Start
  .text.VDAC8_1_SetSpeed
-                0x0000fef4       0x40 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(VDAC8_1.o)
-                0x0000fef4                VDAC8_1_SetSpeed
+                0x0000ff08       0x40 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(VDAC8_1.o)
+                0x0000ff08                VDAC8_1_SetSpeed
  .text.VDAC8_1_SetRange
-                0x0000ff34       0x40 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(VDAC8_1.o)
-                0x0000ff34                VDAC8_1_SetRange
+                0x0000ff48       0x40 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(VDAC8_1.o)
+                0x0000ff48                VDAC8_1_SetRange
  .text.VDAC8_1_SetValue
-                0x0000ff74       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(VDAC8_1.o)
-                0x0000ff74                VDAC8_1_SetValue
+                0x0000ff88       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(VDAC8_1.o)
+                0x0000ff88                VDAC8_1_SetValue
  .text.VDAC8_1_DacTrim
-                0x0000ff94       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(VDAC8_1.o)
-                0x0000ff94                VDAC8_1_DacTrim
+                0x0000ffa8       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(VDAC8_1.o)
+                0x0000ffa8                VDAC8_1_DacTrim
  .text.SOUND_ISR_Start
-                0x0000ffd0       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SOUND_ISR.o)
-                0x0000ffd0                SOUND_ISR_Start
+                0x0000ffe4       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SOUND_ISR.o)
+                0x0000ffe4                SOUND_ISR_Start
  .text.SOUND_ISR_Interrupt
-                0x0000fff0       0x94 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SOUND_ISR.o)
-                0x0000fff0                SOUND_ISR_Interrupt
+                0x00010004       0x94 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SOUND_ISR.o)
+                0x00010004                SOUND_ISR_Interrupt
  .text.SOUND_ISR_SetVector
-                0x00010084       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SOUND_ISR.o)
-                0x00010084                SOUND_ISR_SetVector
+                0x00010098       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SOUND_ISR.o)
+                0x00010098                SOUND_ISR_SetVector
  .text.SOUND_ISR_SetPriority
-                0x000100a8       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SOUND_ISR.o)
-                0x000100a8                SOUND_ISR_SetPriority
+                0x000100bc       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SOUND_ISR.o)
+                0x000100bc                SOUND_ISR_SetPriority
  .text.SOUND_ISR_Enable
-                0x000100cc       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SOUND_ISR.o)
-                0x000100cc                SOUND_ISR_Enable
+                0x000100e0       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SOUND_ISR.o)
+                0x000100e0                SOUND_ISR_Enable
  .text.SOUND_ISR_Disable
-                0x000100e4       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SOUND_ISR.o)
-                0x000100e4                SOUND_ISR_Disable
+                0x000100f8       0x18 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SOUND_ISR.o)
+                0x000100f8                SOUND_ISR_Disable
  .text.PGA_1_Init
-                0x000100fc       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(PGA_1.o)
-                0x000100fc                PGA_1_Init
+                0x00010110       0x3c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(PGA_1.o)
+                0x00010110                PGA_1_Init
  .text.PGA_1_Enable
-                0x00010138       0x48 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(PGA_1.o)
-                0x00010138                PGA_1_Enable
+                0x0001014c       0x48 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(PGA_1.o)
+                0x0001014c                PGA_1_Enable
  .text.PGA_1_Start
-                0x00010180       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(PGA_1.o)
-                0x00010180                PGA_1_Start
+                0x00010194       0x24 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(PGA_1.o)
+                0x00010194                PGA_1_Start
  .text.PGA_1_SetPower
-                0x000101a4       0x38 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(PGA_1.o)
-                0x000101a4                PGA_1_SetPower
+                0x000101b8       0x38 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(PGA_1.o)
+                0x000101b8                PGA_1_SetPower
  .text.PGA_1_SetGain
-                0x000101dc       0xbc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(PGA_1.o)
-                0x000101dc                PGA_1_SetGain
+                0x000101f0       0xbc .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(PGA_1.o)
+                0x000101f0                PGA_1_SetGain
  .text.LPF_1_Start
-                0x00010298       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(LPF_1.o)
-                0x00010298                LPF_1_Start
+                0x000102ac       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(LPF_1.o)
+                0x000102ac                LPF_1_Start
  .text.LPF_1_SetCutoffFreq
-                0x000102b8       0x38 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(LPF_1.o)
-                0x000102b8                LPF_1_SetCutoffFreq
- .text          0x000102f0       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyBootAsmGnu.o)
-                0x000102f0                CyDelayCycles
-                0x00010300                CyEnterCriticalSection
-                0x00010308                CyExitCriticalSection
+                0x000102cc       0x38 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(LPF_1.o)
+                0x000102cc                LPF_1_SetCutoffFreq
+ *fill*         0x00010304        0x4 
+ .text          0x00010308       0x20 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyBootAsmGnu.o)
+                0x00010308                CyDelayCycles
+                0x00010318                CyEnterCriticalSection
+                0x00010320                CyExitCriticalSection
  .text.USBFS_DispatchClassRqst
-                0x00010310       0x84 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_cls.o)
-                0x00010310                USBFS_DispatchClassRqst
- .text          0x00010394       0x30 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_aeabi_uldivmod.o)
-                0x00010394                __aeabi_uldivmod
- .text          0x000103c4      0x2ec c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_udivmoddi4.o)
-                0x000103c4                __udivmoddi4
- .text          0x000106b0        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_dvmd_tls.o)
-                0x000106b0                __aeabi_idiv0
-                0x000106b0                __aeabi_ldiv0
- .text.__errno  0x000106b4        0xc c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
-                0x000106b4                __errno
+                0x00010328       0x84 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_cls.o)
+                0x00010328                USBFS_DispatchClassRqst
+ .text          0x000103ac       0x30 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_aeabi_uldivmod.o)
+                0x000103ac                __aeabi_uldivmod
+ .text          0x000103dc      0x2ec c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_udivmoddi4.o)
+                0x000103dc                __udivmoddi4
+ .text          0x000106c8        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_dvmd_tls.o)
+                0x000106c8                __aeabi_idiv0
+                0x000106c8                __aeabi_ldiv0
+ .text.__errno  0x000106cc        0xc c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                0x000106cc                __errno
  .text.__libc_init_array
-                0x000106c0       0x4c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
-                0x000106c0                __libc_init_array
- .text.memcmp   0x0001070c       0x1e c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcmp.o)
-                0x0001070c                memcmp
- .text.memcpy   0x0001072a       0x16 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
-                0x0001072a                memcpy
- .text.memmove  0x00010740       0x36 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
-                0x00010740                memmove
- .text.memset   0x00010776       0x10 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
-                0x00010776                memset
+                0x000106d8       0x4c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+                0x000106d8                __libc_init_array
+ .text.memcmp   0x00010724       0x1e c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcmp.o)
+                0x00010724                memcmp
+ .text.memcpy   0x00010742       0x16 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x00010742                memcpy
+ .text.memmove  0x00010758       0x36 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
+                0x00010758                memmove
+ .text.memset   0x0001078e       0x10 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+                0x0001078e                memset
  *(.plt)
  *(.gnu.warning)
  *(.glue_7t)
- .glue_7t       0x00010786        0x0 linker stubs
+ .glue_7t       0x0001079e        0x0 linker stubs
  *(.glue_7)
- .glue_7        0x00010786        0x0 linker stubs
+ .glue_7        0x0001079e        0x0 linker stubs
  *(.vfp11_veneer)
- .vfp11_veneer  0x00010786        0x0 linker stubs
+ .vfp11_veneer  0x0001079e        0x0 linker stubs
  *(.bootloader)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
  *(.gcc_except_table)
 
-.v4_bx          0x00010788        0x0
- .v4_bx         0x00010788        0x0 linker stubs
+.v4_bx          0x000107a0        0x0
+ .v4_bx         0x000107a0        0x0 linker stubs
 
-.iplt           0x00010788        0x0
- .iplt          0x00010788        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+.iplt           0x000107a0        0x0
+ .iplt          0x000107a0        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
 
-.eh_frame       0x00010788        0x4
+.eh_frame       0x000107a0        0x4
  *(.eh_frame)
- .eh_frame      0x00010788        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
- .eh_frame      0x00010788        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .eh_frame      0x000107a0        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .eh_frame      0x000107a0        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
                 [!provide]                PROVIDE (__exidx_start, .)
 
-.ARM.exidx      0x0001078c        0x8
+.ARM.exidx      0x000107a4        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x0001078c        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_udivmoddi4.o)
-                0x00010794                __exidx_end = .
+ .ARM.exidx     0x000107a4        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_udivmoddi4.o)
+                0x000107ac                __exidx_end = .
 
-.rodata         0x00010794     0x4f9c
+.rodata         0x000107ac     0x4f9c
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata        0x00010794        0x5 .\CortexM3\ARM_GCC_541\Debug\diagnostic.o
- *fill*         0x00010799        0x3 
- .rodata        0x0001079c       0x2f .\CortexM3\ARM_GCC_541\Debug\inquiry.o
- *fill*         0x000107cb        0x1 
- .rodata        0x000107cc       0xda .\CortexM3\ARM_GCC_541\Debug\mode.o
- *fill*         0x000108a6        0x2 
- .rodata        0x000108a8       0x11 .\CortexM3\ARM_GCC_541\Debug\scsi.o
- *fill*         0x000108b9        0x3 
- .rodata        0x000108bc      0x100 .\CortexM3\ARM_GCC_541\Debug\bits.o
-                0x000108bc                Lookup_OddParity
- .rodata        0x000109bc      0x109 .\CortexM3\ARM_GCC_541\Debug\config.o
- *fill*         0x00010ac5        0x3 
- .rodata        0x00010ac8       0x66 .\CortexM3\ARM_GCC_541\Debug\cdrom.o
- *fill*         0x00010b2e        0x2 
- .rodata        0x00010b30       0x18 .\CortexM3\ARM_GCC_541\Debug\scsiPhy.o
- .rodata        0x00010b48      0xe44 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
- .rodata        0x0001198c     0x3b60 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SOUND_ISR.o)
-                0x0001198c                data
- .rodata        0x000154ec       0x15 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(PGA_1.o)
- *fill*         0x00015501        0x3 
- .rodata        0x00015504      0x1f0 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_descr.o)
-                0x00015504                USBFS_DEVICE0_DESCR
-                0x00015518                USBFS_DEVICE0_CONFIGURATION0_DESCR
-                0x00015564                USBFS_STRING_DESCRIPTORS
-                0x00015594                USBFS_SN_STRING_DESCRIPTOR
-                0x000155a0                USBFS_HIDREPORT_DESCRIPTOR1
-                0x000155cc                USBFS_HIDREPORT_DESCRIPTOR2
-                0x000155f8                USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_IN_RPT_TABLE
-                0x00015604                USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_OUT_RPT_TABLE
-                0x00015610                USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_TABLE
-                0x00015638                USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_IN_RPT_TABLE
-                0x00015644                USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_OUT_RPT_TABLE
-                0x00015650                USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_TABLE
-                0x00015678                USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_TABLE
-                0x00015680                USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_TABLE
-                0x00015688                USBFS_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE
-                0x000156a8                USBFS_DEVICE0_CONFIGURATION0_INTERFACE_CLASS
-                0x000156ac                USBFS_DEVICE0_CONFIGURATION0_TABLE
-                0x000156d4                USBFS_DEVICE0_TABLE
-                0x000156ec                USBFS_TABLE
+ .rodata        0x000107ac        0x5 .\CortexM3\ARM_GCC_541\Debug\diagnostic.o
+ *fill*         0x000107b1        0x3 
+ .rodata        0x000107b4       0x2f .\CortexM3\ARM_GCC_541\Debug\inquiry.o
+ *fill*         0x000107e3        0x1 
+ .rodata        0x000107e4       0xda .\CortexM3\ARM_GCC_541\Debug\mode.o
+ *fill*         0x000108be        0x2 
+ .rodata        0x000108c0       0x11 .\CortexM3\ARM_GCC_541\Debug\scsi.o
+ *fill*         0x000108d1        0x3 
+ .rodata        0x000108d4      0x100 .\CortexM3\ARM_GCC_541\Debug\bits.o
+                0x000108d4                Lookup_OddParity
+ .rodata        0x000109d4      0x109 .\CortexM3\ARM_GCC_541\Debug\config.o
+ *fill*         0x00010add        0x3 
+ .rodata        0x00010ae0       0x66 .\CortexM3\ARM_GCC_541\Debug\cdrom.o
+ *fill*         0x00010b46        0x2 
+ .rodata        0x00010b48       0x18 .\CortexM3\ARM_GCC_541\Debug\scsiPhy.o
+ .rodata        0x00010b60      0xe44 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .rodata        0x000119a4     0x3b60 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SOUND_ISR.o)
+                0x000119a4                data
+ .rodata        0x00015504       0x15 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(PGA_1.o)
+ *fill*         0x00015519        0x3 
+ .rodata        0x0001551c      0x1f0 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_descr.o)
+                0x0001551c                USBFS_DEVICE0_DESCR
+                0x00015530                USBFS_DEVICE0_CONFIGURATION0_DESCR
+                0x0001557c                USBFS_STRING_DESCRIPTORS
+                0x000155ac                USBFS_SN_STRING_DESCRIPTOR
+                0x000155b8                USBFS_HIDREPORT_DESCRIPTOR1
+                0x000155e4                USBFS_HIDREPORT_DESCRIPTOR2
+                0x00015610                USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_IN_RPT_TABLE
+                0x0001561c                USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_OUT_RPT_TABLE
+                0x00015628                USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_TABLE
+                0x00015650                USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_IN_RPT_TABLE
+                0x0001565c                USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_OUT_RPT_TABLE
+                0x00015668                USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_TABLE
+                0x00015690                USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_TABLE
+                0x00015698                USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_TABLE
+                0x000156a0                USBFS_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE
+                0x000156c0                USBFS_DEVICE0_CONFIGURATION0_INTERFACE_CLASS
+                0x000156c4                USBFS_DEVICE0_CONFIGURATION0_TABLE
+                0x000156ec                USBFS_DEVICE0_TABLE
+                0x00015704                USBFS_TABLE
  .rodata.str1.1
-                0x000156f4        0x2 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
-                0x000156f8                . = ALIGN (0x4)
- *fill*         0x000156f6        0x2 
+                0x0001570c        0x2 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x00015710                . = ALIGN (0x4)
+ *fill*         0x0001570e        0x2 
  *(.init)
- .init          0x000156f8        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
-                0x000156f8                _init
- .init          0x000156fc        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
-                0x00015704                . = ALIGN (0x4)
-                0x00015704                __preinit_array_start = .
+ .init          0x00015710        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+                0x00015710                _init
+ .init          0x00015714        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x0001571c                . = ALIGN (0x4)
+                0x0001571c                __preinit_array_start = .
  *(.preinit_array)
-                0x00015704                __preinit_array_end = .
-                0x00015704                . = ALIGN (0x4)
-                0x00015704                __init_array_start = .
+                0x0001571c                __preinit_array_end = .
+                0x0001571c                . = ALIGN (0x4)
+                0x0001571c                __init_array_start = .
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x00015704        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
- .init_array    0x00015708        0x4 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                0x0001570c                __init_array_end = .
-                0x0001570c                . = ALIGN (0x4)
+ .init_array    0x0001571c        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .init_array    0x00015720        0x4 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00015724                __init_array_end = .
+                0x00015724                . = ALIGN (0x4)
  *(.fini)
- .fini          0x0001570c        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
-                0x0001570c                _fini
- .fini          0x00015710        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
-                0x00015718                . = ALIGN (0x4)
-                0x00015718                __fini_array_start = .
+ .fini          0x00015724        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+                0x00015724                _fini
+ .fini          0x00015728        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x00015730                . = ALIGN (0x4)
+                0x00015730                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x00015718        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .fini_array    0x00015730        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
  *(SORT(.fini_array.*))
-                0x0001571c                __fini_array_end = .
-                0x0001571c                . = ALIGN (0x4)
+                0x00015734                __fini_array_end = .
+                0x00015734                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x0001571c                . = ALIGN (0x4)
+                0x00015734                . = ALIGN (0x4)
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
-                0x0001571c                . = ALIGN (0x4)
-                0x0001571c                __cy_regions = .
-                0x0001571c        0x4 LONG 0x15730 __cy_region_init_ram
-                0x00015720        0x4 LONG 0x1fff80c8 __cy_region_start_data
-                0x00015724        0x4 LONG 0xc8 __cy_region_init_size_ram
-                0x00015728        0x4 LONG 0x4698 __cy_region_zero_size_ram
-                0x0001572c                __cy_regions_end = .
-                0x00015730                . = ALIGN (0x8)
- *fill*         0x0001572c        0x4 
-                0x00015730                _etext = .
+                0x00015734                . = ALIGN (0x4)
+                0x00015734                __cy_regions = .
+                0x00015734        0x4 LONG 0x15748 __cy_region_init_ram
+                0x00015738        0x4 LONG 0x1fff80c8 __cy_region_start_data
+                0x0001573c        0x4 LONG 0xc8 __cy_region_init_size_ram
+                0x00015740        0x4 LONG 0x4698 __cy_region_zero_size_ram
+                0x00015744                __cy_regions_end = .
+                0x00015748                . = ALIGN (0x8)
+ *fill*         0x00015744        0x4 
+                0x00015748                _etext = .
 
 .ramvectors     0x1fff8000       0xc0
                 0x1fff8000                __cy_region_start_ram = .
@@ -2181,7 +2182,7 @@ END GROUP
  .noinit        0x1fff80c4        0x1 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyLib.o)
                 0x1fff80c4                CyResetStatus
 
-.data           0x1fff80c8       0xc8 load address 0x00015730
+.data           0x1fff80c8       0xc8 load address 0x00015748
                 0x1fff80c8                __cy_region_start_data = .
  *(.jcr)
  .jcr           0x1fff80c8        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
@@ -2219,10 +2220,10 @@ END GROUP
  *(.ram)
                 0x1fff8190                _edata = .
 
-.igot.plt       0x1fff8190        0x0 load address 0x000157f8
+.igot.plt       0x1fff8190        0x0 load address 0x00015810
  .igot.plt      0x1fff8190        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
 
-.bss            0x1fff8190     0x4698 load address 0x000157f8
+.bss            0x1fff8190     0x4698 load address 0x00015810
                 0x1fff8190                PROVIDE (__bss_start__, .)
  *(.shbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
@@ -2311,11 +2312,11 @@ END GROUP
                 0x1fffc828                __end = .
                 0x1fffc828                PROVIDE (end, .)
                 0x1fffc828                PROVIDE (__bss_end__, .)
-                0x00015730                __cy_region_init_ram = LOADADDR (.data)
+                0x00015748                __cy_region_init_ram = LOADADDR (.data)
                 0x000000c8                __cy_region_init_size_ram = (_edata - ADDR (.data))
                 0x00004698                __cy_region_zero_size_ram = (_end - _edata)
 
-.heap           0x1fffc828      0x400 load address 0x000157f8
+.heap           0x1fffc828      0x400 load address 0x00015810
                 0x1fffc828                . = _end
                 0x1fffcc28                . = (. + 0x400)
  *fill*         0x1fffc828      0x400 
@@ -2689,78 +2690,78 @@ END GROUP
  .debug_abbrev  0x000053b0       0xc5 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_cls.o)
  .debug_abbrev  0x00005475       0xbb .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_descr.o)
 
-.debug_line     0x00000000     0x8387
+.debug_line     0x00000000     0x82b6
  *(.debug_line)
- .debug_line    0x00000000      0x217 .\CortexM3\ARM_GCC_541\Debug\main.o
- .debug_line    0x00000217      0x26b .\CortexM3\ARM_GCC_541\Debug\diagnostic.o
- .debug_line    0x00000482      0x636 .\CortexM3\ARM_GCC_541\Debug\disk.o
- .debug_line    0x00000ab8      0x298 .\CortexM3\ARM_GCC_541\Debug\geometry.o
- .debug_line    0x00000d50      0x238 .\CortexM3\ARM_GCC_541\Debug\inquiry.o
- .debug_line    0x00000f88      0x3e7 .\CortexM3\ARM_GCC_541\Debug\mode.o
- .debug_line    0x0000136f      0x789 .\CortexM3\ARM_GCC_541\Debug\scsi.o
- .debug_line    0x00001af8      0x183 .\CortexM3\ARM_GCC_541\Debug\bits.o
- .debug_line    0x00001c7b      0x6f6 .\CortexM3\ARM_GCC_541\Debug\sd.o
- .debug_line    0x00002371      0x487 .\CortexM3\ARM_GCC_541\Debug\config.o
- .debug_line    0x000027f8      0x198 .\CortexM3\ARM_GCC_541\Debug\led.o
- .debug_line    0x00002990      0x1f9 .\CortexM3\ARM_GCC_541\Debug\time.o
- .debug_line    0x00002b89      0x26f .\CortexM3\ARM_GCC_541\Debug\hidpacket.o
- .debug_line    0x00002df8      0x28b .\CortexM3\ARM_GCC_541\Debug\cdrom.o
- .debug_line    0x00003083      0x186 .\CortexM3\ARM_GCC_541\Debug\trace.o
- .debug_line    0x00003209      0x1ad .\CortexM3\ARM_GCC_541\Debug\mo.o
- .debug_line    0x000033b6      0x164 .\CortexM3\ARM_GCC_541\Debug\tape.o
- .debug_line    0x0000351a      0x1c4 .\CortexM3\ARM_GCC_541\Debug\vendor.o
- .debug_line    0x000036de      0x636 .\CortexM3\ARM_GCC_541\Debug\scsiPhy.o
- .debug_line    0x00003d14      0x22f .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_line    0x00003f43       0x53 .\CortexM3\ARM_GCC_541\Debug\cybootloader.o
- .debug_line    0x00003f96      0x141 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
- .debug_line    0x000040d7      0x1da .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
- .debug_line    0x000042b1      0x1aa .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_Data_Clk.o)
- .debug_line    0x0000445b       0x95 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_CS.o)
- .debug_line    0x000044f0       0x96 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_SCK.o)
- .debug_line    0x00004586       0x97 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_MOSI.o)
- .debug_line    0x0000461d      0x157 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RST_ISR.o)
- .debug_line    0x00004774       0x94 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(LED1.o)
- .debug_line    0x00004808      0x262 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
- .debug_line    0x00004a6a       0x97 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_MISO.o)
- .debug_line    0x00004b01      0x324 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
- .debug_line    0x00004e25      0x21b .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
- .debug_line    0x00005040      0x10a .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_episr.o)
- .debug_line    0x0000514a      0x173 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_hid.o)
- .debug_line    0x000052bd       0xe2 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_pm.o)
- .debug_line    0x0000539f      0x418 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
- .debug_line    0x000057b7       0x75 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_vnd.o)
- .debug_line    0x0000582c       0x93 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Bootloadable_1.o)
- .debug_line    0x000058bf       0xbd .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_Dp.o)
- .debug_line    0x0000597c      0x2b6 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
- .debug_line    0x00005c32      0x242 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyFlash.o)
- .debug_line    0x00005e74      0x883 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyLib.o)
- .debug_line    0x000066f7      0x38e .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(cyPm.o)
- .debug_line    0x00006a85      0x251 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CySpc.o)
- .debug_line    0x00006cd6       0x7c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_TX_DMA_dma.o)
- .debug_line    0x00006d52      0x15d .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_RX_DMA_COMPLETE.o)
- .debug_line    0x00006eaf       0x7c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_RX_DMA_dma.o)
- .debug_line    0x00006f2b       0x77 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_CTL_PHASE.o)
- .debug_line    0x00006fa2      0x15d .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_TX_DMA_COMPLETE.o)
- .debug_line    0x000070ff       0x7e .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_TX_DMA_dma.o)
- .debug_line    0x0000717d       0x7e .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RX_DMA_dma.o)
- .debug_line    0x000071fb      0x15f .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_TX_DMA_COMPLETE.o)
- .debug_line    0x0000735a      0x15f .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RX_DMA_COMPLETE.o)
- .debug_line    0x000074b9       0x76 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Out_Bits.o)
- .debug_line    0x0000752f       0x75 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Out_Ctl.o)
- .debug_line    0x000075a4      0x163 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer.o)
- .debug_line    0x00007707      0x150 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer_Interrupt.o)
- .debug_line    0x00007857       0xb5 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Parity_Error.o)
- .debug_line    0x0000790c      0x1a7 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_CLK.o)
- .debug_line    0x00007ab3       0xb1 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Filtered.o)
- .debug_line    0x00007b64      0x157 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_SEL_ISR.o)
- .debug_line    0x00007cbb       0x78 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Glitch_Ctl.o)
- .debug_line    0x00007d33       0xf0 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(VDAC8_1.o)
- .debug_line    0x00007e23      0x2bb .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SOUND_ISR.o)
- .debug_line    0x000080de       0xd5 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(PGA_1.o)
- .debug_line    0x000081b3       0x84 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(LPF_1.o)
- .debug_line    0x00008237       0x66 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyBootAsmGnu.o)
- .debug_line    0x0000829d       0x8d .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_cls.o)
- .debug_line    0x0000832a       0x5d .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_descr.o)
+ .debug_line    0x00000000      0x208 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_line    0x00000208      0x25c .\CortexM3\ARM_GCC_541\Debug\diagnostic.o
+ .debug_line    0x00000464      0x627 .\CortexM3\ARM_GCC_541\Debug\disk.o
+ .debug_line    0x00000a8b      0x289 .\CortexM3\ARM_GCC_541\Debug\geometry.o
+ .debug_line    0x00000d14      0x229 .\CortexM3\ARM_GCC_541\Debug\inquiry.o
+ .debug_line    0x00000f3d      0x3d8 .\CortexM3\ARM_GCC_541\Debug\mode.o
+ .debug_line    0x00001315      0x77a .\CortexM3\ARM_GCC_541\Debug\scsi.o
+ .debug_line    0x00001a8f      0x183 .\CortexM3\ARM_GCC_541\Debug\bits.o
+ .debug_line    0x00001c12      0x6e7 .\CortexM3\ARM_GCC_541\Debug\sd.o
+ .debug_line    0x000022f9      0x478 .\CortexM3\ARM_GCC_541\Debug\config.o
+ .debug_line    0x00002771      0x198 .\CortexM3\ARM_GCC_541\Debug\led.o
+ .debug_line    0x00002909      0x1f9 .\CortexM3\ARM_GCC_541\Debug\time.o
+ .debug_line    0x00002b02      0x26f .\CortexM3\ARM_GCC_541\Debug\hidpacket.o
+ .debug_line    0x00002d71      0x27c .\CortexM3\ARM_GCC_541\Debug\cdrom.o
+ .debug_line    0x00002fed      0x186 .\CortexM3\ARM_GCC_541\Debug\trace.o
+ .debug_line    0x00003173      0x19e .\CortexM3\ARM_GCC_541\Debug\mo.o
+ .debug_line    0x00003311      0x164 .\CortexM3\ARM_GCC_541\Debug\tape.o
+ .debug_line    0x00003475      0x1b5 .\CortexM3\ARM_GCC_541\Debug\vendor.o
+ .debug_line    0x0000362a      0x627 .\CortexM3\ARM_GCC_541\Debug\scsiPhy.o
+ .debug_line    0x00003c51      0x230 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_line    0x00003e81       0x53 .\CortexM3\ARM_GCC_541\Debug\cybootloader.o
+ .debug_line    0x00003ed4      0x141 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_line    0x00004015      0x1da .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_line    0x000041ef      0x1aa .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_Data_Clk.o)
+ .debug_line    0x00004399       0x95 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_CS.o)
+ .debug_line    0x0000442e       0x96 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_SCK.o)
+ .debug_line    0x000044c4       0x97 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_MOSI.o)
+ .debug_line    0x0000455b      0x157 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RST_ISR.o)
+ .debug_line    0x000046b2       0x94 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(LED1.o)
+ .debug_line    0x00004746      0x262 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SDCard.o)
+ .debug_line    0x000049a8       0x97 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_MISO.o)
+ .debug_line    0x00004a3f      0x324 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS.o)
+ .debug_line    0x00004d63      0x21b .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_drv.o)
+ .debug_line    0x00004f7e      0x10a .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_episr.o)
+ .debug_line    0x00005088      0x173 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_hid.o)
+ .debug_line    0x000051fb       0xe2 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_pm.o)
+ .debug_line    0x000052dd      0x418 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_std.o)
+ .debug_line    0x000056f5       0x75 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_vnd.o)
+ .debug_line    0x0000576a       0x93 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Bootloadable_1.o)
+ .debug_line    0x000057fd       0xbd .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_Dp.o)
+ .debug_line    0x000058ba      0x2b6 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyDmac.o)
+ .debug_line    0x00005b70      0x242 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyFlash.o)
+ .debug_line    0x00005db2      0x883 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyLib.o)
+ .debug_line    0x00006635      0x38e .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(cyPm.o)
+ .debug_line    0x000069c3      0x251 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CySpc.o)
+ .debug_line    0x00006c14       0x7c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_TX_DMA_dma.o)
+ .debug_line    0x00006c90      0x15d .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_RX_DMA_COMPLETE.o)
+ .debug_line    0x00006ded       0x7c .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_RX_DMA_dma.o)
+ .debug_line    0x00006e69       0x77 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_CTL_PHASE.o)
+ .debug_line    0x00006ee0      0x15d .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SD_TX_DMA_COMPLETE.o)
+ .debug_line    0x0000703d       0x7e .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_TX_DMA_dma.o)
+ .debug_line    0x000070bb       0x7e .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RX_DMA_dma.o)
+ .debug_line    0x00007139      0x15f .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_TX_DMA_COMPLETE.o)
+ .debug_line    0x00007298      0x15f .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_RX_DMA_COMPLETE.o)
+ .debug_line    0x000073f7       0x76 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Out_Bits.o)
+ .debug_line    0x0000746d       0x75 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Out_Ctl.o)
+ .debug_line    0x000074e2      0x163 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer.o)
+ .debug_line    0x00007645      0x150 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(Debug_Timer_Interrupt.o)
+ .debug_line    0x00007795       0xb5 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Parity_Error.o)
+ .debug_line    0x0000784a      0x1a7 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_CLK.o)
+ .debug_line    0x000079f1       0xb1 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Filtered.o)
+ .debug_line    0x00007aa2      0x157 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_SEL_ISR.o)
+ .debug_line    0x00007bf9       0x78 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SCSI_Glitch_Ctl.o)
+ .debug_line    0x00007c71       0xf0 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(VDAC8_1.o)
+ .debug_line    0x00007d61      0x2ac .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(SOUND_ISR.o)
+ .debug_line    0x0000800d       0xd5 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(PGA_1.o)
+ .debug_line    0x000080e2       0x84 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(LPF_1.o)
+ .debug_line    0x00008166       0x66 .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(CyBootAsmGnu.o)
+ .debug_line    0x000081cc       0x8d .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_cls.o)
+ .debug_line    0x00008259       0x5d .\CortexM3\ARM_GCC_541\Debug\SCSI2SDKit_Copy_03.a(USBFS_descr.o)
 
 .debug_frame    0x00000000     0x61c0
  *(.debug_frame)
